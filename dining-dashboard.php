@@ -66,9 +66,12 @@ final class DiningDashboard {
      */
     public function includes()
     {
-        // include_once( DD_PLUGIN_PATH . 'includes/class-event-bookings-dashboard-assets.php' );
-        include_once( DD_PLUGIN_PATH . 'includes/admin/dashboard-widgets/class-dining-dashboard-menus-widget.php' );
-        // include_once( DD_PLUGIN_PATH . 'includes/class-event-bookings-dashboard-rest-endpoint.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/post-types/class-dining-dashboard-menu-post-type.php' );
+
+        if ( is_admin() ) {
+            include_once( DD_PLUGIN_PATH . 'includes/admin/class-dining-dashboard-admin-assets.php' );
+            include_once( DD_PLUGIN_PATH . 'includes/admin/dashboard-widgets/class-dining-dashboard-menus-widget.php' );
+        }
     }
 
     public function init() {

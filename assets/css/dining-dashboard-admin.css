@@ -1,0 +1,21 @@
+#dining-dashboard-menus-widget table {
+    margin-bottom: 20px; 
+}
+
+#dining-dashboard-menus-widget td {
+    display: table-cell;
+}
+
+#dining-dashboard-menus-widget .button {
+    float: left;    
+    height: 32px;
+    padding: 5px;
+}
+
+#dining-dashboard-menus-widget .edit-button {
+    margin-right:5px;
+}
+
+#dining-dashboard-menus-widget .button-primary {
+    float: right;
+}
