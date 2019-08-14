@@ -10,6 +10,7 @@
  */
 namespace MySiteDigital\DiningDashboard;
 
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -19,18 +20,22 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class MenuPostType {
 
+    use PostType;
+
     public static $post_type_slug = 'menu';
+
+    public static $post_type_slug_plural = 'menus';
+
+    public static $archive_template = 'menus-archive.php';
+
+    public static $single_template = 'menu-single.php';
     
     public function __construct()
     {
+        add_action( 'init', [ $this , 'init' ] );
         add_action( 'init', [ $this , 'register_settings' ], 4 );
         add_action( 'init', [ $this , 'register_post_type' ], 5 );
         add_action( 'transition_post_status', [ $this , 'update_archive_slug' ], 10, 3 );
-
-        // add_filter( 'single_template', [ $this , 'load_single_template' ] );
-        // add_filter( 'archive_template', [ $this , 'load_archive_template' ] );
-        // add_action( 'template_redirect', [ $this , 'template_redirect' ] );
-
         
 
         //add_filter( 'gettext',  [ $this, 'custom_translations' ] , 999 );
@@ -56,7 +61,7 @@ class MenuPostType {
         }
 
         $archive_slug = get_option( 'menu_post_type_archive_slug' );
-        $menu_name = ucfirst( $archive_slug );
+        $menu_name = ucfirst( ( self::count_posts() > 1 ) ? self::$post_type_slug_plural : self::$post_type_slug );
         
         $labels = [
             'name'                  => __( $menu_name, self::$post_type_slug ),
@@ -85,29 +90,22 @@ class MenuPostType {
         $args =  [
             'labels'              => $labels,
             'description'         => __( 'This is where Menus are stored.', self::$post_type_slug ),
+            'capability_type'     => 'page',
             'public'              => true,
             'show_ui'             => true,
-            'capability_type'     => 'page',
-            'map_meta_cap'        => true,
-            'publicly_queryable'  => true,
-            'exclude_from_search' => true,
-            'show_in_menu'        => false,
-            'hierarchical'        => true,
-            'show_in_nav_menus'   => false,
-            'supports'            => [ 'editor', 'title', 'author' ],
+            'show_in_menu'        => 'index.php',
+            'supports'            => [ 
+                    'editor', 
+                    'title', 
+                    'author',
+                    'page-attributes',
+            ],
             'show_in_rest'        => true,
             'has_archive'         => $archive_slug,
             'rewrite'             => [
                                         'slug' => 'menu',
                                         'with_front' => false
                                     ]
-        ];
-
-        $args =  [
-            'labels'              => $labels,
-            'description'         => __( 'This is where Menus are stored.', self::$post_type_slug ),
-            'show_ui'             => true,
-            'supports'            => [ 'editor', 'title', 'author' ],
         ];
 
         register_post_type(
@@ -127,66 +125,12 @@ class MenuPostType {
 
         if( $post->post_type == self::$post_type_slug ){
             $current_slug = get_option( 'menu_post_type_archive_slug' );
-            $new_slug = ( self::count_menus() > 1 ) ? 'menus' : self::$post_type_slug;
-
+            $new_slug = ( self::count_posts() > 1 ) ? self::$post_type_slug_plural : self::$post_type_slug;
             if( $new_slug !== $current_slug ){
                 update_option( 'menu_post_type_archive_slug', $new_slug, false );
                 update_option( 'menu_post_type_flush_rewrite_rules', true, false );
             }
         }
-    }
-
-    public function load_single_template( $template ){
-		global $post;
-		if( $post->post_type == self::$post_type_slug ){
-            $themed_template = get_stylesheet_directory() . '/dining-dashboard/menu-single.php';
-
-            if( file_exists( $themed_template ) ){
-                $template = $themed_template;
-            }
-            else {
-                $template = DD_PLUGIN_PATH . '/templates/menu-single.php';
-            }
-
-		}
-		return $template;
-	}
-
-    public function load_archive_template( $template ){
-        global $post;
-		if( get_post_type( $post ) == self::$post_type_slug ){
-            if( self::count_menus() > 1 ){
-                $themed_template = get_stylesheet_directory() . '/dining-dashboard/menus-archive.php';
-
-                if( file_exists( $themed_template ) ){
-                    $template = $themed_template;
-                }
-                else {
-                    $template = DD_PLUGIN_PATH . '/templates/menus-archive.php';
-                }
-            }
-            else {
-                $template = $this->load_single_template( $template );
-            }
-        }
-        return $template;
-    }
-
-    public static function template_redirect(){
-        global $post;
-
-        if( ! is_singular( self::$post_type_slug ) ){
-            return;
-        }
-
-        //if more than one location
-        if( self::count_menus() > 1 ){
-            return;
-        }
-
-        //if only one location redirect to archive page
-        wp_redirect( get_post_type_archive_link( self::$post_type_slug ) );
-        exit;
     }    
 
     public function custom_translations( $translated ) {
@@ -202,26 +146,6 @@ class MenuPostType {
         }
 
         return $translated;
-    }
-
-    public static function count_menus( $status = 'publish' ){
-
-        $menu_count = 0;
-        
-        if( post_type_exists( self::$post_type_slug ) && $status != 'any' ){
-            $menus = wp_count_posts( self::$post_type_slug );
-            $menu_count = $menus->$status;
-        }
-        else {
-            $published_menus = get_posts(
-                [
-                    'post_type'     => self::$post_type_slug,
-                    'post_status'   => $status
-                ]
-            );
-            $menu_count = count($published_locations);
-        }
-        return $menu_count;
     }
 }
 

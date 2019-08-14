@@ -37,8 +37,18 @@ class MenusWidget {
             </div>';
         }
         else {
+            if( MenuPostType::count_posts() > 1){
+                echo 
+                '<a href="' . esc_url( get_post_type_archive_link( MenuPostType::$post_type_slug ) ) . '" target="_blank" class="archive-link">
+                    <strong>
+                        View All Menus
+                        <span class="dashicons dashicons-external"></span>    
+                    </strong>
+                </a>';
+            }
             echo 
-            '<table class="wp-list-table widefat fixed striped posts">
+            '
+            <table class="wp-list-table widefat fixed striped posts">
                 <tr>
                     <th>Menu</th>
                     <th>Status</th>
@@ -54,8 +64,11 @@ class MenusWidget {
         }
         
         echo '
-            <a href="' . admin_url( 'post-new.php?post_type=' . MenuPostType::$post_type_slug ) . '" class="button-primary">
+            <a href="' . esc_url( admin_url( 'post-new.php?post_type=' . MenuPostType::$post_type_slug ) ) . '" class="button-primary">
                 Create Menu
+            </a>
+            <a href="' . esc_url( admin_url( 'edit.php?post_type=' . MenuPostType::$post_type_slug ) ) . '" class="button-primary">
+                Edit All Menus
             </a>
             <div class="clear"></div>';
     }
@@ -71,7 +84,7 @@ class MenusWidget {
 
 	public static function render_title_column( $menu ) {
         $html = '
-            <a href="' . esc_url( admin_url( 'post.php?post=' . absint( $menu->ID ) ) . '&action=edit' ) . '" target="_blank>
+            <a href="' . esc_url( admin_url( 'post.php?post=' . absint( $menu->ID ) ) . '&action=edit' ) . '" target="_blank">
                 <strong>' . esc_html( $menu->post_title ) . '</strong>
             </a>';
         return $html;
@@ -108,7 +121,7 @@ class MenusWidget {
                     title="View"
                     aria-label="View"
                 >
-                    <span class="dashicons dashicons-search"></span>
+                    <span class="dashicons dashicons-external"></span>
                 </a>';
         }
         $html .= '

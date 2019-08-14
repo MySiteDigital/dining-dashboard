@@ -4,6 +4,7 @@
 
 #dining-dashboard-menus-widget td {
     display: table-cell;
+    vertical-align: middle;
 }
 
 #dining-dashboard-menus-widget .button {
@@ -18,4 +19,10 @@
 
 #dining-dashboard-menus-widget .button-primary {
     float: right;
+    margin-left: 10px;
+}
+
+.archive-link {
+    float: right;
+    margin: 10px 0 20px;
 }

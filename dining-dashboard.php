@@ -66,6 +66,7 @@ final class DiningDashboard {
      */
     public function includes()
     {
+        include_once( DD_PLUGIN_PATH . 'includes/post-types/trait-dining-dashboard-post-type.php' );
         include_once( DD_PLUGIN_PATH . 'includes/post-types/class-dining-dashboard-menu-post-type.php' );
 
         if ( is_admin() ) {
