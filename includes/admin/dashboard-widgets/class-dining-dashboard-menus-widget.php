@@ -1,8 +1,8 @@
 <?php
 
-namespace MySiteDigital\DiningDashboard;
+namespace MySiteDigital\DiningDashboard\Admin\DashboardWidgets;
 
-use MySiteDigital\DiningDashboard\MenuPostType;
+use MySiteDigital\DiningDashboard\PostTypes\Menu;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -37,9 +37,9 @@ class MenusWidget {
             </div>';
         }
         else {
-            if( MenuPostType::count_posts() > 1){
+            if( Menu::count_posts() > 1){
                 echo 
-                '<a href="' . esc_url( get_post_type_archive_link( MenuPostType::$post_type_slug ) ) . '" target="_blank" class="archive-link">
+                '<a href="' . esc_url( get_post_type_archive_link( Menu::$post_type_slug ) ) . '" target="_blank" class="archive-link">
                     <strong>
                         View All Menus
                         <span class="dashicons dashicons-external"></span>    
@@ -64,10 +64,10 @@ class MenusWidget {
         }
         
         echo '
-            <a href="' . esc_url( admin_url( 'post-new.php?post_type=' . MenuPostType::$post_type_slug ) ) . '" class="button-primary">
+            <a href="' . esc_url( admin_url( 'post-new.php?post_type=' . Menu::$post_type_slug ) ) . '" class="button-primary">
                 Create Menu
             </a>
-            <a href="' . esc_url( admin_url( 'edit.php?post_type=' . MenuPostType::$post_type_slug ) ) . '" class="button-primary">
+            <a href="' . esc_url( admin_url( 'edit.php?post_type=' . Menu::$post_type_slug ) ) . '" class="button-primary">
                 Edit All Menus
             </a>
             <div class="clear"></div>';

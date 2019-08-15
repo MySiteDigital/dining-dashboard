@@ -12,7 +12,7 @@
 
 namespace MySiteDigital;
 
-use MySiteDigital\DiningDashboard\MenusWidget;
+use MySiteDigital\DiningDashboard\Admin\DashboardWidgets\MenusWidget;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -66,12 +66,11 @@ final class DiningDashboard {
      */
     public function includes()
     {
-        include_once( DD_PLUGIN_PATH . 'includes/post-types/trait-dining-dashboard-post-type.php' );
-        include_once( DD_PLUGIN_PATH . 'includes/post-types/class-dining-dashboard-menu-post-type.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/post-types/trait-dining-dashboard-post-type-trait.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/post-types/class-dining-dashboard-menu.php' );
 
         if ( is_admin() ) {
-            include_once( DD_PLUGIN_PATH . 'includes/admin/class-dining-dashboard-admin-assets.php' );
-            include_once( DD_PLUGIN_PATH . 'includes/admin/dashboard-widgets/class-dining-dashboard-menus-widget.php' );
+            include_once( DD_PLUGIN_PATH . 'includes/admin/class-dining-dashboard-admin.php' );
         }
     }
 

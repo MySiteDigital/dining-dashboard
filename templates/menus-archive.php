@@ -1,18 +1,54 @@
-<?php get_header(); ?>
+<?php
+get_header();
+?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main menus-archive">
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main">
+
+		<?php if ( have_posts() ) : ?>
+
+			<header class="page-header">
+				<h1 class="page-title">
+					<?php echo __( 'Menus', 'menu' ); ?>
+				</h1>
+			</header>
+
 			<?php
-			while ( have_posts() ) : the_post();
 
+			while ( have_posts() ) :
+				the_post();
 
-			endwhile; // End of the loop.
+				?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<header class="entry-header">
+						<?php
+							the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+						?>
+					</header>
+
+					<div class="entry-content">
+						<?php the_excerpt(); ?>
+					</div>
+
+					<?php include DD_PLUGIN_PATH . '/templates/entry-footer.php'; ?>
+				</article>
+				<?php
+
+			endwhile;
+
+			// Previous/next page navigation.
+			twentynineteen_the_posts_navigation();
+
+		else :
 			?>
-
+			<div class="page-content">
+				Sorry, there are currently no published menus.
+			</div>
+			<?php
+		endif;
+		?>
 		</main><!-- #main -->
-	</div><!-- #primary -->
+	</section><!-- #primary -->
 
 <?php
-    get_sidebar();
-    get_footer();
-?>
+get_footer();

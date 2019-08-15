@@ -2,13 +2,13 @@
 /**
   * Registers post type for food and drink menus
  *
- * @class     MenuPostType
+ * @class     PostTypes\Menu
  * @Version: 0.0.1
  * @package   DiningDashboard/PostTypes
  * @category  Class
  * @author    MySite Digital
  */
-namespace MySiteDigital\DiningDashboard;
+namespace MySiteDigital\DiningDashboard\PostTypes;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * MenuPostType Class.
+ * Menu Class.
  */
-class MenuPostType {
+class Menu {
 
-    use PostType;
+    use PostTypeTrait;
 
     public static $post_type_slug = 'menu';
 
@@ -38,8 +38,7 @@ class MenuPostType {
         add_action( 'transition_post_status', [ $this , 'update_archive_slug' ], 10, 3 );
         
 
-        //add_filter( 'gettext',  [ $this, 'custom_translations' ] , 999 );
-        //add_filter( 'the_title', array( $this, 'custom_translations' ), 10, 2 );
+        add_filter( 'gettext',  [ $this, 'custom_translations' ] , 999 );
     }
 
     public function register_settings() {
@@ -61,7 +60,7 @@ class MenuPostType {
         }
 
         $archive_slug = get_option( 'menu_post_type_archive_slug' );
-        $menu_name = ucfirst( ( self::count_posts() > 1 ) ? self::$post_type_slug_plural : self::$post_type_slug );
+        $menu_name = self::get_admin_menu_title();
         
         $labels = [
             'name'                  => __( $menu_name, self::$post_type_slug ),
@@ -134,19 +133,18 @@ class MenuPostType {
     }    
 
     public function custom_translations( $translated ) {
-
-        //var_dump($translated);
-        switch ( $translated ) {
-			case 'Add title' :
-                $translated = 'Add menu title';
-                break;
-            case 'Write heading…';
-                $translated = 'Section title (eg Entree, Mains, Desert)';
-                break;
+        global $post;
+        
+        if( $post && $post->post_type == self::$post_type_slug ){
+            switch ( $translated ) {
+                case 'Add title' :
+                    $translated = 'Add menu title';
+                    break;
+            }
         }
 
         return $translated;
     }
 }
 
-new MenuPostType();
+new Menu();

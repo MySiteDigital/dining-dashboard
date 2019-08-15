@@ -1,8 +1,8 @@
 <?php
 
-namespace MySiteDigital\DiningDashboard;
+namespace MySiteDigital\DiningDashboard\PostTypes;
 
-trait PostType {
+trait PostTypeTrait {
 
     public function init(){
         add_filter( 'single_template', [ $this , 'load_single_template' ] );
@@ -46,7 +46,7 @@ trait PostType {
         return $template;
     }
 
-    public static function template_redirect(){
+    public function template_redirect(){
         global $post;
 
         if( ! is_singular( self::$post_type_slug ) ){
@@ -61,6 +61,10 @@ trait PostType {
         //if only one redirect to archive page
         wp_redirect( get_post_type_archive_link( self::$post_type_slug ) );
         exit;
+    }
+
+    public static function get_admin_menu_title(){
+        return ucfirst( ( self::count_posts() > 1 ) ? self::$post_type_slug_plural : self::$post_type_slug );
     }
 
     public static function count_posts( $status = 'publish' ){
