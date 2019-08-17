@@ -1,15 +1,13 @@
 <?php
-
 /**
  * Plugin Name: Dining Dashboard
- * Description: Provides the functionality needed to manage your restaurant or cafe's website.
+ * Description: Provides the functionality required to manage your restaurant or cafe's website.
  * Version: 1.0.0
  * Author: MySite Digital
  * Author URI: https://mysite.digital
  * Requires at least: 5.3
  * Tested up to: 5.3
  */
-
 namespace MySiteDigital;
 
 use MySiteDigital\DiningDashboard\Admin\DashboardWidgets\MenusWidget;

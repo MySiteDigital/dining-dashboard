@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * @class    MenusWidget
+ * @version  1.0.0
+ * @package  DiningDashboard/Admin/DashboadWidgets
+ * @category Admin
+ * @author   MySite Digital
+ */
 namespace MySiteDigital\DiningDashboard\Admin\DashboardWidgets;
 
 use MySiteDigital\DiningDashboard\PostTypes\Menu;

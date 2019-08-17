@@ -1,15 +1,13 @@
 <?php
-
-namespace MySiteDigital\DiningDashboard\Admin;
 /**
  * DiningDashboard Admin
- *
  * @class    Admin
  * @version  1.0.0
  * @package  DiningDashboard/Admin
  * @category Admin
  * @author   MySite Digital
  */
+namespace MySiteDigital\DiningDashboard\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly

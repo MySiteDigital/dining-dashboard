@@ -1,14 +1,11 @@
 <?php
 /**
- * DiningDashboard Admin
- *
- * @class    Menus
+ * @class    Admin\Menus
  * @version  1.0.0
  * @package  DiningDashboard/Admin
  * @category Admin
  * @author   MySite Digital
  */
-
 namespace MySiteDigital\DiningDashboard\Admin;
 
 use MySiteDigital\DiningDashboard\PostTypes\Menu;

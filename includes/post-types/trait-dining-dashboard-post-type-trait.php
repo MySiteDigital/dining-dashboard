@@ -1,6 +1,19 @@
 <?php
+/**
+
+ *
+ * @trait     PostTypes\PostTypeTrait
+ * @Version: 1.0.0
+ * @package   DiningDashboard/PostTypes
+ * @category  Trait
+ * @author    MySite Digital
+*/
 
 namespace MySiteDigital\DiningDashboard\PostTypes;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 trait PostTypeTrait {
 

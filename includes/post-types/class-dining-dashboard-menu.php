@@ -1,7 +1,6 @@
 <?php
 /**
-  * Registers post type for food and drink menus
- *
+ * Registers post type for food and drink menus
  * @class     PostTypes\Menu
  * @Version: 0.0.1
  * @package   DiningDashboard/PostTypes
