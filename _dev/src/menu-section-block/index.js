@@ -2,16 +2,17 @@
 /**
  * Import internal dependencies
  */
+import Editor from './js/Editor.js';
 import './scss/style.scss';
 
 /**
  * Get WordPress libraries from the wp global
  */
- const { __ } = wp.i18n;
- const { registerBlockType } = wp.blocks;
- const { RichText, MediaUpload, InspectorControls } = wp.editor;
- const { Component, Fragment } = wp.element;
- const el = wp.element.createElement;
+const { __ } = wp.i18n;
+const { registerBlockType } = wp.blocks;
+const { RichText, MediaUpload, InspectorControls } = wp.editor;
+const { Component, Fragment } = wp.element;
+const el = wp.element.createElement;
 
 registerBlockType(
     'dining-dashboard/menu-section',
@@ -37,7 +38,6 @@ registerBlockType(
 
         save( { attributes, className } ) {
             const { itemTitle } = attributes;
-
             return (
                 <Fragment>
                     <RichText.itemTitle
