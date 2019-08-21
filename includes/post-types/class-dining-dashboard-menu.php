@@ -38,6 +38,7 @@ class Menu {
         
 
         add_filter( 'gettext',  [ $this, 'custom_translations' ] , 999 );
+        add_filter( 'block_categories', [ $this , 'modify_block_categories' ], 10, 2 );
     }
 
     public function register_settings() {
@@ -130,6 +131,21 @@ class Menu {
             }
         }
     }    
+
+    public function modify_block_categories( $categories, $post ) {
+        if ( $post->post_type === self::$post_type_slug ) {
+            return array_merge(
+                $categories,
+                [
+                    [
+                        'slug' => 'menu-blocks',
+                        'title' => __( 'Menu Blocks', 'dining-dashboard' ),
+                    ],
+                ]
+            );
+        }
+        return $categories;
+    }
 
     public function custom_translations( $translated ) {
         global $post;

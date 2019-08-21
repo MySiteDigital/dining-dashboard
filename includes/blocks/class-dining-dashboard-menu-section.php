@@ -21,17 +21,19 @@ class MenuSection {
     use BlockTrait;
 
     protected $styles = [
+        'post_types' => [ 'menu' ],
         'handle' => 'dining-dashboard-menu-section-block',
-        'src' => 'menu-section-block.css'
+        'src' => 'menu-section-block.css',
     ];
 
     protected $scripts = [
+        'post_types' => [ 'menu' ],
         'handle' => 'dining-dashboard-menu-section-block',
-        'src' => 'menu-section-block.js'
+        'src' => 'menu-section-block.js',
     ];
 
     public function __construct() {
-        add_action( 'init', [ $this , 'init' ] );
+       $this->init();
 	}
 }
 

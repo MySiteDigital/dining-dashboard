@@ -45,21 +45,29 @@ trait BlockTrait {
     }
 
     public function enqueue_block_editor_assets(){
+        global $post;
 
         if( property_exists( self::class, 'styles' ) ){
-            wp_enqueue_style( $this->styles['handle'] );
+            if( in_array( $post->post_type, $this->styles[ 'post_types' ] ) ){
+                wp_enqueue_style( $this->styles[ 'handle' ] );
+            }
         }
 
         if( property_exists( self::class, 'scripts' ) ){
-            wp_enqueue_script( $this->scripts['handle'] );
+            if( in_array( $post->post_type, $this->styles[ 'post_types' ] ) ){
+                wp_enqueue_script( $this->scripts[ 'handle' ] );
+            }
         }
 
     }
 
     public function enqueue_frontend_styles(){
+        global $post;
 
         if( property_exists( self::class, 'styles' ) ){
-            wp_enqueue_style( $this->styles[ 'handle' ] );
+            if( in_array( $post->post_type, $this->styles[ 'post_types' ] ) ){
+                wp_enqueue_style( $this->styles[ 'handle' ] );
+            }
         }
 
     }
