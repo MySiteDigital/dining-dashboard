@@ -20,18 +20,16 @@ registerBlockType(
         title: __( 'Menu Section' ),
         category: 'menu-blocks',
         supports: {
-            html: true, 
+            align: [ 'wide', 'full' ],
             customClassName: false
         },
         attributes: {
-            itemTitle: {
-              type: 'string',
+            id: {
+                type: 'number',
             },
-            content: {
-               type: 'array',
-               source: 'children',
-               selector: 'p',
-            }
+            columns: {
+                type: 'number', 
+            },
         },
 
         edit: Editor,

@@ -36,9 +36,8 @@ class Menu {
         add_action( 'init', [ $this , 'register_post_type' ], 5 );
         add_action( 'transition_post_status', [ $this , 'update_archive_slug' ], 10, 3 );
         
-
-        add_filter( 'gettext',  [ $this, 'custom_translations' ] , 999 );
         add_filter( 'block_categories', [ $this , 'modify_block_categories' ], 10, 2 );
+        add_filter( 'gettext',  [ $this, 'custom_translations' ] , 999 );
     }
 
     public function register_settings() {
