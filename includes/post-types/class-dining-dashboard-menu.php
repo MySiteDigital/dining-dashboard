@@ -35,7 +35,8 @@ class Menu {
         add_action( 'init', [ $this , 'register_settings' ], 4 );
         add_action( 'init', [ $this , 'register_post_type' ], 5 );
         add_action( 'transition_post_status', [ $this , 'update_archive_slug' ], 10, 3 );
-        
+
+        add_filter( 'allowed_block_types', [ $this , 'set_allowed_block_types' ], 10, 2 );
         add_filter( 'block_categories', [ $this , 'modify_block_categories' ], 10, 2 );
         add_filter( 'gettext',  [ $this, 'custom_translations' ] , 999 );
     }
@@ -144,6 +145,15 @@ class Menu {
             );
         }
         return $categories;
+    }
+
+    public function set_allowed_block_types( $allowed_block_types, $post ) {
+        if ( $post->post_type === self::$post_type_slug  ) {
+            $allowed_block_types = [
+                'dining-dashboard/menu-section',
+            ];
+        }
+        return $allowed_block_types;
     }
 
     public function custom_translations( $translated ) {

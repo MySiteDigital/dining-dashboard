@@ -4832,6 +4832,66 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./src/menu-section-block/column/index.js":
+/*!************************************************!*\
+  !*** ./src/menu-section-block/column/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/menu-section-block/heading/index.js":
+/*!*************************************************!*\
+  !*** ./src/menu-section-block/heading/index.js ***!
+  \*************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * WordPress dependencies
+ */
+var __ = wp.i18n.__;
+var registerBlockType = wp.blocks.registerBlockType;
+var RichText = wp.editor.RichText;
+registerBlockType('dining-dashboard/menu-section-column', {
+  title: __('Section Column'),
+  description: __('A column inside the menu sections where menu items can be added'),
+  category: 'menu-blocks',
+  edit: function edit(_ref) {
+    var attributes = _ref.attributes,
+        className = _ref.className;
+    var sectionTitle = attributes.sectionTitle;
+    var formatControls = ['bold', 'italic'];
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText, {
+      tagName: "h3",
+      placeholder: __('Menu Section Title'),
+      formattingControls: formatControls,
+      value: sectionTitle
+    });
+  },
+  save: function save(_ref2) {
+    var attributes = _ref2.attributes,
+        className = _ref2.className;
+    var sectionTitle = attributes.sectionTitle;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.sectionTitle, {
+      tagName: "h3",
+      className: className,
+      value: itemTitle
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./src/menu-section-block/index.js":
 /*!*****************************************!*\
   !*** ./src/menu-section-block/index.js ***!
@@ -4843,14 +4903,19 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _js_Editor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/Editor.js */ "./src/menu-section-block/js/Editor.js");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scss/style.scss */ "./src/menu-section-block/scss/style.scss");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _heading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./heading */ "./src/menu-section-block/heading/index.js");
+/* harmony import */ var _column__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./column */ "./src/menu-section-block/column/index.js");
+/* harmony import */ var _column__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_column__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _js_Editor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/Editor.js */ "./src/menu-section-block/js/Editor.js");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scss/style.scss */ "./src/menu-section-block/scss/style.scss");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_4__);
 
 
 /**
  * Import internal dependencies
  */
+
+
 
 
 /**
@@ -4872,7 +4937,12 @@ registerBlockType('dining-dashboard/menu-section', {
   category: 'menu-blocks',
   supports: {
     align: ['wide', 'full'],
+    default: "wide",
     customClassName: false
+  },
+  align: {
+    type: "string",
+    default: "full"
   },
   attributes: {
     id: {
@@ -4882,7 +4952,7 @@ registerBlockType('dining-dashboard/menu-section', {
       type: 'number'
     }
   },
-  edit: _js_Editor_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  edit: _js_Editor_js__WEBPACK_IMPORTED_MODULE_3__["default"],
   save: function save(_ref) {
     var attributes = _ref.attributes,
         className = _ref.className;
@@ -4961,22 +5031,22 @@ var _wp$element = wp.element,
 
 var ALLOWED_BLOCKS = ['core/heading', 'core/column'];
 var TEMPLATE = {
-  1: [['dining-dashboard/menu-section'], ['core/column', {
+  1: [['dining-dashboard/menu-section-heading'], ['core/column', {
     width: '100'
   }]],
-  2: [['dining-dashboard/menu-section'], ['core/column', {
+  2: [['dining-dashboard/menu-section-heading'], ['core/column', {
     width: '50'
   }], ['core/column', {
     width: '50'
   }]],
-  3: [['dining-dashboard/menu-section'], ['core/column', {
+  3: [['dining-dashboard/menu-section-heading'], ['core/column', {
     width: '33.333'
   }], ['core/column', {
     width: '33.333'
   }], ['core/column', {
     width: '33.333'
   }]],
-  4: [['dining-dashboard/menu-section'], ['core/column', {
+  4: [['dining-dashboard/menu-section-heading'], ['core/column', {
     width: '75'
   }], ['core/column', {
     width: '75'

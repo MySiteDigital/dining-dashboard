@@ -2,6 +2,8 @@
 /**
  * Import internal dependencies
  */
+import * as MenuSectionHeading from './heading';
+import * as MenuSectionColumn from './column';
 import Editor from './js/Editor.js';
 import './scss/style.scss';
 
@@ -17,36 +19,45 @@ const el = wp.element.createElement;
 registerBlockType(
     'dining-dashboard/menu-section',
     {
-        title: __( 'Menu Section' ),
+        title: __('Menu Section'),
+
         category: 'menu-blocks',
+
         supports: {
-            align: [ 'wide', 'full' ],
+            align: ['wide', 'full'],
+            default: "wide",
             customClassName: false
         },
+
+        align: {
+            type: "string",
+            default: "full"
+        },
+
         attributes: {
             id: {
                 type: 'number',
             },
             columns: {
-                type: 'number', 
+                type: 'number',
             },
         },
 
         edit: Editor,
 
-        save( { attributes, className } ) {
+        save({ attributes, className }) {
             const { itemTitle } = attributes;
             return (
                 <Fragment>
                     <RichText.itemTitle
                         tagName="h3"
-                        className={ className }
-                        value={ itemTitle }
+                        className={className}
+                        value={itemTitle}
                     />
                     <RichText.content
                         tagName="p"
-                        className={ className }
-                        value={ content }
+                        className={className}
+                        value={content}
                     />
                 </Fragment>
             );

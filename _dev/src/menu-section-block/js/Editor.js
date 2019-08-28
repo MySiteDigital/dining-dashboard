@@ -24,22 +24,22 @@ const ALLOWED_BLOCKS = [
 
 const TEMPLATE = {
     1: [
-        ['dining-dashboard/menu-section'],
+        ['dining-dashboard/menu-section-heading'],
         ['core/column', { width: '100' }],
     ],
     2: [
-        ['dining-dashboard/menu-section'],
+        ['dining-dashboard/menu-section-heading'],
         ['core/column', { width: '50' }],
         ['core/column', { width: '50' }],
     ],
     3: [
-        ['dining-dashboard/menu-section'],
+        ['dining-dashboard/menu-section-heading'],
         ['core/column', { width: '33.333' }],
         ['core/column', { width: '33.333' }],
         ['core/column', { width: '33.333' }],
     ],
     4: [
-        ['dining-dashboard/menu-section'],
+        ['dining-dashboard/menu-section-heading'],
         ['core/column', { width: '75' }],
         ['core/column', { width: '75' }],
         ['core/column', { width: '75' }],

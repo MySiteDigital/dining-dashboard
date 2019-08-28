@@ -2,50 +2,44 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { createBlock } = wp.blocks;
+const { registerBlockType } = wp.blocks;
+const { RichText } = wp.editor;
 
-const name = 'column';
 
-const title = __('Column');
+registerBlockType(
+    'dining-dashboard/menu-section-column',
+    {
+        title: __('Section Column'),
 
-const settings = {
+        description: __('A column inside the menu sections where menu items can be added'),
 
-    title: 'Test',
+        category: 'menu-blocks',
 
-    description: __('Add a structured wrapper for column blocks, then add content blocks you’d like to the columns.'),
 
-    attributes: {
-        sectionTitle: {
-            type: 'string',
-            default: ''
+        edit({ attributes, className }) {
+            const { sectionTitle } = attributes;
+            const formatControls = ['bold', 'italic'];
+
+            return (
+                <RichText
+                    tagName="h3"
+                    placeholder={__('Menu Section Title')}
+                    formattingControls={formatControls}
+                    value={sectionTitle}
+                />
+            );
+        },
+
+        save({ attributes, className }) {
+            const { sectionTitle } = attributes;
+
+            return (
+                <RichText.sectionTitle
+                    tagName="h3"
+                    className={className}
+                    value={itemTitle}
+                />
+            );
         }
-    },
-
-    edit({ attributes, className }) {
-        const { sectionTitle } = attributes;
-        const formatControls = ['bold', 'italic'];
-
-        return (
-            <RichText
-                tagName="h3"
-                placeholder={__('Menu Section Title')}
-                formattingControls={formatControls}
-                value={sectionTitle}
-            />
-        );
-    },
-
-    save({ attributes, className }) {
-        const { sectionTitle } = attributes;
-
-        return (
-            <RichText.sectionTitle
-                tagName="h3"
-                className={className}
-                value={itemTitle}
-            />
-        );
     }
-};
-
-export { name, title, settings };
+);
