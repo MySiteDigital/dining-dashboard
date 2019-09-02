@@ -7,9 +7,9 @@ const { RichText } = wp.editor;
 
 
 registerBlockType(
-    'dining-dashboard/menu-section-column',
+    'dining-dashboard/menu-section-heading',
     {
-        title: __('Section Column'),
+        title: __('Section Heading'),
 
         description: __('A column inside the menu sections where menu items can be added'),
 

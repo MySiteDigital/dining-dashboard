@@ -1,0 +1,41 @@
+.editor-styles-wrapper .wp-block {
+
+    .wp-block[data-type="dining-dashboard/menu-section-heading"] {
+        width: 100%;
+    }
+
+    .wp-block[data-type="dining-dashboard/menu-section-column"] {
+        margin: 0;
+
+        .block-list-appender {
+            width: 96%;
+            margin: 0 auto;
+        }
+    }
+
+    .one-col, 
+    .two-cols, 
+    .three-cols,
+    .four-cols {
+        .editor-block-list__layout {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    .one-col .wp-block[data-type="dining-dashboard/menu-section-column"] {
+        width: 100%;
+    }
+
+    .two-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+        width: 50%;
+    }
+
+    .three-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+        width: 33.3333%;
+    }
+
+    .four-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+        width: 25%;
+    }
+}

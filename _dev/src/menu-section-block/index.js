@@ -41,6 +41,18 @@ registerBlockType(
             columns: {
                 type: 'number',
             },
+            hasSlideToggle: {
+                type: 'boolean',
+                default: false
+            },
+            showImages: {
+                type: 'boolean',
+                default: true
+            },
+            showPrices: {
+                type: 'boolean',
+                default: true
+            }
         },
 
         edit: Editor,

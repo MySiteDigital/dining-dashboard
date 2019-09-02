@@ -25,25 +25,25 @@ const ALLOWED_BLOCKS = [
 const TEMPLATE = {
     1: [
         ['dining-dashboard/menu-section-heading'],
-        ['core/column', { width: '100' }],
+        ['dining-dashboard/menu-section-column', { width: '100' }],
     ],
     2: [
         ['dining-dashboard/menu-section-heading'],
-        ['core/column', { width: '50' }],
-        ['core/column', { width: '50' }],
+        ['dining-dashboard/menu-section-column', { width: '50' }],
+        ['dining-dashboard/menu-section-column', { width: '50' }],
     ],
     3: [
         ['dining-dashboard/menu-section-heading'],
-        ['core/column', { width: '33.333' }],
-        ['core/column', { width: '33.333' }],
-        ['core/column', { width: '33.333' }],
+        ['dining-dashboard/menu-section-column', { width: '33.333' }],
+        ['dining-dashboard/menu-section-column', { width: '33.333' }],
+        ['dining-dashboard/menu-section-column', { width: '33.333' }],
     ],
     4: [
         ['dining-dashboard/menu-section-heading'],
-        ['core/column', { width: '75' }],
-        ['core/column', { width: '75' }],
-        ['core/column', { width: '75' }],
-        ['core/column', { width: '75' }],
+        ['dining-dashboard/menu-section-column', { width: '75' }],
+        ['dining-dashboard/menu-section-column', { width: '75' }],
+        ['dining-dashboard/menu-section-column', { width: '75' }],
+        ['dining-dashboard/menu-section-column', { width: '75' }],
     ]
 };
 
@@ -52,6 +52,14 @@ const columnOptions = [
     { columns: 2, name: __('Two Columns'), icon: RowIcons.colTwo },
     { columns: 3, name: __('Three Columns'), icon: RowIcons.colThree },
     { columns: 4, name: __('Four Columns'), icon: RowIcons.colFour },
+];
+
+const columnClasses = [
+    '',
+    'one-col',
+    'two-cols',
+    'three-cols',
+    'four-cols'
 ];
 
 function getActiveColumn(columns) {
@@ -101,6 +109,7 @@ class Editor extends Component {
         } = attributes;
 
         console.log(columns);
+        console.log(columnClasses[columns]);
 
         if (!columns) {
             return (
@@ -146,16 +155,17 @@ class Editor extends Component {
             <Fragment>
                 <InspectorControls
                     attributes={attributes}
+                    setAttributes={setAttributes}
                     columnOptions={columnOptions}
                 />
-                <div>
-                    <div>
-                        <InnerBlocks
-                            template={TEMPLATE[columns]}
-                            templateLock="all"
-                            allowedBlocks={ALLOWED_BLOCKS}
-                            renderAppender={() => (null)} />
-                    </div>
+                <div className={columnClasses[columns]}>
+                    <InnerBlocks
+                        template={TEMPLATE[columns]}
+                        templateLock="all"
+                        allowedBlocks={ALLOWED_BLOCKS}
+                        templateInsertUpdatesSelection={columns === 1}
+                        renderAppender={() => (null)}
+                    />
                 </div>
             </Fragment>
         );
