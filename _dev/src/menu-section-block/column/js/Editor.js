@@ -1,233 +1,92 @@
 /**
- * Internal dependencies
+ * Internal dependencies.
  */
-import applyWithColors from './../column/components/colors';
+import CustomAppender from './CustomAppender';
 
 /**
  * WordPress dependencies
  */
-const { __, sprintf } = wp.i18n;
 const { Component, Fragment } = wp.element;
-const { compose } = wp.compose;
-const { InnerBlocks, Inserter } = wp.blockEditor;
-const { ResizableBox, Spinner } = wp.components;
-const { isBlobURL } = wp.blob;
+const { InnerBlocks } = wp.blockEditor;
+const { dispatch, select } = wp.data;
 
 const ALLOWED_BLOCKS = ['core/paragraph'];
+//const ALLOWED_BLOCKS = ['dining-dashboard/menu-item'];
+
+const TEMPLATE = [
+    ['core/paragraph'],
+];
 
 class Editor extends Component {
 
     constructor() {
         super(...arguments);
+        this.insertNewItem = this.insertNewItem.bind(this);
+    }
 
-        this.state = {
-            selectedWidth: 0,
-            nextWidth: 0,
-            selectedBlockWidth: 0,
-            nextBlockWidth: 0,
-            maxWidth: 999999999,
-            resizing: false,
-        };
+    insertNewItem() {
+        const { clientId, attributes } = this.props;
+
+        const blockOrder = select('core/block-editor').getBlockOrder();
+        const insertAtIndex = blockOrder.indexOf(clientId) + 1;
+
+        console.log(attributes);
+
+        console.log('blockOrder');
+
+        console.log(blockOrder);
+        console.log(insertAtIndex);
+
+
+        const innerBlocks = TEMPLATE.map(
+            ([blockName, blockAttributes]) => (
+                wp.blocks.createBlock(
+                    blockName,
+                    Object.assign(
+                        {},
+                        blockAttributes,
+                        {
+                            showImage: attributes.showImages,
+                            showPrice: attributes.showPrices,
+                        }
+                    )
+                )
+            )
+        );
+
+        console.log(innerBlocks);
+
+        const newItem = wp.blocks.createBlock(
+            'dining-dashboard/menu-section-column',
+            attributes,
+            innerBlocks
+        );
+
+
+        console.log(newItem);
+
+        dispatch('core/block-editor').insertBlock(newItem, insertAtIndex);
     }
 
     render() {
         const {
-            clientId,
-            attributes,
-            className,
             isSelected,
-            toggleSelection,
-            setAttributes,
-            backgroundColor,
-            textColor,
+            clientId,
+            selectedParentClientId,
         } = this.props;
-
-        const {
-            coblocks,
-            backgroundImg,
-            width,
-            paddingTop,
-            paddingRight,
-            paddingBottom,
-            paddingLeft,
-            marginTop,
-            marginRight,
-            marginBottom,
-            marginLeft,
-            paddingUnit,
-            marginUnit,
-            marginSize,
-            paddingSize,
-            contentAlign,
-            showInserter,
-        } = attributes;
-
-        const parentId = wp.data
-            .select('core/block-editor')
-            .getBlockRootClientId(clientId);
-        const columnBlocks = wp.data.select('core/block-editor').getBlock(clientId);
-        const nextBlockClientId = wp.data
-            .select('core/block-editor')
-            .getNextBlockClientId(clientId);
-        const nextBlockClient = wp.data
-            .select('core/block-editor')
-            .getBlock(nextBlockClientId);
-
-        const innerStyles = {
-            color: textColor.color,
-            paddingTop:
-                paddingSize === 'advanced' && paddingTop ?
-                    paddingTop + paddingUnit :
-                    undefined,
-            paddingRight:
-                paddingSize === 'advanced' && paddingRight ?
-                    paddingRight + paddingUnit :
-                    undefined,
-            paddingBottom:
-                paddingSize === 'advanced' && paddingBottom ?
-                    paddingBottom + paddingUnit :
-                    undefined,
-            paddingLeft:
-                paddingSize === 'advanced' && paddingLeft ?
-                    paddingLeft + paddingUnit :
-                    undefined,
-            marginTop:
-                marginSize === 'advanced' && marginTop ?
-                    marginTop + marginUnit :
-                    undefined,
-            marginRight:
-                marginSize === 'advanced' && marginRight ?
-                    marginRight + marginUnit :
-                    undefined,
-            marginBottom:
-                marginSize === 'advanced' && marginBottom ?
-                    marginBottom + marginUnit :
-                    undefined,
-            marginLeft:
-                marginSize === 'advanced' && marginLeft ?
-                    marginLeft + marginUnit :
-                    undefined,
-        };
-
-
-
-        if (parseInt(width) === 100) {
-            return (
-                <Fragment>
-                    <div
-                        style={{
-                            backgroundColor: backgroundColor.color,
-                            backgroundImage: backgroundImg ?
-                                `url(${backgroundImg})` :
-                                undefined,
-                            color: textColor.color,
-                            textAlign: contentAlign,
-                        }}
-                    >
-                        <div className="wp-block-coblocks-column">
-                            <div style={innerStyles}>
-                                <InnerBlocks templateLock={false} />
-                                {showInserter ? (
-                                    <Inserter rootClientId={clientId} isAppender />
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-                </Fragment>
-            );
-        }
-
-        let myWidth = isSelected && this.state.selectedBlockWidth > 0 ? parseFloat(this.state.selectedBlockWidth).toFixed(1) : parseFloat(width).toFixed(1);
-        myWidth = myWidth + '%';
-
 
         return (
             <Fragment>
-                <ResizableBox
-                    maxWidth={this.state.maxWidth}
-                    minHeight="20"
-                    enable={{
-                        top: false,
-                        right: true,
-                        bottom: false,
-                        left: false,
-                        topRight: false,
-                        bottomRight: false,
-                        bottomLeft: false,
-                        topLeft: false,
-                    }}
-                    onResizeStop={() => {
-                        const currentBlock = document.getElementById(
-                            'block-' + this.props.clientId
-                        );
-
-                        //Remove resizing class
-                        currentBlock.classList.remove('is-resizing');
-                        document
-                            .getElementById('block-' + parentId)
-                            .classList.remove('is-resizing');
-
-                        toggleSelection(true);
-                        this.setState({ resizing: false });
-                    }}
-                    onResize={(_event, _direction, _elt, delta) => {
-                        const parentBlockClientRect = document
-                            .getElementById('block-' + parentId)
-                            .getElementsByClassName('wp-block-coblocks-row__inner')[0]
-                            .getBoundingClientRect();
-                        const currentBlockWidth = this.state.selectedWidth + delta.width;
-                        const currentBlockWidthPercent =
-                            (currentBlockWidth / parentBlockClientRect.width) * 100;
-                        const diff = parseFloat(width) - currentBlockWidthPercent;
-                        const nextBlockWidth =
-                            parseFloat(nextBlockClient.attributes.width) + diff;
-
-                        document
-                            .getElementById('block-' + parentId)
-                            .classList.add('is-resizing');
-                        document
-                            .getElementById('block-' + this.props.clientId)
-                            .getElementsByClassName(
-                                'wp-block-coblocks-column'
-                            )[0].style.width = 'auto';
-
-                        if (nextBlockWidth > 10 && currentBlockWidthPercent > 10) {
-                            wp.data
-                                .dispatch('core/block-editor')
-                                .updateBlockAttributes(nextBlockClientId, {
-                                    width: parseFloat(nextBlockWidth).toFixed(2),
-                                });
-                            setAttributes({
-                                width: parseFloat(currentBlockWidthPercent).toFixed(2),
-                            });
-                        }
-                    }}
-                    onResizeStart={() => {
-                        const currentBlock = document.getElementById(
-                            'block-' + this.props.clientId
-                        );
-                        const currentBlockClientRect = currentBlock.getBoundingClientRect();
-
-                        //Add resizing class
-                        currentBlock.classList.add('is-resizing');
-                        document
-                            .getElementById('block-' + parentId)
-                            .classList.add('is-resizing');
-
-                        this.setState({ selectedWidth: currentBlockClientRect.width });
-                        this.setState({ resizing: true });
-                        toggleSelection(false);
-                    }}
-                >
-                    <div
-                        style={{ color: textColor.color, textAlign: contentAlign }}
-                    >
-                        {isBlobURL(backgroundImg) && <Spinner />}
-                        <div style={innerStyles}>
-                            <InnerBlocks templateLock={false} renderAppender={() => null} />
-                        </div>
-                    </div>
-                </ResizableBox>
+                <div>
+                    <InnerBlocks
+                        allowedBlocks={ALLOWED_BLOCKS}
+                        template={TEMPLATE}
+                        templateInsertUpdatesSelection={false}
+                    />
+                    <CustomAppender
+                        onClick={this.insertNewItem}
+                    />
+                </div>
             </Fragment>
         );
     }
@@ -235,5 +94,4 @@ class Editor extends Component {
 
 }
 
-export default compose([applyWithColors])(Editor);
-//export default Editor;
+export default Editor;

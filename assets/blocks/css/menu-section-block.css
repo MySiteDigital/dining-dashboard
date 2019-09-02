@@ -1,1 +1,30 @@
-.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-heading"]{width:100%}.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"]{margin:0}.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"] .block-list-appender{width:96%;margin:0 auto}.editor-styles-wrapper .wp-block .four-cols .editor-block-list__layout,.editor-styles-wrapper .wp-block .one-col .editor-block-list__layout,.editor-styles-wrapper .wp-block .three-cols .editor-block-list__layout,.editor-styles-wrapper .wp-block .two-cols .editor-block-list__layout{display:flex;flex-wrap:wrap}.editor-styles-wrapper .wp-block .one-col .wp-block[data-type="dining-dashboard/menu-section-column"]{width:100%}.editor-styles-wrapper .wp-block .two-cols .wp-block[data-type="dining-dashboard/menu-section-column"]{width:50%}.editor-styles-wrapper .wp-block .three-cols .wp-block[data-type="dining-dashboard/menu-section-column"]{width:33.3333%}.editor-styles-wrapper .wp-block .four-cols .wp-block[data-type="dining-dashboard/menu-section-column"]{width:25%}
+.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-heading"] {
+  width: 100%; }
+
+.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  margin: 0; }
+  .editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"] .block-list-appender {
+    width: 96%;
+    margin: 0 auto; }
+
+.editor-styles-wrapper .wp-block .one-col .editor-block-list__layout,
+.editor-styles-wrapper .wp-block .two-cols .editor-block-list__layout,
+.editor-styles-wrapper .wp-block .three-cols .editor-block-list__layout,
+.editor-styles-wrapper .wp-block .four-cols .editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap; }
+
+.editor-styles-wrapper .wp-block .one-col .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 100%; }
+
+.editor-styles-wrapper .wp-block .two-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 50%; }
+
+.editor-styles-wrapper .wp-block .three-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 33.3333%; }
+
+.editor-styles-wrapper .wp-block .four-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 25%; }
+
+
+/*# sourceMappingURL=menu-section-block.css.map*/
