@@ -1,21 +1,10 @@
 /**
- * Internal dependencies.
- */
-import CustomAppender from './CustomAppender';
-
-/**
  * WordPress dependencies
  */
+const { __ } = wp.i18n;
 const { Component, Fragment } = wp.element;
-const { InnerBlocks } = wp.blockEditor;
+const { IconButton } = wp.components;
 const { dispatch, select } = wp.data;
-
-const ALLOWED_BLOCKS = ['core/paragraph'];
-//const ALLOWED_BLOCKS = ['dining-dashboard/menu-item'];
-
-const TEMPLATE = [
-    ['core/paragraph'],
-];
 
 class Editor extends Component {
 
@@ -26,46 +15,12 @@ class Editor extends Component {
 
     insertNewItem() {
         const { clientId, attributes } = this.props;
+        const menuItems = select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
+        const newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-section-column', attributes);
+        console.log(menuItems);
+        dispatch('core/block-editor').insertBlock(newMenuItem, menuItems.length, clientId, true);
 
-        const blockOrder = select('core/block-editor').getBlockOrder();
-        const insertAtIndex = blockOrder.indexOf(clientId) + 1;
-
-        console.log(attributes);
-
-        console.log('blockOrder');
-
-        console.log(blockOrder);
-        console.log(insertAtIndex);
-
-
-        const innerBlocks = TEMPLATE.map(
-            ([blockName, blockAttributes]) => (
-                wp.blocks.createBlock(
-                    blockName,
-                    Object.assign(
-                        {},
-                        blockAttributes,
-                        {
-                            showImage: attributes.showImages,
-                            showPrice: attributes.showPrices,
-                        }
-                    )
-                )
-            )
-        );
-
-        console.log(innerBlocks);
-
-        const newItem = wp.blocks.createBlock(
-            'dining-dashboard/menu-section-column',
-            attributes,
-            innerBlocks
-        );
-
-
-        console.log(newItem);
-
-        dispatch('core/block-editor').insertBlock(newItem, insertAtIndex);
+        this.forceUpdate()
     }
 
     render() {
@@ -75,17 +30,30 @@ class Editor extends Component {
             selectedParentClientId,
         } = this.props;
 
+        const menuItems = select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
+        console.log(menuItems);
+        
         return (
             <Fragment>
                 <div>
-                    <InnerBlocks
-                        allowedBlocks={ALLOWED_BLOCKS}
-                        template={TEMPLATE}
-                        templateInsertUpdatesSelection={false}
-                    />
-                    <CustomAppender
+                    <div className="menu-items">
+                        {
+                            menuItems.map(
+                                (item, index) => 
+                                <p>
+                                    {item.clientId}
+                                </p>
+                            )
+                        }
+                    </div>
+                    <IconButton
+                        icon="insert"
+                        label={__('Add New Menu Item')}
+                        labelPosition="bottom"
                         onClick={this.insertNewItem}
-                    />
+                    >
+                        {__('Add New Menu Item')}
+                    </IconButton>
                 </div>
             </Fragment>
         );

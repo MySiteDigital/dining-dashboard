@@ -1,4 +1,4 @@
-const path = require( 'path' );
+const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 // webpack.config.js
@@ -9,7 +9,7 @@ config.entry = {
 }
 
 config.output = {
-  path: path.resolve( process.cwd(), '../assets/blocks/' ),
+  path: path.resolve(process.cwd(), '../assets/blocks/'),
   filename: 'js/[name].js',
 }
 
@@ -19,38 +19,38 @@ config.module.rules = [
     test: /\.scss$/,
     use: [
       {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-              sourceMap: true
-          }
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          sourceMap: true
+        }
       },
       {
-          loader: 'css-loader',
-          options: {
-              sourceMap: true
-          }
+        loader: 'css-loader',
+        options: {
+          sourceMap: true
+        }
       },
       {
-          loader: 'sass-loader',
-          options: {
-              sourceMap: true
-          }
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true
+        }
       }
     ]
   },
   {
     test: /\.css?$/,
     use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader'
+      MiniCssExtractPlugin.loader,
+      'css-loader'
     ]
-  } 
+  }
 ];
 
 config.plugins = [
   ...config.plugins,
   new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+    filename: 'css/[name].css'
   })
 ];
 

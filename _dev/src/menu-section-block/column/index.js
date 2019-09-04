@@ -27,8 +27,6 @@ registerBlockType(
             }
         },
 
-        parent: ['dining-dashboard/menu-section'],
-
         supports: {
             inserter: false,
         },
@@ -41,8 +39,6 @@ registerBlockType(
             return (
                 <RichText.sectionTitle
                     tagName="h3"
-                    className={className}
-                    value={itemTitle}
                 />
             );
         }
