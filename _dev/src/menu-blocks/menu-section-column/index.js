@@ -1,5 +1,6 @@
 import Editor from './js/Editor.js';
 import Icons from '../utils/Icons';
+
 /**
  * WordPress dependencies
  */
@@ -31,6 +32,7 @@ registerBlockType(
 
         supports: {
             inserter: false,
+            html: false,
         },
 
         edit: Editor,

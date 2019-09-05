@@ -1873,7 +1873,8 @@ registerBlockType('dining-dashboard/menu-section', {
   supports: {
     align: ['wide', 'full'],
     default: "wide",
-    customClassName: false
+    customClassName: false,
+    html: false
   },
   align: {
     type: "string",
@@ -1930,6 +1931,9 @@ menu_section_heading_registerBlockType('dining-dashboard/menu-section-heading', 
   description: menu_section_heading_('A column inside the menu sections where menu items can be added'),
   icon: utils_Icons.MenuSectionHeading,
   category: 'menu-blocks',
+  supports: {
+    html: false
+  },
   edit: function edit(_ref) {
     var attributes = _ref.attributes,
         className = _ref.className;
@@ -1957,6 +1961,52 @@ menu_section_heading_registerBlockType('dining-dashboard/menu-section-heading', 
 var assertThisInitialized = __webpack_require__(26);
 var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
 
+// CONCATENATED MODULE: ./src/menu-blocks/menu-item/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+var menu_item_ = wp.i18n.__;
+var menu_item_registerBlockType = wp.blocks.registerBlockType;
+var menu_item_RichText = wp.editor.RichText;
+menu_item_registerBlockType('dining-dashboard/menu-item', {
+  title: menu_item_('Menu Item'),
+  description: menu_item_('A menu item which can be either added to a Menu Section or directly to a Menu'),
+  icon: utils_Icons.MenuItem,
+  category: 'menu-blocks',
+  supports: {
+    html: false
+  },
+  attributes: {
+    itemTitle: {
+      type: 'string'
+    }
+  },
+  edit: function edit(_ref) {
+    var attributes = _ref.attributes,
+        className = _ref.className;
+    var itemTitle = attributes.itemTitle;
+    var formatControls = ['bold', 'italic'];
+    return Object(external_this_wp_element_["createElement"])(menu_item_RichText, {
+      tagName: "h4",
+      placeholder: menu_item_('Menu Section Title'),
+      formattingControls: formatControls,
+      value: itemTitle
+    });
+  },
+  save: function save(_ref2) {
+    var attributes = _ref2.attributes,
+        className = _ref2.className;
+    var sectionTitle = attributes.sectionTitle;
+    return Object(external_this_wp_element_["createElement"])(menu_item_RichText.sectionTitle, {
+      tagName: "h3",
+      className: className,
+      value: itemTitle
+    });
+  }
+});
 // CONCATENATED MODULE: ./src/menu-blocks/menu-section-column/js/Editor.js
 
 
@@ -1969,6 +2019,7 @@ var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThi
 /**
  * WordPress dependencies
  */
+
 var js_Editor_ = wp.i18n.__;
 var Editor_wp$element = wp.element,
     Editor_Component = Editor_wp$element.Component,
@@ -2000,7 +2051,7 @@ function (_Component) {
           clientId = _this$props.clientId,
           attributes = _this$props.attributes;
       var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
-      var newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-section-column', attributes);
+      var newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-item', attributes);
       console.log(menuItems);
       dispatch('core/block-editor').insertBlock(newMenuItem, menuItems.length, clientId, true);
       this.forceUpdate();
@@ -2013,11 +2064,12 @@ function (_Component) {
           clientId = _this$props2.clientId,
           selectedParentClientId = _this$props2.selectedParentClientId;
       var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
-      console.log(menuItems);
       return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])("div", {
         className: "menu-items"
       }, menuItems.map(function (item, index) {
-        return Object(external_this_wp_element_["createElement"])("p", null, item.clientId);
+        return Object(external_this_wp_element_["createElement"])(/* Cannot get final name for export "default" in "./src/menu-blocks/menu-item/index.js" (known exports: , known reexports: ) */ undefined, {
+          itemTitle: item.clientId
+        });
       })), Object(external_this_wp_element_["createElement"])(IconButton, {
         icon: "insert",
         label: js_Editor_('Add New Menu Item'),
@@ -2058,7 +2110,8 @@ menu_section_column_registerBlockType('dining-dashboard/menu-section-column', {
     }
   },
   supports: {
-    inserter: false
+    inserter: false,
+    html: false
   },
   edit: menu_section_column_js_Editor,
   save: function save(_ref) {
@@ -2071,6 +2124,7 @@ menu_section_column_registerBlockType('dining-dashboard/menu-section-column', {
   }
 });
 // CONCATENATED MODULE: ./src/menu-blocks/index.js
+
 
 
 

@@ -94,17 +94,20 @@ class Menu {
             'show_ui'             => true,
             'show_in_menu'        => 'index.php',
             'supports'            => [ 
-                    'editor', 
-                    'title', 
-                    'author',
-                    'page-attributes',
+                'editor', 
+                'title', 
+                'author',
+                'page-attributes',
             ],
             'show_in_rest'        => true,
+            'template'            => [
+                [ 'dining-dashboard/menu-section' ],
+            ],
             'has_archive'         => $archive_slug,
             'rewrite'             => [
-                                        'slug' => 'menu',
-                                        'with_front' => false
-                                    ]
+                'slug' => 'menu',
+                'with_front' => false
+            ],
         ];
 
         register_post_type(

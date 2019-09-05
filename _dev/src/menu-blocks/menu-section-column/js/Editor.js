@@ -1,3 +1,4 @@
+import MenuItem from '../../menu-item';
 /**
  * WordPress dependencies
  */
@@ -16,7 +17,7 @@ class Editor extends Component {
     insertNewItem() {
         const { clientId, attributes } = this.props;
         const menuItems = select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
-        const newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-section-column', attributes);
+        const newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-item', attributes);
         console.log(menuItems);
         dispatch('core/block-editor').insertBlock(newMenuItem, menuItems.length, clientId, true);
 
@@ -31,7 +32,6 @@ class Editor extends Component {
         } = this.props;
 
         const menuItems = select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
-        console.log(menuItems);
         
         return (
             <Fragment>
@@ -40,9 +40,9 @@ class Editor extends Component {
                         {
                             menuItems.map(
                                 (item, index) => 
-                                <p>
-                                    {item.clientId}
-                                </p>
+                                <MenuItem 
+                                    itemTitle={item.clientId}
+                                />
                             )
                         }
                     </div>

@@ -18,6 +18,10 @@ registerBlockType(
 
         category: 'menu-blocks',
 
+        supports: {
+            html: false,
+        },
+
         edit({ attributes, className }) {
             const { sectionTitle } = attributes;
             const formatControls = ['bold', 'italic'];
