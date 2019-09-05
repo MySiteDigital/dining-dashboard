@@ -16,35 +16,35 @@ const Inspector = props => {
 		attributes,
 		setAttributes,
 		columnOptions,
-		onToggleSlideToggle,
-		onToggleImages,
-		onTogglePrices
 	} = props;
+
+	const {
+		sectionColumns
+	} = attributes;
 
 	return (
 		<InspectorControls>
 			<PanelBody title={__('Columns')} initialOpen={true}>
-				<ButtonGroup aria-label={__('Select Columns')}>
+				<ButtonGroup aria-label={__('Select Columns')} id="menu-section-inspector-columns">
 					{
 						map(
 							columnOptions, ({ name, columns, icon }) => (
 								<Tooltip text={name}>
-									<div >
-										<Button
-											isSmall
-											onClick={
-												() => {
-													setAttributes(
-														{
-															columns: columns,
-														}
-													);
-												}
+									<Button
+										isSmall
+										className={(columns === sectionColumns) ? 'is-selected' : 'test'}
+										onClick={
+											() => {
+												setAttributes(
+													{
+														sectionColumns: columns,
+													}
+												);
 											}
-										>
-											{icon}
-										</Button>
-									</div>
+										}
+									>
+										{icon}
+									</Button>
 								</Tooltip>
 							)
 						)
@@ -57,8 +57,8 @@ const Inspector = props => {
 					label={__('Slide Toggle')}
 					help={
 						attributes.hasSlideToggle ?
-							__('Menu Section has Slide Toggle display?') :
-							__('Set Slide Toggle settings for this Menu Section')
+						__('Menu Items in this section are initially hidden and open via Slide Toggle') :
+						__('Menu Items in this section are always shown') 
 					}
 					checked={attributes.hasSlideToggle}
 					onChange={

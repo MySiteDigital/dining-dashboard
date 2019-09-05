@@ -1,7 +1,15 @@
 /**
+ * Internal dependencies
+ */
+import InspectorControls from './Inspector';
+import Icons from '../../utils/Icons';
+import RowIcons from './RowIcons';
+
+/**
  * external dependencies
  */
 import map from 'lodash/map';
+
 /**
  * WordPress dependencies
  */
@@ -9,13 +17,6 @@ const { __ } = wp.i18n;
 const { Placeholder, ButtonGroup, Button, Tooltip } = wp.components;
 const { InnerBlocks } = wp.blockEditor;
 const { Component, Fragment } = wp.element;
-
-/**
- * Internal dependencies
- */
-import InspectorControls from './Inspector';
-import Icons from '../../utils/Icons';
-import RowIcons from './RowIcons';
 
 const ALLOWED_BLOCKS = [
     'core/heading',
@@ -25,25 +26,25 @@ const ALLOWED_BLOCKS = [
 const TEMPLATE = {
     1: [
         ['dining-dashboard/menu-section-heading'],
-        ['dining-dashboard/menu-section-column', { width: '100' }],
+        ['dining-dashboard/menu-section-column'],
     ],
     2: [
         ['dining-dashboard/menu-section-heading'],
-        ['dining-dashboard/menu-section-column', { width: '50' }],
-        ['dining-dashboard/menu-section-column', { width: '50' }],
+        ['dining-dashboard/menu-section-column'],
+        ['dining-dashboard/menu-section-column'],
     ],
     3: [
         ['dining-dashboard/menu-section-heading'],
-        ['dining-dashboard/menu-section-column', { width: '33.333' }],
-        ['dining-dashboard/menu-section-column', { width: '33.333' }],
-        ['dining-dashboard/menu-section-column', { width: '33.333' }],
+        ['dining-dashboard/menu-section-column'],
+        ['dining-dashboard/menu-section-column'],
+        ['dining-dashboard/menu-section-column'],
     ],
     4: [
         ['dining-dashboard/menu-section-heading'],
-        ['dining-dashboard/menu-section-column', { width: '75' }],
-        ['dining-dashboard/menu-section-column', { width: '75' }],
-        ['dining-dashboard/menu-section-column', { width: '75' }],
-        ['dining-dashboard/menu-section-column', { width: '75' }],
+        ['dining-dashboard/menu-section-column'],
+        ['dining-dashboard/menu-section-column'],
+        ['dining-dashboard/menu-section-column'],
+        ['dining-dashboard/menu-section-column'],
     ]
 };
 
@@ -62,39 +63,10 @@ const columnClasses = [
     'four-cols'
 ];
 
-function getActiveColumn(columns) {
-    // for ( const style of new TokenList( className ).values() ) {
-    // 	if ( style.indexOf( 'is-style-' ) === -1 ) {
-    // 		continue;
-    // 	}
-
-    // 	const potentialStyleName = style.substring( 9 );
-    // 	const activeStyle = find( styles, { name: potentialStyleName } );
-
-    // 	if ( activeStyle ) {
-    // 		return activeStyle;
-    // 	}
-    // }
-
-    // return find( styles, 'isDefault' );
-}
-
-
-
 class Editor extends Component {
 
     constructor() {
         super(...arguments);
-    }
-
-    updateColumns(column) {
-        const { attributes, setAttributes } = this.props;
-
-        const activeColumn = getActiveColumn(layoutOptions);
-        const updatedClassName = replaceActiveColumn(
-            activeColumn,
-            column
-        );
     }
 
     render() {
@@ -104,20 +76,16 @@ class Editor extends Component {
         } = this.props;
 
         const {
-            id,
-            columns
+            sectionColumns
         } = attributes;
 
-        console.log(columns);
-        console.log(columnClasses[columns]);
-
-        if (!columns) {
+        if (!sectionColumns) {
             return (
                 <Fragment>
                     <Placeholder
                         key="placeholder"
                         icon={Icons.MenuSection}
-                        label={__('Menu Section')}
+                        label={<span>{__('Menu Section')}</span>}
                         instructions={__('Select the number of columns for this menu section.')}
                     >
                         <ButtonGroup aria-label={__('Select Menu Section Columns')}>
@@ -125,22 +93,20 @@ class Editor extends Component {
                                 map(columnOptions, ({ name, columns, icon }) =>
                                     (
                                         <Tooltip text={name}>
-                                            <div>
-                                                <Button
-                                                    isLarge
-                                                    onClick={
-                                                        () => {
-                                                            setAttributes(
-                                                                {
-                                                                    columns: columns,
-                                                                }
-                                                            );
-                                                        }
+                                            <Button
+                                                isLarge
+                                                onClick={
+                                                    () => {
+                                                        setAttributes(
+                                                            {
+                                                                sectionColumns: columns,
+                                                            }
+                                                        );
                                                     }
-                                                >
-                                                    {icon}
-                                                </Button>
-                                            </div>
+                                                }
+                                            >
+                                                {icon}
+                                            </Button>
                                         </Tooltip>
                                     )
                                 )
@@ -158,12 +124,11 @@ class Editor extends Component {
                     setAttributes={setAttributes}
                     columnOptions={columnOptions}
                 />
-                <div className={columnClasses[columns]}>
+                <div className={columnClasses[sectionColumns]}>
                     <InnerBlocks
-                        template={TEMPLATE[columns]}
+                        template={TEMPLATE[sectionColumns]}
                         templateLock="all"
                         allowedBlocks={ALLOWED_BLOCKS}
-                        templateInsertUpdatesSelection={columns === 1}
                         renderAppender={() => (null)}
                     />
                 </div>

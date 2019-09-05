@@ -36,7 +36,7 @@ registerBlockType(
             id: {
                 type: 'number',
             },
-            columns: {
+            sectionColumns: {
                 type: 'number',
             },
             hasSlideToggle: {

@@ -1,5 +1,30 @@
 .editor-styles-wrapper .wp-block {
 
+    &[data-type="dining-dashboard/menu-section"] {
+
+        .components-placeholder {
+            &__label {
+                display: block;
+
+                svg {
+                    width: 48px;
+                    height: 48px;
+                }
+
+                span {
+                    display: block;
+                    font-weight: bold;
+                }
+            }
+
+            button {
+                height: auto;
+                margin: 0 10px;
+                padding: 12px;
+            }
+        }
+    }
+
     .wp-block[data-type="dining-dashboard/menu-section-heading"] {
         width: 100%;
     }
@@ -37,5 +62,34 @@
 
     .four-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
         width: 25%;
+    }
+}
+
+#menu-section-inspector-columns {
+    button {
+        width: calc(50% - 20px);
+        height: auto;
+        margin: 10px;
+        padding: 12px;
+
+        &.is-selected {
+            box-shadow: 0 0 0 2px #11a0d2;
+        }
+
+        svg {
+            margin: 0 auto;
+        }
+    }
+}
+
+.add-new-menu-item {
+    width: 100%;
+    background: rgba(139,139,150,0.1);
+    outline: 1px dashed #8d96a0;
+
+    &:hover,
+    &:active,
+    &:focus {
+        outline: 1px solid #8d96a0;
     }
 }

@@ -49,6 +49,7 @@ class Editor extends Component {
                     <IconButton
                         icon="insert"
                         label={__('Add New Menu Item')}
+                        className="add-new-menu-item"
                         labelPosition="bottom"
                         onClick={this.insertNewItem}
                     >

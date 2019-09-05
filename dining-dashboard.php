@@ -68,7 +68,7 @@ final class DiningDashboard {
         include_once( DD_PLUGIN_PATH . 'includes/post-types/class-dining-dashboard-menu.php' );
 
         include_once( DD_PLUGIN_PATH . 'includes/blocks/trait-dining-dashboard-block-trait.php' );
-        include_once( DD_PLUGIN_PATH . 'includes/blocks/class-dining-dashboard-menu-section.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/blocks/class-dining-dashboard-menu-blocks.php' );
 
         if ( is_admin() ) {
             include_once( DD_PLUGIN_PATH . 'includes/admin/class-dining-dashboard-admin.php' );

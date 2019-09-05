@@ -1451,35 +1451,35 @@ var _wp$keycodes = wp.keycodes,
 var Inspector_Inspector = function Inspector(props) {
   var attributes = props.attributes,
       setAttributes = props.setAttributes,
-      columnOptions = props.columnOptions,
-      onToggleSlideToggle = props.onToggleSlideToggle,
-      onToggleImages = props.onToggleImages,
-      onTogglePrices = props.onTogglePrices;
+      columnOptions = props.columnOptions;
+  var sectionColumns = attributes.sectionColumns;
   return Object(external_this_wp_element_["createElement"])(InspectorControls, null, Object(external_this_wp_element_["createElement"])(PanelBody, {
     title: __('Columns'),
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(ButtonGroup, {
-    "aria-label": __('Select Columns')
+    "aria-label": __('Select Columns'),
+    id: "menu-section-inspector-columns"
   }, map_default()(columnOptions, function (_ref) {
     var name = _ref.name,
         columns = _ref.columns,
         icon = _ref.icon;
     return Object(external_this_wp_element_["createElement"])(Tooltip, {
       text: name
-    }, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])(Button, {
+    }, Object(external_this_wp_element_["createElement"])(Button, {
       isSmall: true,
+      className: columns === sectionColumns ? 'is-selected' : 'test',
       onClick: function onClick() {
         setAttributes({
-          columns: columns
+          sectionColumns: columns
         });
       }
-    }, icon)));
+    }, icon));
   }))), Object(external_this_wp_element_["createElement"])(PanelBody, {
     title: __('Section Settings'),
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(ToggleControl, {
     label: __('Slide Toggle'),
-    help: attributes.hasSlideToggle ? __('Menu Section has Slide Toggle display?') : __('Set Slide Toggle settings for this Menu Section'),
+    help: attributes.hasSlideToggle ? __('Menu Items in this section are initially hidden and open via Slide Toggle') : __('Menu Items in this section are always shown'),
     checked: attributes.hasSlideToggle,
     onChange: function onChange() {
       setAttributes({
@@ -1729,8 +1729,15 @@ RowIcons.colFour = Object(external_this_wp_element_["createElement"])("svg", {
 
 
 /**
+ * Internal dependencies
+ */
+
+
+
+/**
  * external dependencies
  */
+
 
 /**
  * WordPress dependencies
@@ -1746,39 +1753,12 @@ var InnerBlocks = wp.blockEditor.InnerBlocks;
 var _wp$element = wp.element,
     Component = _wp$element.Component,
     Fragment = _wp$element.Fragment;
-/**
- * Internal dependencies
- */
-
-
-
-
 var ALLOWED_BLOCKS = ['core/heading', 'core/column'];
 var TEMPLATE = {
-  1: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column', {
-    width: '100'
-  }]],
-  2: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column', {
-    width: '50'
-  }], ['dining-dashboard/menu-section-column', {
-    width: '50'
-  }]],
-  3: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column', {
-    width: '33.333'
-  }], ['dining-dashboard/menu-section-column', {
-    width: '33.333'
-  }], ['dining-dashboard/menu-section-column', {
-    width: '33.333'
-  }]],
-  4: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column', {
-    width: '75'
-  }], ['dining-dashboard/menu-section-column', {
-    width: '75'
-  }], ['dining-dashboard/menu-section-column', {
-    width: '75'
-  }], ['dining-dashboard/menu-section-column', {
-    width: '75'
-  }]]
+  1: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column']],
+  2: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column'], ['dining-dashboard/menu-section-column']],
+  3: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column'], ['dining-dashboard/menu-section-column'], ['dining-dashboard/menu-section-column']],
+  4: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column'], ['dining-dashboard/menu-section-column'], ['dining-dashboard/menu-section-column'], ['dining-dashboard/menu-section-column']]
 };
 var Editor_columnOptions = [{
   columns: 1,
@@ -1799,19 +1779,6 @@ var Editor_columnOptions = [{
 }];
 var columnClasses = ['', 'one-col', 'two-cols', 'three-cols', 'four-cols'];
 
-function getActiveColumn(columns) {// for ( const style of new TokenList( className ).values() ) {
-  // 	if ( style.indexOf( 'is-style-' ) === -1 ) {
-  // 		continue;
-  // 	}
-  // 	const potentialStyleName = style.substring( 9 );
-  // 	const activeStyle = find( styles, { name: potentialStyleName } );
-  // 	if ( activeStyle ) {
-  // 		return activeStyle;
-  // 	}
-  // }
-  // return find( styles, 'isDefault' );
-}
-
 var Editor_Editor =
 /*#__PURE__*/
 function (_Component) {
@@ -1824,30 +1791,18 @@ function (_Component) {
   }
 
   createClass_default()(Editor, [{
-    key: "updateColumns",
-    value: function updateColumns(column) {
+    key: "render",
+    value: function render() {
       var _this$props = this.props,
           attributes = _this$props.attributes,
           setAttributes = _this$props.setAttributes;
-      var activeColumn = getActiveColumn(layoutOptions);
-      var updatedClassName = replaceActiveColumn(activeColumn, column);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          attributes = _this$props2.attributes,
-          setAttributes = _this$props2.setAttributes;
-      var id = attributes.id,
-          columns = attributes.columns;
-      console.log(columns);
-      console.log(columnClasses[columns]);
+      var sectionColumns = attributes.sectionColumns;
 
-      if (!columns) {
+      if (!sectionColumns) {
         return Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])(Placeholder, {
           key: "placeholder",
           icon: utils_Icons.MenuSection,
-          label: Editor_('Menu Section'),
+          label: Object(external_this_wp_element_["createElement"])("span", null, Editor_('Menu Section')),
           instructions: Editor_('Select the number of columns for this menu section.')
         }, Object(external_this_wp_element_["createElement"])(Editor_ButtonGroup, {
           "aria-label": Editor_('Select Menu Section Columns')
@@ -1857,14 +1812,14 @@ function (_Component) {
               icon = _ref.icon;
           return Object(external_this_wp_element_["createElement"])(Editor_Tooltip, {
             text: name
-          }, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])(Editor_Button, {
+          }, Object(external_this_wp_element_["createElement"])(Editor_Button, {
             isLarge: true,
             onClick: function onClick() {
               setAttributes({
-                columns: columns
+                sectionColumns: columns
               });
             }
-          }, icon)));
+          }, icon));
         }))));
       }
 
@@ -1873,12 +1828,11 @@ function (_Component) {
         setAttributes: setAttributes,
         columnOptions: Editor_columnOptions
       }), Object(external_this_wp_element_["createElement"])("div", {
-        className: columnClasses[columns]
+        className: columnClasses[sectionColumns]
       }, Object(external_this_wp_element_["createElement"])(InnerBlocks, {
-        template: TEMPLATE[columns],
+        template: TEMPLATE[sectionColumns],
         templateLock: "all",
         allowedBlocks: ALLOWED_BLOCKS,
-        templateInsertUpdatesSelection: columns === 1,
         renderAppender: function renderAppender() {
           return null;
         }
@@ -1929,7 +1883,7 @@ registerBlockType('dining-dashboard/menu-section', {
     id: {
       type: 'number'
     },
-    columns: {
+    sectionColumns: {
       type: 'number'
     },
     hasSlideToggle: {
@@ -2067,6 +2021,7 @@ function (_Component) {
       })), Object(external_this_wp_element_["createElement"])(IconButton, {
         icon: "insert",
         label: js_Editor_('Add New Menu Item'),
+        className: "add-new-menu-item",
         labelPosition: "bottom",
         onClick: this.insertNewItem
       }, js_Editor_('Add New Menu Item'))));
