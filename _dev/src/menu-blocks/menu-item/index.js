@@ -35,7 +35,7 @@ registerBlockType(
             return (
                 <RichText
                     tagName="h4"
-                    placeholder={__('Menu Section Title')}
+                    placeholder={__('Item Title')}
                     formattingControls={formatControls}
                     value={itemTitle}
                 />

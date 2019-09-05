@@ -1753,7 +1753,7 @@ var InnerBlocks = wp.blockEditor.InnerBlocks;
 var _wp$element = wp.element,
     Component = _wp$element.Component,
     Fragment = _wp$element.Fragment;
-var ALLOWED_BLOCKS = ['core/heading', 'core/column'];
+var ALLOWED_BLOCKS = ['dining-dashboard/menu-section-heading', 'dining-dashboard/menu-section-column'];
 var TEMPLATE = {
   1: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column']],
   2: [['dining-dashboard/menu-section-heading'], ['dining-dashboard/menu-section-column'], ['dining-dashboard/menu-section-column']],
@@ -1831,7 +1831,6 @@ function (_Component) {
         className: columnClasses[sectionColumns]
       }, Object(external_this_wp_element_["createElement"])(InnerBlocks, {
         template: TEMPLATE[sectionColumns],
-        templateLock: "all",
         allowedBlocks: ALLOWED_BLOCKS,
         renderAppender: function renderAppender() {
           return null;
@@ -1961,52 +1960,6 @@ menu_section_heading_registerBlockType('dining-dashboard/menu-section-heading', 
 var assertThisInitialized = __webpack_require__(26);
 var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
 
-// CONCATENATED MODULE: ./src/menu-blocks/menu-item/index.js
-
-
-/**
- * WordPress dependencies
- */
-
-var menu_item_ = wp.i18n.__;
-var menu_item_registerBlockType = wp.blocks.registerBlockType;
-var menu_item_RichText = wp.editor.RichText;
-menu_item_registerBlockType('dining-dashboard/menu-item', {
-  title: menu_item_('Menu Item'),
-  description: menu_item_('A menu item which can be either added to a Menu Section or directly to a Menu'),
-  icon: utils_Icons.MenuItem,
-  category: 'menu-blocks',
-  supports: {
-    html: false
-  },
-  attributes: {
-    itemTitle: {
-      type: 'string'
-    }
-  },
-  edit: function edit(_ref) {
-    var attributes = _ref.attributes,
-        className = _ref.className;
-    var itemTitle = attributes.itemTitle;
-    var formatControls = ['bold', 'italic'];
-    return Object(external_this_wp_element_["createElement"])(menu_item_RichText, {
-      tagName: "h4",
-      placeholder: menu_item_('Menu Section Title'),
-      formattingControls: formatControls,
-      value: itemTitle
-    });
-  },
-  save: function save(_ref2) {
-    var attributes = _ref2.attributes,
-        className = _ref2.className;
-    var sectionTitle = attributes.sectionTitle;
-    return Object(external_this_wp_element_["createElement"])(menu_item_RichText.sectionTitle, {
-      tagName: "h3",
-      className: className,
-      value: itemTitle
-    });
-  }
-});
 // CONCATENATED MODULE: ./src/menu-blocks/menu-section-column/js/Editor.js
 
 
@@ -2019,11 +1972,11 @@ menu_item_registerBlockType('dining-dashboard/menu-item', {
 /**
  * WordPress dependencies
  */
-
 var js_Editor_ = wp.i18n.__;
 var Editor_wp$element = wp.element,
     Editor_Component = Editor_wp$element.Component,
     Editor_Fragment = Editor_wp$element.Fragment;
+var Editor_InnerBlocks = wp.blockEditor.InnerBlocks;
 var IconButton = wp.components.IconButton;
 var _wp$data = wp.data,
     dispatch = _wp$data.dispatch,
@@ -2052,25 +2005,25 @@ function (_Component) {
           attributes = _this$props.attributes;
       var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
       var newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-item', attributes);
-      console.log(menuItems);
       dispatch('core/block-editor').insertBlock(newMenuItem, menuItems.length, clientId, true);
-      this.forceUpdate();
     }
   }, {
     key: "render",
     value: function render() {
-      var _this$props2 = this.props,
-          isSelected = _this$props2.isSelected,
-          clientId = _this$props2.clientId,
-          selectedParentClientId = _this$props2.selectedParentClientId;
+      var clientId = this.props.clientId;
       var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
-      return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])("div", {
-        className: "menu-items"
-      }, menuItems.map(function (item, index) {
-        return Object(external_this_wp_element_["createElement"])(/* Cannot get final name for export "default" in "./src/menu-blocks/menu-item/index.js" (known exports: , known reexports: ) */ undefined, {
-          itemTitle: item.clientId
-        });
-      })), Object(external_this_wp_element_["createElement"])(IconButton, {
+
+      if (!menuItems.length) {
+        this.insertNewItem();
+      }
+
+      return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])(Editor_InnerBlocks, {
+        template: menuItems,
+        allowedBlocks: ['dining-dashboard/menu-item'],
+        renderAppender: function renderAppender() {
+          return null;
+        }
+      }), Object(external_this_wp_element_["createElement"])(IconButton, {
         icon: "insert",
         label: js_Editor_('Add New Menu Item'),
         className: "add-new-menu-item",
@@ -2120,6 +2073,52 @@ menu_section_column_registerBlockType('dining-dashboard/menu-section-column', {
     var sectionTitle = attributes.sectionTitle;
     return Object(external_this_wp_element_["createElement"])(menu_section_column_RichText.sectionTitle, {
       tagName: "h3"
+    });
+  }
+});
+// CONCATENATED MODULE: ./src/menu-blocks/menu-item/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+var menu_item_ = wp.i18n.__;
+var menu_item_registerBlockType = wp.blocks.registerBlockType;
+var menu_item_RichText = wp.editor.RichText;
+menu_item_registerBlockType('dining-dashboard/menu-item', {
+  title: menu_item_('Menu Item'),
+  description: menu_item_('A menu item which can be either added to a Menu Section or directly to a Menu'),
+  icon: utils_Icons.MenuItem,
+  category: 'menu-blocks',
+  supports: {
+    html: false
+  },
+  attributes: {
+    itemTitle: {
+      type: 'string'
+    }
+  },
+  edit: function edit(_ref) {
+    var attributes = _ref.attributes,
+        className = _ref.className;
+    var itemTitle = attributes.itemTitle;
+    var formatControls = ['bold', 'italic'];
+    return Object(external_this_wp_element_["createElement"])(menu_item_RichText, {
+      tagName: "h4",
+      placeholder: menu_item_('Item Title'),
+      formattingControls: formatControls,
+      value: itemTitle
+    });
+  },
+  save: function save(_ref2) {
+    var attributes = _ref2.attributes,
+        className = _ref2.className;
+    var sectionTitle = attributes.sectionTitle;
+    return Object(external_this_wp_element_["createElement"])(menu_item_RichText.sectionTitle, {
+      tagName: "h3",
+      className: className,
+      value: itemTitle
     });
   }
 });

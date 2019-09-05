@@ -154,7 +154,7 @@ class Menu {
         if ( $post->post_type === self::$post_type_slug  ) {
             $allowed_block_types = [
                 'dining-dashboard/menu-section',
-                'dining-dashboard/menu-section-column',
+                'dining-dashboard/menu-item',
             ];
         }
         return $allowed_block_types;

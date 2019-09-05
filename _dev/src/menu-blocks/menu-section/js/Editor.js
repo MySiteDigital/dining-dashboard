@@ -19,8 +19,8 @@ const { InnerBlocks } = wp.blockEditor;
 const { Component, Fragment } = wp.element;
 
 const ALLOWED_BLOCKS = [
-    'core/heading',
-    'core/column'
+    'dining-dashboard/menu-section-heading',
+    'dining-dashboard/menu-section-column'
 ];
 
 const TEMPLATE = {
@@ -127,7 +127,6 @@ class Editor extends Component {
                 <div className={columnClasses[sectionColumns]}>
                     <InnerBlocks
                         template={TEMPLATE[sectionColumns]}
-                        templateLock="all"
                         allowedBlocks={ALLOWED_BLOCKS}
                         renderAppender={() => (null)}
                     />
