@@ -3,7 +3,6 @@
  */
 const RowIcons = {};
 
-
 RowIcons.columns =
 	<svg aria-hidden className="dashicon" role="img" focusable="false" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 		<g fillRule="evenodd" transform="translate(3 3)"><path d="m16.0833333 0h-14.16666663c-1.05416667 0-1.91666667.9-1.91666667 2v14c0 1.1.8625 2 1.91666667 2h14.16666663c1.0541667 0 1.9166667-.9 1.9166667-2v-14c0-1.1-.8625-2-1.9166667-2zm0 16h-14.16666663v-14h14.16666663z" fillRule="nonzero" /><path d="m8 0h2v18h-2z" /></g>

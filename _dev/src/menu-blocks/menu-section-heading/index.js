@@ -1,3 +1,4 @@
+import Icons from '../utils/Icons';
 /**
  * WordPress dependencies
  */
@@ -13,8 +14,9 @@ registerBlockType(
 
         description: __('A column inside the menu sections where menu items can be added'),
 
-        category: 'menu-blocks',
+        icon: Icons.MenuSectionHeading,
 
+        category: 'menu-blocks',
 
         edit({ attributes, className }) {
             const { sectionTitle } = attributes;

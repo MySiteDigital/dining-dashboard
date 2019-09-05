@@ -1,11 +1,11 @@
+import Editor from './js/Editor.js';
+import Icons from '../utils/Icons';
 /**
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText } = wp.editor;
-
-import Editor from './js/Editor.js';
 
 
 registerBlockType(
@@ -14,6 +14,8 @@ registerBlockType(
         title: __('Section Column'),
 
         description: __('A column within a menu section'),
+
+        icon: Icons.MenuSectionColumn,
 
         category: 'menu-blocks',
 

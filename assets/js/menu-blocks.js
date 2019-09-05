@@ -1401,42 +1401,6 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: external {"this":["wp","element"]}
 var external_this_wp_element_ = __webpack_require__(0);
 
-// CONCATENATED MODULE: ./src/menu-section-block/heading/index.js
-
-
-/**
- * WordPress dependencies
- */
-var __ = wp.i18n.__;
-var registerBlockType = wp.blocks.registerBlockType;
-var RichText = wp.editor.RichText;
-registerBlockType('dining-dashboard/menu-section-heading', {
-  title: __('Section Heading'),
-  description: __('A column inside the menu sections where menu items can be added'),
-  category: 'menu-blocks',
-  edit: function edit(_ref) {
-    var attributes = _ref.attributes,
-        className = _ref.className;
-    var sectionTitle = attributes.sectionTitle;
-    var formatControls = ['bold', 'italic'];
-    return Object(external_this_wp_element_["createElement"])(RichText, {
-      tagName: "h3",
-      placeholder: __('Menu Section Title'),
-      formattingControls: formatControls,
-      value: sectionTitle
-    });
-  },
-  save: function save(_ref2) {
-    var attributes = _ref2.attributes,
-        className = _ref2.className;
-    var sectionTitle = attributes.sectionTitle;
-    return Object(external_this_wp_element_["createElement"])(RichText.sectionTitle, {
-      tagName: "h3",
-      className: className,
-      value: itemTitle
-    });
-  }
-});
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
 var classCallCheck = __webpack_require__(17);
 var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
@@ -1453,129 +1417,15 @@ var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possi
 var getPrototypeOf = __webpack_require__(14);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
-var assertThisInitialized = __webpack_require__(26);
-var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
 var inherits = __webpack_require__(13);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
-// CONCATENATED MODULE: ./src/menu-section-block/column/js/Editor.js
-
-
-
-
-
-
-
-
-/**
- * WordPress dependencies
- */
-var Editor_ = wp.i18n.__;
-var _wp$element = wp.element,
-    Component = _wp$element.Component,
-    Fragment = _wp$element.Fragment;
-var IconButton = wp.components.IconButton;
-var _wp$data = wp.data,
-    dispatch = _wp$data.dispatch,
-    Editor_select = _wp$data.select;
-
-var Editor_Editor =
-/*#__PURE__*/
-function (_Component) {
-  inherits_default()(Editor, _Component);
-
-  function Editor() {
-    var _this;
-
-    classCallCheck_default()(this, Editor);
-
-    _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(Editor).apply(this, arguments));
-    _this.insertNewItem = _this.insertNewItem.bind(assertThisInitialized_default()(_this));
-    return _this;
-  }
-
-  createClass_default()(Editor, [{
-    key: "insertNewItem",
-    value: function insertNewItem() {
-      var _this$props = this.props,
-          clientId = _this$props.clientId,
-          attributes = _this$props.attributes;
-      var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
-      var newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-section-column', attributes);
-      console.log(menuItems);
-      dispatch('core/block-editor').insertBlock(newMenuItem, menuItems.length, clientId, true);
-      this.forceUpdate();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          isSelected = _this$props2.isSelected,
-          clientId = _this$props2.clientId,
-          selectedParentClientId = _this$props2.selectedParentClientId;
-      var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
-      console.log(menuItems);
-      return Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])("div", {
-        className: "menu-items"
-      }, menuItems.map(function (item, index) {
-        return Object(external_this_wp_element_["createElement"])("p", null, item.clientId);
-      })), Object(external_this_wp_element_["createElement"])(IconButton, {
-        icon: "insert",
-        label: Editor_('Add New Menu Item'),
-        labelPosition: "bottom",
-        onClick: this.insertNewItem
-      }, Editor_('Add New Menu Item'))));
-    }
-  }]);
-
-  return Editor;
-}(Component);
-
-/* harmony default export */ var js_Editor = (Editor_Editor);
-// CONCATENATED MODULE: ./src/menu-section-block/column/index.js
-
-
-/**
- * WordPress dependencies
- */
-var column_ = wp.i18n.__;
-var column_registerBlockType = wp.blocks.registerBlockType;
-var column_RichText = wp.editor.RichText;
-
-column_registerBlockType('dining-dashboard/menu-section-column', {
-  title: column_('Section Column'),
-  description: column_('A column within a menu section'),
-  category: 'menu-blocks',
-  attributes: {
-    width: {
-      type: 'string'
-    },
-    showInserter: {
-      type: 'boolean',
-      default: true
-    }
-  },
-  supports: {
-    inserter: false
-  },
-  edit: js_Editor,
-  save: function save(_ref) {
-    var attributes = _ref.attributes,
-        className = _ref.className;
-    var sectionTitle = attributes.sectionTitle;
-    return Object(external_this_wp_element_["createElement"])(column_RichText.sectionTitle, {
-      tagName: "h3"
-    });
-  }
-});
 // EXTERNAL MODULE: ./node_modules/lodash/map.js
 var map = __webpack_require__(12);
 var map_default = /*#__PURE__*/__webpack_require__.n(map);
 
-// CONCATENATED MODULE: ./src/menu-section-block/js/Inspector.js
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section/js/Inspector.js
 
 
 /**
@@ -1586,7 +1436,7 @@ var map_default = /*#__PURE__*/__webpack_require__.n(map);
  * WordPress dependencies.
  */
 
-var Inspector_ = wp.i18n.__;
+var __ = wp.i18n.__;
 var _wp$components = wp.components,
     PanelBody = _wp$components.PanelBody,
     ToggleControl = _wp$components.ToggleControl,
@@ -1606,10 +1456,10 @@ var Inspector_Inspector = function Inspector(props) {
       onToggleImages = props.onToggleImages,
       onTogglePrices = props.onTogglePrices;
   return Object(external_this_wp_element_["createElement"])(InspectorControls, null, Object(external_this_wp_element_["createElement"])(PanelBody, {
-    title: Inspector_('Columns'),
+    title: __('Columns'),
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(ButtonGroup, {
-    "aria-label": Inspector_('Select Columns')
+    "aria-label": __('Select Columns')
   }, map_default()(columnOptions, function (_ref) {
     var name = _ref.name,
         columns = _ref.columns,
@@ -1625,11 +1475,11 @@ var Inspector_Inspector = function Inspector(props) {
       }
     }, icon)));
   }))), Object(external_this_wp_element_["createElement"])(PanelBody, {
-    title: Inspector_('Section Settings'),
+    title: __('Section Settings'),
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(ToggleControl, {
-    label: Inspector_('Slide Toggle'),
-    help: attributes.hasSlideToggle ? Inspector_('Menu Section has Slide Toggle display?') : Inspector_('Set Slide Toggle settings for this Menu Section'),
+    label: __('Slide Toggle'),
+    help: attributes.hasSlideToggle ? __('Menu Section has Slide Toggle display?') : __('Set Slide Toggle settings for this Menu Section'),
     checked: attributes.hasSlideToggle,
     onChange: function onChange() {
       setAttributes({
@@ -1637,8 +1487,8 @@ var Inspector_Inspector = function Inspector(props) {
       });
     }
   }), Object(external_this_wp_element_["createElement"])(ToggleControl, {
-    label: Inspector_('Images'),
-    help: attributes.showImages ? Inspector_('Showing images for each item') : Inspector_('Toggle to show images for each item.'),
+    label: __('Images'),
+    help: attributes.showImages ? __('Showing images for each item') : __('Toggle to show images for each item.'),
     checked: attributes.showImages,
     onChange: function onChange() {
       setAttributes({
@@ -1646,8 +1496,8 @@ var Inspector_Inspector = function Inspector(props) {
       });
     }
   }), Object(external_this_wp_element_["createElement"])(ToggleControl, {
-    label: Inspector_('Prices'),
-    help: attributes.showPrices ? Inspector_('Showing the price of each item') : Inspector_('Toggle to show the price of each item.'),
+    label: __('Prices'),
+    help: attributes.showPrices ? __('Showing the price of each item') : __('Toggle to show the price of each item.'),
     checked: attributes.showPrices,
     onChange: function onChange() {
       setAttributes({
@@ -1658,43 +1508,136 @@ var Inspector_Inspector = function Inspector(props) {
 };
 
 /* harmony default export */ var js_Inspector = (Inspector_Inspector);
-// CONCATENATED MODULE: ./src/utils/Icons.js
+// CONCATENATED MODULE: ./src/menu-blocks/utils/Icons.js
 
 
 /**
  * Custom icons
  */
 var Icons = {};
-Icons.menu = Object(external_this_wp_element_["createElement"])("svg", {
-  "enable-background": "new 0 0 512 512",
-  version: "1.1",
-  viewBox: "0 0 512 512",
-  width: "32px",
-  height: "32px"
+Icons.MenuSection = Object(external_this_wp_element_["createElement"])("svg", {
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
 }, Object(external_this_wp_element_["createElement"])("path", {
-  d: "m465.27 512h-334.54c-26.607 0-48.253-21.647-48.253-48.253v-415.49c0-26.606 21.647-48.253 48.253-48.253h334.54c26.607 0 48.253 21.647 48.253 48.253v273.24c0 7.641-6.195 13.838-13.838 13.838s-13.838-6.197-13.838-13.838v-273.24c0-11.346-9.231-20.577-20.577-20.577h-334.54c-11.346 0-20.577 9.231-20.577 20.577v415.5c0 11.346 9.231 20.577 20.577 20.577h334.54c11.346 0 20.577-9.231 20.577-20.577v-56.251c0-7.641 6.195-13.838 13.838-13.838s13.838 6.197 13.838 13.838v56.249c0 26.607-21.647 48.254-48.253 48.254z"
-}), Object(external_this_wp_element_["createElement"])("g", {
-  transform: "translate(42,-32)"
+  d: "M19.1873 22.9996H4.81267C3.66941 22.9996 2.73932 22.0695 2.73932 20.9263V3.07335C2.73932 1.93014 3.66945 1 4.81267 1H19.1873C20.3306 1 21.2606 1.93014 21.2606 3.07335V14.814C21.2606 15.1423 20.9945 15.4086 20.6661 15.4086C20.3376 15.4086 20.0715 15.1423 20.0715 14.814V3.07335C20.0715 2.58583 19.6748 2.18919 19.1873 2.18919H4.81267C4.32515 2.18919 3.92851 2.58583 3.92851 3.07335V20.9267C3.92851 21.4142 4.32515 21.8109 4.81267 21.8109H19.1873C19.6748 21.8109 20.0715 21.4142 20.0715 20.9267V18.5097C20.0715 18.1814 20.3376 17.9151 20.6661 17.9151C20.9945 17.9151 21.2606 18.1814 21.2606 18.5097V20.9266C21.2606 22.0699 20.3305 23 19.1873 23V22.9996Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M7.53987 8.65807C7.47018 8.77598 7.36297 8.81349 7.26114 8.81349C7.16463 8.81349 7.06284 8.78131 6.99851 8.65807L6.4893 7.7254V9.78904C6.4893 9.96057 6.28025 10.0463 6.07126 10.0463C5.86222 10.0463 5.65313 9.96062 5.65313 9.78904V6.54614C5.65313 6.24059 5.86217 6.1281 6.07126 6.1281C6.37139 6.1281 6.50008 6.1602 6.71982 6.54614L7.27196 7.51099L7.82402 6.54614C8.04376 6.1602 8.17241 6.1281 8.47259 6.1281C8.68695 6.1281 8.89062 6.24063 8.89062 6.54614V9.78904C8.89062 9.96057 8.68158 10.0463 8.47259 10.0463C8.26354 10.0463 8.05446 9.96062 8.05446 9.78904V7.77899L7.53987 8.65807Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M10.3062 7.76304H11.1102C11.271 7.76304 11.3621 7.91846 11.3621 8.08999C11.3621 8.23471 11.2871 8.40619 11.1102 8.40619H10.3062V9.31747H11.7427C11.9035 9.31747 11.9946 9.489 11.9946 9.68729C11.9946 9.85882 11.9196 10.0464 11.7427 10.0464H9.83451C9.65228 10.0464 9.47001 9.9607 9.47001 9.78913V6.38548C9.47001 6.21395 9.65224 6.12819 9.83451 6.12819H11.7427C11.9196 6.12819 11.9947 6.3157 11.9947 6.48727C11.9947 6.68561 11.9036 6.85719 11.7427 6.85719H10.3062L10.3062 7.76304Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M14.2137 9.82123L13.1953 7.96663V9.78904C13.1953 9.96057 12.9863 10.0463 12.7773 10.0463C12.5682 10.0463 12.3592 9.96062 12.3592 9.78904V6.38539C12.3592 6.20845 12.5682 6.1281 12.7773 6.1281C13.0774 6.1281 13.19 6.15487 13.3937 6.54614L14.2621 8.20235V6.37994C14.2621 6.20304 14.4711 6.12806 14.6801 6.12806C14.8891 6.12806 15.0982 6.20308 15.0982 6.37994V9.789C15.0982 9.96053 14.8892 10.0463 14.6801 10.0463C14.4871 10.0463 14.3155 10.0089 14.2137 9.82123Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M17.5266 6.38032C17.5266 6.20342 17.7303 6.12844 17.9447 6.12844C18.1484 6.12844 18.3628 6.20347 18.3628 6.38032V8.81383C18.3628 9.73581 17.7679 10.0788 17.012 10.0788C16.2509 10.0788 15.6613 9.73576 15.6613 8.81383V6.38032C15.6613 6.20342 15.865 6.12844 16.0794 6.12844C16.2831 6.12844 16.4975 6.20347 16.4975 6.38032V8.81383C16.4975 9.17834 16.6905 9.34986 17.012 9.34986C17.3336 9.34986 17.5266 9.17834 17.5266 8.81383V6.38032Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M15.3128 14.3699H8.89123C8.56282 14.3699 8.29663 14.1036 8.29663 13.7753C8.29663 13.4469 8.56282 13.1807 8.89123 13.1807H15.3128C15.6413 13.1807 15.9074 13.4469 15.9074 13.7753C15.9074 14.1036 15.6412 14.3699 15.3128 14.3699H15.3128Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M15.3799 16.6871H8.95826C8.62985 16.6871 8.36366 16.4209 8.36366 16.0925C8.36366 15.7642 8.62985 15.4979 8.95826 15.4979H15.3799C15.7083 15.4979 15.9745 15.7642 15.9745 16.0925C15.9745 16.4209 15.7082 16.6871 15.3798 16.6871H15.3799Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M15.5049 18.8562H9.08329C8.75489 18.8562 8.4887 18.5899 8.4887 18.2616C8.4887 17.9333 8.75489 17.667 9.08329 17.667H15.5049C15.8333 17.667 16.0995 17.9333 16.0995 18.2616C16.0995 18.5899 15.8333 18.8562 15.5049 18.8562H15.5049Z",
+  fill: "black"
+}));
+Icons.MenuSectionHeading = Object(external_this_wp_element_["createElement"])("svg", {
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
 }, Object(external_this_wp_element_["createElement"])("path", {
-  d: "m152.2 210.23c-1.622 2.744-4.117 3.617-6.487 3.617-2.246 0-4.615-0.749-6.112-3.617l-11.851-21.706v48.027c0 3.992-4.865 5.988-9.729 5.988-4.865 0-9.731-1.995-9.731-5.988v-75.472c0-7.111 4.865-9.729 9.731-9.729 6.985 0 9.98 0.747 15.094 9.729l12.85 22.455 12.848-22.455c5.114-8.982 8.108-9.729 15.094-9.729 4.989 0 9.729 2.619 9.729 9.729v75.472c0 3.992-4.865 5.988-9.729 5.988-4.865 0-9.731-1.995-9.731-5.988v-46.78l-11.976 20.459z"
+  d: "M19.1873 22.9996H4.81267C3.66941 22.9996 2.73932 22.0695 2.73932 20.9263V3.07335C2.73932 1.93014 3.66945 1 4.81267 1H19.1873C20.3306 1 21.2606 1.93014 21.2606 3.07335V14.814C21.2606 15.1423 20.9945 15.4086 20.6661 15.4086C20.3376 15.4086 20.0715 15.1423 20.0715 14.814V3.07335C20.0715 2.58583 19.6748 2.18919 19.1873 2.18919H4.81267C4.32515 2.18919 3.92851 2.58583 3.92851 3.07335V20.9267C3.92851 21.4142 4.32515 21.8109 4.81267 21.8109H19.1873C19.6748 21.8109 20.0715 21.4142 20.0715 20.9267V18.5097C20.0715 18.1814 20.3376 17.9151 20.6661 17.9151C20.9945 17.9151 21.2606 18.1814 21.2606 18.5097V20.9266C21.2606 22.0699 20.3305 23 19.1873 23V22.9996Z",
+  fill: "black"
 }), Object(external_this_wp_element_["createElement"])("path", {
-  d: "m216.58 189.4h18.712c3.743 0 5.863 3.617 5.863 7.609 0 3.368-1.746 7.359-5.863 7.359h-18.712v21.208h33.432c3.743 0 5.863 3.992 5.863 8.607 0 3.992-1.746 8.358-5.863 8.358h-44.409c-4.241 0-8.483-1.995-8.483-5.988v-79.213c0-3.992 4.241-5.988 8.483-5.988h44.41c4.117 0 5.863 4.364 5.863 8.357 0 4.616-2.12 8.609-5.863 8.609h-33.432v21.082z"
+  d: "M7.53987 8.65807C7.47018 8.77598 7.36297 8.81349 7.26114 8.81349C7.16463 8.81349 7.06284 8.78131 6.99851 8.65807L6.4893 7.7254V9.78904C6.4893 9.96057 6.28025 10.0463 6.07126 10.0463C5.86222 10.0463 5.65313 9.96062 5.65313 9.78904V6.54614C5.65313 6.24059 5.86217 6.1281 6.07126 6.1281C6.37139 6.1281 6.50008 6.1602 6.71982 6.54614L7.27196 7.51099L7.82402 6.54614C8.04376 6.1602 8.17241 6.1281 8.47258 6.1281C8.68695 6.1281 8.89062 6.24063 8.89062 6.54614V9.78904C8.89062 9.96057 8.68158 10.0463 8.47258 10.0463C8.26354 10.0463 8.05446 9.96062 8.05446 9.78904V7.77899L7.53987 8.65807Z",
+  fill: "black"
 }), Object(external_this_wp_element_["createElement"])("path", {
-  d: "m307.52 237.3-23.701-43.162v42.413c0 3.992-4.865 5.988-9.729 5.988-4.865 0-9.731-1.995-9.731-5.988v-79.213c0-4.118 4.865-5.988 9.731-5.988 6.985 0 9.605 0.623 14.346 9.729l20.209 38.545v-42.413c0-4.117 4.865-5.862 9.729-5.862 4.865 0 9.731 1.746 9.731 5.862v79.339c0 3.992-4.865 5.988-9.731 5.988-4.491 1e-3 -8.484-0.871-10.854-5.238z"
+  d: "M10.3062 7.76304H11.1102C11.271 7.76304 11.3621 7.91846 11.3621 8.08999C11.3621 8.23471 11.2871 8.40619 11.1102 8.40619H10.3062V9.31747H11.7427C11.9035 9.31747 11.9946 9.489 11.9946 9.68729C11.9946 9.85882 11.9196 10.0464 11.7427 10.0464H9.83451C9.65228 10.0464 9.47001 9.9607 9.47001 9.78913V6.38548C9.47001 6.21395 9.65224 6.12819 9.83451 6.12819H11.7427C11.9196 6.12819 11.9947 6.3157 11.9947 6.48727C11.9947 6.68561 11.9036 6.85719 11.7427 6.85719H10.3062L10.3062 7.76304Z",
+  fill: "black"
 }), Object(external_this_wp_element_["createElement"])("path", {
-  d: "m384.62 157.22c0-4.117 4.741-5.862 9.731-5.862 4.741 0 9.731 1.746 9.731 5.862v56.635c0 21.457-13.846 29.44-31.437 29.44-17.714 0-31.435-7.984-31.435-29.44v-56.635c0-4.117 4.741-5.862 9.731-5.862 4.739 0 9.729 1.746 9.729 5.862v56.635c0 8.483 4.492 12.475 11.975 12.475 7.485 0 11.975-3.992 11.975-12.475v-56.635z"
-})), Object(external_this_wp_element_["createElement"])("path", {
-  id: "top-bar",
-  d: "m375.1 311.16h-149.45c-7.643 0-13.838-6.197-13.838-13.838s6.195-13.838 13.838-13.838h149.45c7.643 0 13.838 6.197 13.838 13.838s-6.196 13.838-13.839 13.838z"
+  d: "M14.2137 9.82123L13.1953 7.96663V9.78904C13.1953 9.96057 12.9863 10.0463 12.7773 10.0463C12.5682 10.0463 12.3592 9.96062 12.3592 9.78904V6.38539C12.3592 6.20845 12.5682 6.1281 12.7773 6.1281C13.0774 6.1281 13.19 6.15487 13.3937 6.54614L14.2621 8.20235V6.37994C14.2621 6.20304 14.4711 6.12806 14.6801 6.12806C14.8891 6.12806 15.0982 6.20308 15.0982 6.37994V9.789C15.0982 9.96053 14.8892 10.0463 14.6801 10.0463C14.4871 10.0463 14.3155 10.0089 14.2137 9.82123Z",
+  fill: "black"
 }), Object(external_this_wp_element_["createElement"])("path", {
-  id: "mid-bar",
-  d: "m376.66 365.09h-149.45c-7.643 0-13.838-6.197-13.838-13.838s6.195-13.838 13.838-13.838h149.45c7.643 0 13.838 6.197 13.838 13.838s-6.196 13.838-13.839 13.838z"
+  d: "M17.5266 6.38032C17.5266 6.20342 17.7303 6.12844 17.9447 6.12844C18.1484 6.12844 18.3628 6.20347 18.3628 6.38032V8.81383C18.3628 9.73581 17.7679 10.0788 17.012 10.0788C16.2509 10.0788 15.6613 9.73576 15.6613 8.81383V6.38032C15.6613 6.20342 15.865 6.12844 16.0794 6.12844C16.2831 6.12844 16.4975 6.20347 16.4975 6.38032V8.81383C16.4975 9.17834 16.6905 9.34986 17.012 9.34986C17.3336 9.34986 17.5266 9.17834 17.5266 8.81383V6.38032Z",
+  fill: "black"
 }), Object(external_this_wp_element_["createElement"])("path", {
-  id: "bot-bar",
-  d: "m379.57 415.57h-149.45c-7.643 0-13.838-6.197-13.838-13.838s6.195-13.838 13.838-13.838h149.45c7.643 0 13.838 6.197 13.838 13.838s-6.196 13.838-13.839 13.838z"
+  d: "M10.7376 12.8817V19.3034C10.7376 19.6318 10.3768 19.8979 9.93192 19.8979C9.48705 19.8979 9.12626 19.6318 9.12626 19.3034V12.8817C9.12626 12.5533 9.48705 12.2871 9.93192 12.2871C10.3768 12.2871 10.7376 12.5534 10.7376 12.8818V12.8817Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M15.2119 12.8817V19.3034C15.2119 19.6318 14.8511 19.8979 14.4062 19.8979C13.9613 19.8979 13.6006 19.6318 13.6006 19.3034V12.8817C13.6006 12.5533 13.9613 12.2871 14.4062 12.2871C14.8511 12.2871 15.2119 12.5534 15.2119 12.8818V12.8817Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M14.0231 16.9073H9.88536C9.67375 16.9073 9.50223 16.5917 9.50223 16.2026C9.50223 15.8135 9.67375 15.4979 9.88536 15.4979H14.0231C14.2347 15.4979 14.4062 15.8135 14.4062 16.2026C14.4062 16.5917 14.2347 16.9073 14.0231 16.9073Z",
+  fill: "black"
+}));
+Icons.MenuSectionColumn = Object(external_this_wp_element_["createElement"])("svg", {
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, Object(external_this_wp_element_["createElement"])("path", {
+  d: "M19.1873 22.9996H4.81267C3.66941 22.9996 2.73932 22.0695 2.73932 20.9263V3.07335C2.73932 1.93014 3.66945 1 4.81267 1H19.1873C20.3306 1 21.2606 1.93014 21.2606 3.07335V14.814C21.2606 15.1423 20.9945 15.4086 20.6661 15.4086C20.3376 15.4086 20.0715 15.1423 20.0715 14.814V3.07335C20.0715 2.58583 19.6748 2.18919 19.1873 2.18919H4.81267C4.32515 2.18919 3.92851 2.58583 3.92851 3.07335V20.9267C3.92851 21.4142 4.32515 21.8109 4.81267 21.8109H19.1873C19.6748 21.8109 20.0715 21.4142 20.0715 20.9267V18.5097C20.0715 18.1814 20.3376 17.9151 20.6661 17.9151C20.9945 17.9151 21.2606 18.1814 21.2606 18.5097V20.9266C21.2606 22.0699 20.3305 22.9996 19.1873 22.9996Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M7.53987 8.65807C7.47018 8.77598 7.36297 8.81349 7.26114 8.81349C7.16463 8.81349 7.06284 8.78131 6.99851 8.65807L6.4893 7.7254V9.78904C6.4893 9.96057 6.28026 10.0463 6.07126 10.0463C5.86222 10.0463 5.65313 9.96062 5.65313 9.78904V6.54614C5.65313 6.24059 5.86217 6.1281 6.07126 6.1281C6.37139 6.1281 6.50008 6.1602 6.71982 6.54614L7.27196 7.51099L7.82402 6.54614C8.04376 6.1602 8.17241 6.1281 8.47259 6.1281C8.68696 6.1281 8.89063 6.24063 8.89063 6.54614V9.78904C8.89063 9.96057 8.68158 10.0463 8.47259 10.0463C8.26355 10.0463 8.05446 9.96062 8.05446 9.78904V7.77899L7.53987 8.65807Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M10.3062 7.76304H11.1102C11.271 7.76304 11.3621 7.91846 11.3621 8.08999C11.3621 8.23471 11.2871 8.40619 11.1102 8.40619H10.3062V9.31747H11.7427C11.9035 9.31747 11.9946 9.489 11.9946 9.68729C11.9946 9.85882 11.9196 10.0464 11.7427 10.0464H9.83451C9.65228 10.0464 9.47001 9.9607 9.47001 9.78913V6.38548C9.47001 6.21395 9.65224 6.12819 9.83451 6.12819H11.7427C11.9196 6.12819 11.9947 6.3157 11.9947 6.48727C11.9947 6.68561 11.9036 6.85719 11.7427 6.85719H10.3062L10.3062 7.76304Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M14.2137 9.82123L13.1953 7.96663V9.78904C13.1953 9.96057 12.9863 10.0463 12.7773 10.0463C12.5682 10.0463 12.3592 9.96062 12.3592 9.78904V6.38539C12.3592 6.20845 12.5682 6.1281 12.7773 6.1281C13.0774 6.1281 13.19 6.15487 13.3937 6.54614L14.2621 8.20235V6.37994C14.2621 6.20304 14.4711 6.12806 14.6801 6.12806C14.8891 6.12806 15.0982 6.20308 15.0982 6.37994V9.789C15.0982 9.96053 14.8892 10.0463 14.6801 10.0463C14.4871 10.0463 14.3155 10.0089 14.2137 9.82123Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M17.5266 6.38032C17.5266 6.20342 17.7303 6.12844 17.9447 6.12844C18.1484 6.12844 18.3628 6.20347 18.3628 6.38032V8.81383C18.3628 9.73581 17.7679 10.0788 17.012 10.0788C16.2509 10.0788 15.6613 9.73576 15.6613 8.81383V6.38032C15.6613 6.20342 15.865 6.12844 16.0794 6.12844C16.2831 6.12844 16.4975 6.20347 16.4975 6.38032V8.81383C16.4975 9.17834 16.6905 9.34986 17.012 9.34986C17.3336 9.34986 17.5266 9.17834 17.5266 8.81383V6.38032Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M10.6085 18.6285H13.5958C13.6476 18.6285 13.6946 18.6497 13.7287 18.6837C13.7627 18.7178 13.7839 18.7648 13.7839 18.8166V19.3679H10.4205V18.8166C10.4205 18.7648 10.4416 18.7178 10.4757 18.6837C10.5099 18.6496 10.557 18.6285 10.6085 18.6285ZM13.5958 18.7718H10.6085C10.5961 18.7718 10.5849 18.7767 10.5769 18.7847C10.5688 18.7929 10.5637 18.8043 10.5637 18.8166V19.2247H13.6406V18.8166C13.6406 18.8043 13.6356 18.7931 13.6274 18.785C13.6193 18.7768 13.6081 18.7718 13.5958 18.7718Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M10.8796 18.0324H13.3248C13.3766 18.0324 13.4236 18.0535 13.4576 18.0875C13.4917 18.1216 13.5128 18.1688 13.5128 18.2204V18.7718H10.6915V18.2204C10.6915 18.1688 10.7127 18.1219 10.7467 18.0878C10.7808 18.0538 10.8278 18.0324 10.8796 18.0324ZM13.3248 18.1756H10.8796C10.8673 18.1756 10.8561 18.1807 10.848 18.1888C10.8399 18.197 10.8348 18.208 10.8348 18.2204V18.6285H13.3696V18.2204C13.3696 18.208 13.3646 18.1968 13.3565 18.1887C13.3484 18.1805 13.337 18.1756 13.3248 18.1756Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M13.2214 13.6853V18.1756H10.9829V13.6853H13.2214ZM13.0782 13.8286H11.1262V18.0324H13.0782V13.8286Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M10.8796 13.6853H13.3248C13.3372 13.6853 13.3484 13.6804 13.3564 13.6724C13.3645 13.6642 13.3696 13.6528 13.3696 13.6405V13.2324H10.8348V13.6405C10.8348 13.6528 10.8398 13.664 10.848 13.6721C10.856 13.6801 10.8672 13.6853 10.8796 13.6853ZM13.3248 13.8286H10.8796C10.8281 13.8286 10.7811 13.8074 10.7469 13.7732C10.7128 13.7392 10.6915 13.6923 10.6915 13.6405V13.0892H13.5128V13.6405C13.5128 13.6923 13.4917 13.7393 13.4576 13.7734C13.4234 13.8075 13.3763 13.8286 13.3248 13.8286Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M10.6085 13.0892H13.5958C13.6081 13.0892 13.6193 13.0841 13.6274 13.0759C13.6356 13.0678 13.6406 13.0566 13.6406 13.0443V12.6362H10.5637V13.0443C10.5637 13.0566 10.5688 13.0678 10.5769 13.0759C10.5849 13.0839 10.5961 13.0892 10.6085 13.0892ZM13.5958 13.2324H10.6085C10.557 13.2324 10.51 13.2112 10.4758 13.1771C10.4418 13.143 10.4205 13.0961 10.4205 13.0443V12.493H13.7839V13.0443C13.7839 13.0961 13.7627 13.1432 13.7287 13.1772C13.6947 13.2113 13.6476 13.2324 13.5958 13.2324Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M11.6616 14.3939C11.6616 14.3543 11.6295 14.3223 11.59 14.3223C11.5504 14.3223 11.5184 14.3543 11.5184 14.3939V17.467C11.5184 17.5066 11.5504 17.5387 11.59 17.5387C11.6295 17.5387 11.6616 17.5066 11.6616 17.467V14.3939Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M12.1738 14.3939C12.1738 14.3543 12.1417 14.3223 12.1022 14.3223C12.0626 14.3223 12.0306 14.3543 12.0306 14.3939V17.467C12.0306 17.5066 12.0626 17.5387 12.1022 17.5387C12.1417 17.5387 12.1738 17.5066 12.1738 17.467V14.3939Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M12.686 14.3939C12.686 14.3543 12.6539 14.3223 12.6144 14.3223C12.5748 14.3223 12.5428 14.3543 12.5428 14.3939V17.467C12.5428 17.5066 12.5748 17.5387 12.6144 17.5387C12.6539 17.5387 12.686 17.5066 12.686 17.467V14.3939Z",
+  fill: "black"
+}));
+Icons.MenuItem = Object(external_this_wp_element_["createElement"])("svg", {
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, Object(external_this_wp_element_["createElement"])("path", {
+  d: "M19.9983 21.4647L19.9958 21.4718C19.9958 21.4718 14.8652 16.9685 14.3693 16.5263C14.2698 16.2216 13.3851 14.4113 11.8237 14.6629L10.2652 14.5679C1.12447 6.248 2.02543 2.12103 2.02543 2.12103L2 2.15158C2 2.15158 8.41598 7.94942 12.2721 11.3803L14.1126 13.0183C14.7633 13.5967 15.1964 13.9829 15.283 14.0613C15.8562 14.5692 21.5937 19.6859 21.5937 19.6859L21.5939 19.6927C21.6 19.6923 21.6063 19.6971 21.6099 19.7036C22.0764 20.1164 22.0965 20.8576 21.6542 21.3462C21.215 21.8414 20.4775 21.903 20.0108 21.4836C20.0051 21.4774 20.0016 21.4709 19.9987 21.465L19.9983 21.4647Z",
+  fill: "black"
+}), Object(external_this_wp_element_["createElement"])("path", {
+  d: "M11.2732 12.4612C8.31685 15.0891 5.35953 17.7162 2.40173 20.3437C2.08944 20.6146 1.91639 21.2718 2.23775 21.6423C2.55565 22.016 3.19808 21.9039 3.48792 21.6055C6.29074 18.7809 9.09415 15.9583 11.8981 13.134L12.5955 12.4307C12.5941 12.4324 12.5932 12.4333 12.5917 12.4348C12.5917 12.4348 12.5638 12.3919 12.5955 12.4307C13.2555 11.7664 13.9151 11.1017 14.5751 10.437C15.4164 10.9721 16.7284 10.5815 17.5567 9.6712C18.5035 8.62717 22.0861 4.75752 21.9984 4.65688C21.9127 4.55661 19.1783 7.27478 17.2519 9.09261L17.0008 8.80012C18.8255 6.86402 21.5427 4.12825 21.4567 4.02636C21.3701 3.92619 18.5663 6.56214 16.5892 8.32289L16.3402 8.03262C18.214 6.15361 21.0023 3.49832 20.9165 3.39892C20.8295 3.29834 17.9555 5.85255 15.9319 7.55741L15.6826 7.26698C17.6043 5.44462 20.4629 2.87236 20.3777 2.77088C20.2909 2.66938 15.1709 6.88261 15.1634 6.88861C15.1641 6.88948 16.2535 5.99426 15.1655 6.89182C14.1258 7.74851 13.6956 9.00695 14.1313 9.92323C13.442 10.5363 12.7528 11.1481 12.0636 11.7604L11.2732 12.4612Z",
+  fill: "black"
 }));
 /* harmony default export */ var utils_Icons = (Icons);
-// CONCATENATED MODULE: ./src/menu-section-block/js/RowIcons.js
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section/js/RowIcons.js
 
 
 /**
@@ -1777,7 +1720,7 @@ RowIcons.colFour = Object(external_this_wp_element_["createElement"])("svg", {
   d: "m36 2h2v22h-2z"
 })));
 /* harmony default export */ var js_RowIcons = (RowIcons);
-// CONCATENATED MODULE: ./src/menu-section-block/js/Editor.js
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section/js/Editor.js
 
 
 
@@ -1793,16 +1736,16 @@ RowIcons.colFour = Object(external_this_wp_element_["createElement"])("svg", {
  * WordPress dependencies
  */
 
-var js_Editor_ = wp.i18n.__;
+var Editor_ = wp.i18n.__;
 var Editor_wp$components = wp.components,
     Placeholder = Editor_wp$components.Placeholder,
     Editor_ButtonGroup = Editor_wp$components.ButtonGroup,
     Editor_Button = Editor_wp$components.Button,
     Editor_Tooltip = Editor_wp$components.Tooltip;
 var InnerBlocks = wp.blockEditor.InnerBlocks;
-var Editor_wp$element = wp.element,
-    Editor_Component = Editor_wp$element.Component,
-    Editor_Fragment = Editor_wp$element.Fragment;
+var _wp$element = wp.element,
+    Component = _wp$element.Component,
+    Fragment = _wp$element.Fragment;
 /**
  * Internal dependencies
  */
@@ -1839,19 +1782,19 @@ var TEMPLATE = {
 };
 var Editor_columnOptions = [{
   columns: 1,
-  name: js_Editor_('One Column'),
+  name: Editor_('One Column'),
   icon: js_RowIcons.colOne
 }, {
   columns: 2,
-  name: js_Editor_('Two Columns'),
+  name: Editor_('Two Columns'),
   icon: js_RowIcons.colTwo
 }, {
   columns: 3,
-  name: js_Editor_('Three Columns'),
+  name: Editor_('Three Columns'),
   icon: js_RowIcons.colThree
 }, {
   columns: 4,
-  name: js_Editor_('Four Columns'),
+  name: Editor_('Four Columns'),
   icon: js_RowIcons.colFour
 }];
 var columnClasses = ['', 'one-col', 'two-cols', 'three-cols', 'four-cols'];
@@ -1869,7 +1812,7 @@ function getActiveColumn(columns) {// for ( const style of new TokenList( classN
   // return find( styles, 'isDefault' );
 }
 
-var js_Editor_Editor =
+var Editor_Editor =
 /*#__PURE__*/
 function (_Component) {
   inherits_default()(Editor, _Component);
@@ -1901,13 +1844,13 @@ function (_Component) {
       console.log(columnClasses[columns]);
 
       if (!columns) {
-        return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])(Placeholder, {
+        return Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])(Placeholder, {
           key: "placeholder",
-          icon: utils_Icons.menu,
-          label: js_Editor_('Menu Section'),
-          instructions: js_Editor_('Select the number of columns for this menu section.')
+          icon: utils_Icons.MenuSection,
+          label: Editor_('Menu Section'),
+          instructions: Editor_('Select the number of columns for this menu section.')
         }, Object(external_this_wp_element_["createElement"])(Editor_ButtonGroup, {
-          "aria-label": js_Editor_('Select Menu Section Columns')
+          "aria-label": Editor_('Select Menu Section Columns')
         }, map_default()(Editor_columnOptions, function (_ref) {
           var name = _ref.name,
               columns = _ref.columns,
@@ -1925,7 +1868,7 @@ function (_Component) {
         }))));
       }
 
-      return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])(js_Inspector, {
+      return Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])(js_Inspector, {
         attributes: attributes,
         setAttributes: setAttributes,
         columnOptions: Editor_columnOptions
@@ -1944,18 +1887,13 @@ function (_Component) {
   }]);
 
   return Editor;
-}(Editor_Component);
+}(Component);
 
-/* harmony default export */ var menu_section_block_js_Editor = (js_Editor_Editor);
-// EXTERNAL MODULE: ./src/menu-section-block/scss/style.scss
+/* harmony default export */ var js_Editor = (Editor_Editor);
+// EXTERNAL MODULE: ./src/menu-blocks/menu-section/scss/style.scss
 var style = __webpack_require__(45);
 
-// CONCATENATED MODULE: ./src/menu-section-block/index.js
-
-
-/**
- * Import internal dependencies
- */
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section/index.js
 
 
 
@@ -1964,18 +1902,19 @@ var style = __webpack_require__(45);
  * Get WordPress libraries from the wp global
  */
 
-var menu_section_block_ = wp.i18n.__;
-var menu_section_block_registerBlockType = wp.blocks.registerBlockType;
+var menu_section_ = wp.i18n.__;
+var registerBlockType = wp.blocks.registerBlockType;
 var _wp$editor = wp.editor,
-    menu_section_block_RichText = _wp$editor.RichText,
+    RichText = _wp$editor.RichText,
     MediaUpload = _wp$editor.MediaUpload,
-    menu_section_block_InspectorControls = _wp$editor.InspectorControls;
-var menu_section_block_wp$element = wp.element,
-    menu_section_block_Component = menu_section_block_wp$element.Component,
-    menu_section_block_Fragment = menu_section_block_wp$element.Fragment;
+    menu_section_InspectorControls = _wp$editor.InspectorControls;
+var menu_section_wp$element = wp.element,
+    menu_section_Component = menu_section_wp$element.Component,
+    menu_section_Fragment = menu_section_wp$element.Fragment;
 var el = wp.element.createElement;
-menu_section_block_registerBlockType('dining-dashboard/menu-section', {
-  title: menu_section_block_('Menu Section'),
+registerBlockType('dining-dashboard/menu-section', {
+  title: menu_section_('Menu Section'),
+  icon: utils_Icons.MenuSection,
   category: 'menu-blocks',
   supports: {
     align: ['wide', 'full'],
@@ -2006,22 +1945,180 @@ menu_section_block_registerBlockType('dining-dashboard/menu-section', {
       default: true
     }
   },
-  edit: menu_section_block_js_Editor,
+  edit: js_Editor,
   save: function save(_ref) {
     var attributes = _ref.attributes,
         className = _ref.className;
     var itemTitle = attributes.itemTitle;
-    return Object(external_this_wp_element_["createElement"])(menu_section_block_Fragment, null, Object(external_this_wp_element_["createElement"])(menu_section_block_RichText.itemTitle, {
+    return Object(external_this_wp_element_["createElement"])(menu_section_Fragment, null, Object(external_this_wp_element_["createElement"])(RichText.itemTitle, {
       tagName: "h3",
       className: className,
       value: itemTitle
-    }), Object(external_this_wp_element_["createElement"])(menu_section_block_RichText.content, {
+    }), Object(external_this_wp_element_["createElement"])(RichText.content, {
       tagName: "p",
       className: className,
       value: content
     }));
   }
 });
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section-heading/index.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+var menu_section_heading_ = wp.i18n.__;
+var menu_section_heading_registerBlockType = wp.blocks.registerBlockType;
+var menu_section_heading_RichText = wp.editor.RichText;
+menu_section_heading_registerBlockType('dining-dashboard/menu-section-heading', {
+  title: menu_section_heading_('Section Heading'),
+  description: menu_section_heading_('A column inside the menu sections where menu items can be added'),
+  icon: utils_Icons.MenuSectionHeading,
+  category: 'menu-blocks',
+  edit: function edit(_ref) {
+    var attributes = _ref.attributes,
+        className = _ref.className;
+    var sectionTitle = attributes.sectionTitle;
+    var formatControls = ['bold', 'italic'];
+    return Object(external_this_wp_element_["createElement"])(menu_section_heading_RichText, {
+      tagName: "h3",
+      placeholder: menu_section_heading_('Menu Section Title'),
+      formattingControls: formatControls,
+      value: sectionTitle
+    });
+  },
+  save: function save(_ref2) {
+    var attributes = _ref2.attributes,
+        className = _ref2.className;
+    var sectionTitle = attributes.sectionTitle;
+    return Object(external_this_wp_element_["createElement"])(menu_section_heading_RichText.sectionTitle, {
+      tagName: "h3",
+      className: className,
+      value: itemTitle
+    });
+  }
+});
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
+var assertThisInitialized = __webpack_require__(26);
+var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
+
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section-column/js/Editor.js
+
+
+
+
+
+
+
+
+/**
+ * WordPress dependencies
+ */
+var js_Editor_ = wp.i18n.__;
+var Editor_wp$element = wp.element,
+    Editor_Component = Editor_wp$element.Component,
+    Editor_Fragment = Editor_wp$element.Fragment;
+var IconButton = wp.components.IconButton;
+var _wp$data = wp.data,
+    dispatch = _wp$data.dispatch,
+    Editor_select = _wp$data.select;
+
+var js_Editor_Editor =
+/*#__PURE__*/
+function (_Component) {
+  inherits_default()(Editor, _Component);
+
+  function Editor() {
+    var _this;
+
+    classCallCheck_default()(this, Editor);
+
+    _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(Editor).apply(this, arguments));
+    _this.insertNewItem = _this.insertNewItem.bind(assertThisInitialized_default()(_this));
+    return _this;
+  }
+
+  createClass_default()(Editor, [{
+    key: "insertNewItem",
+    value: function insertNewItem() {
+      var _this$props = this.props,
+          clientId = _this$props.clientId,
+          attributes = _this$props.attributes;
+      var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
+      var newMenuItem = wp.blocks.createBlock('dining-dashboard/menu-section-column', attributes);
+      console.log(menuItems);
+      dispatch('core/block-editor').insertBlock(newMenuItem, menuItems.length, clientId, true);
+      this.forceUpdate();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props2 = this.props,
+          isSelected = _this$props2.isSelected,
+          clientId = _this$props2.clientId,
+          selectedParentClientId = _this$props2.selectedParentClientId;
+      var menuItems = Editor_select('core/block-editor').getBlocksByClientId(clientId)[0].innerBlocks;
+      console.log(menuItems);
+      return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])("div", {
+        className: "menu-items"
+      }, menuItems.map(function (item, index) {
+        return Object(external_this_wp_element_["createElement"])("p", null, item.clientId);
+      })), Object(external_this_wp_element_["createElement"])(IconButton, {
+        icon: "insert",
+        label: js_Editor_('Add New Menu Item'),
+        labelPosition: "bottom",
+        onClick: this.insertNewItem
+      }, js_Editor_('Add New Menu Item'))));
+    }
+  }]);
+
+  return Editor;
+}(Editor_Component);
+
+/* harmony default export */ var menu_section_column_js_Editor = (js_Editor_Editor);
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section-column/index.js
+
+
+
+/**
+ * WordPress dependencies
+ */
+
+var menu_section_column_ = wp.i18n.__;
+var menu_section_column_registerBlockType = wp.blocks.registerBlockType;
+var menu_section_column_RichText = wp.editor.RichText;
+menu_section_column_registerBlockType('dining-dashboard/menu-section-column', {
+  title: menu_section_column_('Section Column'),
+  description: menu_section_column_('A column within a menu section'),
+  icon: utils_Icons.MenuSectionColumn,
+  category: 'menu-blocks',
+  attributes: {
+    width: {
+      type: 'string'
+    },
+    showInserter: {
+      type: 'boolean',
+      default: true
+    }
+  },
+  supports: {
+    inserter: false
+  },
+  edit: menu_section_column_js_Editor,
+  save: function save(_ref) {
+    var attributes = _ref.attributes,
+        className = _ref.className;
+    var sectionTitle = attributes.sectionTitle;
+    return Object(external_this_wp_element_["createElement"])(menu_section_column_RichText.sectionTitle, {
+      tagName: "h3"
+    });
+  }
+});
+// CONCATENATED MODULE: ./src/menu-blocks/index.js
+
+
+
 
 /***/ }),
 /* 45 */

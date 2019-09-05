@@ -81,7 +81,7 @@ trait BlockTrait {
         }
         $type = substr( strrchr( $filename, '.' ), 1 );
 
-        return $base . 'assets/blocks/' . $type . '/' . $filename;
+        return $base . 'assets/' . $type . '/' . $filename;
         
     }
 

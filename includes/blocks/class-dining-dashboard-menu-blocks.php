@@ -22,14 +22,14 @@ class MenuSection {
 
     protected $styles = [
         'post_types' => [ 'menu' ],
-        'handle' => 'dining-dashboard-menu-section-block',
-        'src' => 'menu-section-block.css',
+        'handle' => 'dining-dashboard-menu-blocks',
+        'src' => 'menu-blocks.css',
     ];
 
     protected $scripts = [
         'post_types' => [ 'menu' ],
-        'handle' => 'dining-dashboard-menu-section-block',
-        'src' => 'menu-section-block.js',
+        'handle' => 'dining-dashboard-menu-blocks',
+        'src' => 'menu-blocks.js',
     ];
 
     public function __construct() {

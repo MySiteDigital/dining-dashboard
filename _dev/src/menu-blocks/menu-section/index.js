@@ -1,10 +1,6 @@
-
-/**
- * Import internal dependencies
- */
-import * as MenuSectionHeading from './heading';
-import * as MenuSectionColumn from './column';
 import Editor from './js/Editor.js';
+import Icons from '../utils/Icons';
+
 import './scss/style.scss';
 
 /**
@@ -20,6 +16,8 @@ registerBlockType(
     'dining-dashboard/menu-section',
     {
         title: __('Menu Section'),
+
+        icon: Icons.MenuSection,
 
         category: 'menu-blocks',
 

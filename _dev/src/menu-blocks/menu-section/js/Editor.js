@@ -14,7 +14,7 @@ const { Component, Fragment } = wp.element;
  * Internal dependencies
  */
 import InspectorControls from './Inspector';
-import Icons from './../../utils/Icons';
+import Icons from '../../utils/Icons';
 import RowIcons from './RowIcons';
 
 const ALLOWED_BLOCKS = [
@@ -116,7 +116,7 @@ class Editor extends Component {
                 <Fragment>
                     <Placeholder
                         key="placeholder"
-                        icon={Icons.menu}
+                        icon={Icons.MenuSection}
                         label={__('Menu Section')}
                         instructions={__('Select the number of columns for this menu section.')}
                     >

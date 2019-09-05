@@ -5,11 +5,11 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const config = require("./node_modules/@wordpress/scripts/config/webpack.config");
 
 config.entry = {
-  'menu-section-block': './src/menu-section-block/index.js'
+  'menu-blocks': './src/menu-blocks/index.js'
 }
 
 config.output = {
-  path: path.resolve(process.cwd(), '../assets/blocks/'),
+  path: path.resolve(process.cwd(), '../assets/'),
   filename: 'js/[name].js',
 }
 
