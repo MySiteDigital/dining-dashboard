@@ -1,6 +1,3 @@
-/**
- * Custom icons
- */
 const Icons = {};
 
 Icons.MenuSection = (

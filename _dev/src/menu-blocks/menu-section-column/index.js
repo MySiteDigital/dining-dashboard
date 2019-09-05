@@ -21,9 +21,6 @@ registerBlockType(
         category: 'menu-blocks',
 
         attributes: {
-            width: {
-                type: 'string',
-            },
             showInserter: {
                 type: 'boolean',
                 default: true,

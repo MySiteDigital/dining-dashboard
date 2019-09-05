@@ -1,3 +1,4 @@
+import Editor from './js/Editor.js';
 import Icons from '../utils/Icons';
 /**
  * WordPress dependencies
@@ -22,25 +23,36 @@ registerBlockType(
             html: false,
         },
 
+        supports: { 
+            html: true, 
+            customClassName: false 
+        },
+
         attributes: {
+            showImage: {
+                type: 'boolean',
+                default: true,
+            },
+            mediaID: {
+                type: 'number',
+            },
+            mediaURL: {
+                type: 'string',
+                source: 'attribute',
+                selector: 'img',
+                attribute: 'src',
+            },
             itemTitle: {
                 type: 'string',
             },
+            description: {
+                type: 'array',
+                source: 'children',
+                selector: 'p',
+            },
         },
 
-        edit({ attributes, className }) {
-            const { itemTitle } = attributes;
-            const formatControls = ['bold', 'italic'];
-
-            return (
-                <RichText
-                    tagName="h4"
-                    placeholder={__('Item Title')}
-                    formattingControls={formatControls}
-                    value={itemTitle}
-                />
-            );
-        },
+        edit: Editor,
 
         save({ attributes, className }) {
             const { sectionTitle } = attributes;
