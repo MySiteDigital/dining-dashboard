@@ -1,4 +1,5 @@
 import Editor from './js/Editor.js';
+import save from './js/Save.js';
 import Icons from '../utils/Icons';
 
 import './scss/style.scss';
@@ -8,9 +9,7 @@ import './scss/style.scss';
  */
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { RichText, MediaUpload, InspectorControls } = wp.editor;
-const { Component, Fragment } = wp.element;
-const el = wp.element.createElement;
+const { InnerBlocks } = wp.blockEditor;
 
 registerBlockType(
     'dining-dashboard/menu-section',
@@ -55,22 +54,6 @@ registerBlockType(
 
         edit: Editor,
 
-        save({ attributes, className }) {
-            const { itemTitle } = attributes;
-            return (
-                <Fragment>
-                    <RichText.itemTitle
-                        tagName="h3"
-                        className={className}
-                        value={itemTitle}
-                    />
-                    <RichText.content
-                        tagName="p"
-                        className={className}
-                        value={content}
-                    />
-                </Fragment>
-            );
-        },
+        save
     }
 );

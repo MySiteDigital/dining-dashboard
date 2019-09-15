@@ -7,6 +7,10 @@ const { InnerBlocks } = wp.blockEditor;
 const { IconButton } = wp.components;
 const { dispatch, select } = wp.data;
 
+const TEMPLATE =  [
+    ['dining-dashboard/menu-item']
+];
+
 class Editor extends Component {
 
     constructor() {
@@ -41,7 +45,7 @@ class Editor extends Component {
                         allowedBlocks={['dining-dashboard/menu-item']}
                         renderAppender={() => (null)}
                     />
-                    <IconButton
+                   <IconButton
                         icon="insert"
                         label={__('Add New Menu Item')}
                         className="add-new-menu-item"
@@ -59,3 +63,4 @@ class Editor extends Component {
 }
 
 export default Editor;
+

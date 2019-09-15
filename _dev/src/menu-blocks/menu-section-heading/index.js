@@ -1,11 +1,11 @@
 import Icons from '../utils/Icons';
+import Editor from './Editor';
+import save from './save';
 /**
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { RichText } = wp.editor;
-
 
 registerBlockType(
     'dining-dashboard/menu-section-heading',
@@ -22,30 +22,15 @@ registerBlockType(
             html: false,
         },
 
-        edit({ attributes, className }) {
-            const { sectionTitle } = attributes;
-            const formatControls = ['bold', 'italic'];
-
-            return (
-                <RichText
-                    tagName="h3"
-                    placeholder={__('Menu Section Title')}
-                    formattingControls={formatControls}
-                    value={sectionTitle}
-                />
-            );
+        attributes: {
+            sectionTitle: {
+                type: 'string',
+                default: ""
+            },
         },
 
-        save({ attributes, className }) {
-            const { sectionTitle } = attributes;
+        edit: Editor,
 
-            return (
-                <RichText.sectionTitle
-                    tagName="h3"
-                    className={className}
-                    value={itemTitle}
-                />
-            );
-        }
+        save,
     }
 );

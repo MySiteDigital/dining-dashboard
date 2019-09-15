@@ -155,6 +155,7 @@ class Menu {
             $allowed_block_types = [
                 'dining-dashboard/menu-section',
                 'dining-dashboard/menu-item',
+                'dining-dashboard/food-and-drinks',
             ];
         }
         return $allowed_block_types;

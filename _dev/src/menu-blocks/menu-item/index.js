@@ -46,24 +46,20 @@ registerBlockType(
                 type: 'string',
             },
             description: {
-                type: 'array',
-                source: 'children',
-                selector: 'p',
+                type: 'string',
+                source: 'html',
+                default: '',
             },
         },
 
         edit: Editor,
 
         save({ attributes, className }) {
-            const { sectionTitle } = attributes;
-
+            console.log(attributes);
             return (
-                <RichText.sectionTitle
-                    tagName="h3"
-                    className={className}
-                    value={itemTitle}
-                />
+                <div className="menu-item">
+                </div>
             );
-        }
+        },
     }
 );

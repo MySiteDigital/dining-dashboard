@@ -23,6 +23,7 @@ const ALLOWED_BLOCKS = [
     'dining-dashboard/menu-section-column'
 ];
 
+
 const TEMPLATE = {
     1: [
         ['dining-dashboard/menu-section-heading'],
@@ -117,6 +118,8 @@ class Editor extends Component {
             );
         }
 
+        console.log(TEMPLATE[sectionColumns]);
+        
         return (
             <Fragment>
                 <InspectorControls
@@ -133,9 +136,8 @@ class Editor extends Component {
                 </div>
             </Fragment>
         );
-
     }
-
 }
+
 
 export default Editor;

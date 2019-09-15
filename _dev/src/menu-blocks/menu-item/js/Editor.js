@@ -88,14 +88,14 @@ class Editor extends Component {
                     <RichText
                         tagName="h3"
                         placeholder={__('Menu Item Title')}
-                        onChange={this.onChangeTitle}
+                        onChange={(itemTitle) => setAttributes({ itemTitle })}
                         allowedFormats={allowedFormats}
                         value={itemTitle}
                     />
                     <RichText
                         tagName="p"
                         placeholder={__('Menu Item Description')}
-                        onChange={this.onChangeDescription}
+                        onChange={(description) => setAttributes({ description })}
                         allowedFormats={allowedFormats}
                         value={description}
                     />

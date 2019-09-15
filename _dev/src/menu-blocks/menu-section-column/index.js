@@ -1,5 +1,6 @@
-import Editor from './js/Editor.js';
 import Icons from '../utils/Icons';
+import Editor from './js/Editor';
+
 
 /**
  * WordPress dependencies
@@ -7,7 +8,7 @@ import Icons from '../utils/Icons';
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText } = wp.editor;
-
+const { InnerBlocks } = wp.blockEditor;
 
 registerBlockType(
     'dining-dashboard/menu-section-column',
@@ -35,13 +36,12 @@ registerBlockType(
         edit: Editor,
 
         save({ attributes, className }) {
-            const { sectionTitle } = attributes;
-
+            console.log(attributes);
             return (
-                <RichText.sectionTitle
-                    tagName="h3"
-                />
+                <div className="menu-section__column">
+                    <InnerBlocks.Content />
+                </div>
             );
-        }
+        },
     }
 );
