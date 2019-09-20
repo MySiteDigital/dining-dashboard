@@ -1,4 +1,5 @@
 import Editor from './js/Editor.js';
+import save from './js/Save.js';
 import Icons from '../utils/Icons';
 /**
  * WordPress dependencies
@@ -29,6 +30,18 @@ registerBlockType(
         },
 
         attributes: {
+            itemTitle: {
+                type: 'string',
+                source: 'html',
+                selector: ".wp-block-coblocks-food-item__heading",
+                default: '',
+            },
+            description: {
+                type: 'string',
+                source: 'html',
+                selector: ".wp-block-coblocks-food-item__description",
+                default: '',
+            },
             showImage: {
                 type: 'boolean',
                 default: true,
@@ -41,25 +54,34 @@ registerBlockType(
                 source: 'attribute',
                 selector: 'img',
                 attribute: 'src',
+                default: ""
             },
-            itemTitle: {
+            mediaAlt: {
                 type: 'string',
+                source: 'attribute',
+                selector: 'img',
+                attribute: 'alt',
+                default: ""
             },
-            description: {
-                type: 'string',
-                source: 'html',
-                default: '',
+            vegetarian: {
+                type: "boolean",
+                default: false,
+            },
+            vegan: {
+                type: "boolean",
+                default: false,
+            },
+            glutenFree: {
+                type: "boolean",
+                default: false,
+            },
+            price: {
+                type: "string"
             },
         },
 
         edit: Editor,
 
-        save({ attributes, className }) {
-            console.log(attributes);
-            return (
-                <div className="menu-item">
-                </div>
-            );
-        },
+        save,
     }
 );

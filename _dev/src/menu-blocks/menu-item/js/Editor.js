@@ -1,9 +1,11 @@
+import InspectorControls from './Inspector';
 import DietaryIcons from './DietaryIcons';
+import formatPrice from './formatPrice';
 /**
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { Component } = wp.element;
+const { Component, Fragment } = wp.element;
 const { RichText, MediaPlaceholder } = wp.blockEditor;
 
 class Editor extends Component {
@@ -15,46 +17,25 @@ class Editor extends Component {
     renderImage() {
         const { attributes, setAttributes, isSelected } = this.props;
 
-        const classes = classnames('wp-block-coblocks-food-item__figure', {
-            'is-transient': isBlobURL(attributes.url),
-            'is-selected': isSelected,
-        });
-
-        const dropZone = (
-            <DropZone
-                onFilesDrop={this.replaceImage}
-                label={__('Drop image to replace')}
-            />
-        );
-
         return (
-            <Fragment>
-                <figure className={classes}>
-                    {isSelected && (
-                        <div className="wp-block-coblocks-food-item__remove-menu">
-                            <IconButton
-                                icon="no-alt"
-                                onClick={() => setAttributes({ url: '' })}
-                                className="coblocks-gallery-item__button"
-                                label={__('Remove Image')}
-                                disabled={!isSelected}
-                            />
-                        </div>
-                    )}
-                    {dropZone}
-                    {isBlobURL(attributes.url) && <Spinner />}
-                    <img
-                        src={attributes.url}
-                        alt={attributes.alt}
-                        style={{
-                            objectPosition: attributes.focalPoint ?
-                                `${attributes.focalPoint.x * 100}% ${attributes.focalPoint.y *
-                                100}%` :
-                                undefined,
-                        }}
-                    />
-                </figure>
-            </Fragment>
+            <MediaPlaceholder
+                allowedTypes={['image']}
+                multiple={false}
+                icon="format-image"
+                labels={
+                    {
+                        title: ' ',
+                    }
+                }
+                onSelect={
+                    el => setAttributes(
+                        {
+                            mediaURL: el.url,
+                            mediaAlt: el.alt
+                        }
+                    )
+                }
+            />
         );
     }
 
@@ -65,56 +46,94 @@ class Editor extends Component {
                 allowedTypes={['image']}
                 multiple={false}
                 icon="format-image"
-                labels={{
-                    title: ' ',
-                }}
-                onSelect={el => setAttributes({ url: el.url, alt: el.alt })}
+                labels={
+                    {
+                        title: ' ',
+                    }
+                }
+                onSelect={
+                    el => setAttributes(
+                        { 
+                            mediaURL: el.url, 
+                            mediaAlt: el.alt 
+                        }
+                    )
+                }
             />
         );
     }
 
     render() {
         const { attributes, setAttributes, isSelected } = this.props;
-        const { showImage, imageURL, itemTitle, description, price } = attributes;
-        const allowedFormats = ['bold', 'italic'];
+        const { showImage, imageURL } = attributes;
+        const richTextAttributes = {
+            keepPlaceholderOnFocus: true,
+            formattingControls: ['bold', 'italic'],
+        };
 
         return (
-            <div class="wp-block-dining-dashboard-menu-item">
-                {
-                    !!attributes.showImage && 
-                    ( attributes.imageURL ? this.renderImage() : this.renderPlaceholder() ) 
-                }
-                <div class="details">
-                    <RichText
-                        tagName="h3"
-                        placeholder={__('Menu Item Title')}
-                        onChange={(itemTitle) => setAttributes({ itemTitle })}
-                        allowedFormats={allowedFormats}
-                        value={itemTitle}
-                    />
-                    <RichText
-                        tagName="p"
-                        placeholder={__('Menu Item Description')}
-                        onChange={(description) => setAttributes({ description })}
-                        allowedFormats={allowedFormats}
-                        value={description}
-                    />
-                    <div class="meta">
-                        <span title="Vegetarian">
-                            {DietaryIcons.Vegetarian}
-                        </span>
-                        <span title="Vegan">
-                            {DietaryIcons.Vegan}
-                        </span>
-                        <span title="Gluten Free">
-                            {DietaryIcons.GlutenFree}
-                        </span>
-                        <span class="price">
-                            {price}
-                        </span>
-                    </div>  
-                </div>  
-            </div>
+            <Fragment>
+                <InspectorControls
+                    {...this.props}
+                />
+                <div>
+                    {
+                        !!attributes.showImage &&
+                        (
+                            attributes.mediaURL ? this.renderImage() : this.renderPlaceholder()
+                        )
+                    }
+                    <div class="wp-block-dining-dashboard-menu-item">
+                        <div class="details">
+                            <RichText
+                                value={attributes.itemTitle}
+                                tagName="h3"
+                                wrapperClassName="wp-block-coblocks-food-item__heading"
+                                placeholder={__('Menu Item Title')}
+                                onChange={itemTitle => setAttributes({ itemTitle })}
+                                {...richTextAttributes}
+                            />
+                            <RichText
+                                value={attributes.description}
+                                tagName="p"
+                                wrapperClassName="wp-block-coblocks-food-item__description"
+                                placeholder={__('Menu Item Description')}
+                                onChange={description => setAttributes({ description })}
+                                {...richTextAttributes}
+                            />
+                            <div class="meta">
+                                {
+                                    !!attributes.vegetarian &&
+                                    <span title="Vegetarian">
+                                        {DietaryIcons.Vegetarian}
+                                    </span>
+                                }
+                                {
+                                    !!attributes.vegan &&
+                                    <span title="Vegan">
+                                        {DietaryIcons.Vegan}
+                                    </span>
+                                }
+                                {
+                                    !!attributes.glutenFree &&
+                                    <span title="Gluten Free">
+                                        {DietaryIcons.GlutenFree}
+                                    </span>
+                                }
+                                {
+                                    !!attributes.price &&
+                                    attributes.price > 0 &&
+                                    <span class="price">
+                                        {
+                                            formatPrice(attributes.price)
+                                        }
+                                    </span>
+                                }
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </Fragment>
         );
     }
 
