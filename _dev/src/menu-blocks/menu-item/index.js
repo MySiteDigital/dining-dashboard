@@ -31,16 +31,10 @@ registerBlockType(
 
         attributes: {
             itemTitle: {
-                type: 'string',
-                source: 'html',
-                selector: ".wp-block-coblocks-food-item__heading",
-                default: '',
+                type: 'string'
             },
             description: {
-                type: 'string',
-                source: 'html',
-                selector: ".wp-block-coblocks-food-item__description",
-                default: '',
+                type: 'string'
             },
             showImage: {
                 type: 'boolean',
@@ -80,8 +74,6 @@ registerBlockType(
             },
         },
 
-        edit: Editor,
-
-        save,
+        edit: Editor
     }
 );

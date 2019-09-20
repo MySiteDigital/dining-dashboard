@@ -24,7 +24,7 @@ class MenuSectionHeading {
        $this->init();
     }
 
-    public static function render( $attributes ){
+    public static function render_block( $attributes ){
         $variables[ 'section_title' ] = wp_kses( 
             $attributes[ 'sectionTitle' ],
             [

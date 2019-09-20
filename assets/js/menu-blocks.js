@@ -250,27 +250,6 @@ module.exports = _assertThisInitialized;
 
 /***/ }),
 /* 10 */
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-
-/***/ }),
-/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseIsNative = __webpack_require__(128),
@@ -291,6 +270,27 @@ function getNative(object, key) {
 
 module.exports = getNative;
 
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
 
 /***/ }),
 /* 12 */
@@ -416,7 +416,7 @@ module.exports = getMapData;
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(11);
+var getNative = __webpack_require__(10);
 
 /* Built-in method references that are verified to be native. */
 var nativeCreate = getNative(Object, 'create');
@@ -832,7 +832,7 @@ module.exports = isObject;
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(11),
+var getNative = __webpack_require__(10),
     root = __webpack_require__(7);
 
 /* Built-in method references that are verified to be native. */
@@ -1468,7 +1468,7 @@ __webpack_require__.d(food_item_namespaceObject, "icon", function() { return foo
 __webpack_require__.d(food_item_namespaceObject, "settings", function() { return food_item_settings; });
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(10);
+var defineProperty = __webpack_require__(11);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
@@ -2499,16 +2499,10 @@ menu_item_registerBlockType('dining-dashboard/menu-item', (_registerBlockType = 
   customClassName: false
 }), defineProperty_default()(_registerBlockType, "attributes", {
   itemTitle: {
-    type: 'string',
-    source: 'html',
-    selector: ".wp-block-coblocks-food-item__heading",
-    default: ''
+    type: 'string'
   },
   description: {
-    type: 'string',
-    source: 'html',
-    selector: ".wp-block-coblocks-food-item__description",
-    default: ''
+    type: 'string'
   },
   showImage: {
     type: 'boolean',
@@ -2546,7 +2540,7 @@ menu_item_registerBlockType('dining-dashboard/menu-item', (_registerBlockType = 
   price: {
     type: "string"
   }
-}), defineProperty_default()(_registerBlockType, "edit", menu_item_js_Editor), defineProperty_default()(_registerBlockType, "save", js_Save_save), _registerBlockType));
+}), defineProperty_default()(_registerBlockType, "edit", menu_item_js_Editor), _registerBlockType));
 // EXTERNAL MODULE: ./src/menu-blocks/food-and-drinks/styles/editor.scss
 var editor = __webpack_require__(54);
 
@@ -4215,7 +4209,7 @@ module.exports = getMatchData;
 /* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(11),
+var getNative = __webpack_require__(10),
     root = __webpack_require__(7);
 
 /* Built-in method references that are verified to be native. */
@@ -4228,7 +4222,7 @@ module.exports = WeakMap;
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(11),
+var getNative = __webpack_require__(10),
     root = __webpack_require__(7);
 
 /* Built-in method references that are verified to be native. */
@@ -4241,7 +4235,7 @@ module.exports = Set;
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(11),
+var getNative = __webpack_require__(10),
     root = __webpack_require__(7);
 
 /* Built-in method references that are verified to be native. */
@@ -4254,7 +4248,7 @@ module.exports = Promise;
 /* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(11),
+var getNative = __webpack_require__(10),
     root = __webpack_require__(7);
 
 /* Built-in method references that are verified to be native. */

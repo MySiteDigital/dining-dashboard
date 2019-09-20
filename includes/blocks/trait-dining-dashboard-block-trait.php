@@ -17,6 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 trait BlockTrait {
 
     public function init(){
+        if( method_exists( $this,'render' ) ){
+            add_action( 'init', [ $this , 'register_block' ] );
+        }
         if( method_exists( $this,'filter_block_content' ) ){
             add_filter( 'render_block', [ $this , 'filter_block_content' ], 999, 2 );
         }
@@ -25,14 +28,14 @@ trait BlockTrait {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_styles' ] );
     }
 
-    // public function register_block(){
-    //     register_block_type( 
-    //         $this->block_type, 
-    //         [
-    //             'render_callback' => [ $this, 'render' ]
-    //         ]
-    //     );
-    // }
+    public function register_block(){
+        register_block_type( 
+            $this->block_type, 
+            [
+                'render_callback' => [ $this, 'render' ]
+            ]
+        );
+    }
 
     public function register_styles_and_scripts() {
 

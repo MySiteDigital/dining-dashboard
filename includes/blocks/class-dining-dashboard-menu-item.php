@@ -26,19 +26,21 @@ class MenuItem {
        $this->init();
     }
 
-    public function filter_block_content( $block_content, $block ){
-        if( $block[ 'blockName' ] == $this->block_type ){
-            $attributes = $block["attrs"];
-
-            $vegetarian = isset( $attributes[ 'vegetarian' ] ) ? $attributes[ 'vegetarian' ] : false;
-            $vegan = isset( $attributes[ 'vegan' ] ) ? $attributes[ 'vegan' ] : false;
-            $glutenFree = isset( $attributes[ 'glutenFree' ] ) ? $attributes[ 'glutenFree' ] : false;
-            $price = isset( $attributes[ 'price' ] ) ? $this->format_price( $attributes[ 'price' ] ) : 0;
-            echo '<pre>';
-            print_r($price);
-            echo '</pre>';
-            die('sdfsdf');
-        }  
+    public function render( $attributes ){
+        $variables[ 'item_title' ] = $attributes[ 'itemTitle' ];
+        $variables[ 'description' ] = $attributes[ 'description' ];
+        $variables[ 'vegetarian' ] = isset( $attributes[ 'vegetarian' ] ) ? $attributes[ 'vegetarian' ] : false;
+        $variables[ 'vegan' ] = isset( $attributes[ 'vegan' ] ) ? $attributes[ 'vegan' ] : false;
+        $variables[ 'gluten_free' ] = isset( $attributes[ 'glutenFree' ] ) ? $attributes[ 'glutenFree' ] : false;
+        $variables[ 'price' ] = isset( $attributes[ 'price' ] ) ? $this->format_price( $attributes[ 'price' ] ) : 0;
+        $variables[ 'has_meta' ] = $this->has_meta( $variables );
+        if( is_admin() ){
+            return self::render_template( 'menu-item', $variables );    
+        }
+        else {
+            extract( $variables );
+            include self::load_template( 'menu-item' );
+        }
     }
 
     public function format_price( $price ){
@@ -51,6 +53,12 @@ class MenuItem {
         }
         return $nice_price;
     }
+
+    public function has_meta( $variables ){
+        extract( $variables );
+        return $vegetarian || $vegan || $gluten_free || $price;
+    }
 }
 
 new MenuItem();
+ 

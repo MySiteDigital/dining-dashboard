@@ -43,10 +43,10 @@ class MenuSection {
             $attributes = $block["attrs"];
             $columns = intval( $attributes[ 'sectionColumns' ] );
             $slide_toggle = isset( $attributes[ 'hasSlideToggle' ] ) ? $attributes[ 'hasSlideToggle' ] : false;
-            $section_title = MenuSectionHeading::render(
+            $section_title = MenuSectionHeading::render_block(
                 $block[ 'innerBlocks' ][ 0 ][ 'attrs' ]
             );
-            $rendered_columns =  $this->render_columns( $block[ 'innerBlocks' ] );
+            //$rendered_columns =  $this->render_columns( $block[ 'innerBlocks' ] );
             include self::load_template( 'menu-section' );
         }  
     }
