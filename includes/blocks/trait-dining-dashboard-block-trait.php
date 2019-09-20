@@ -17,10 +17,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 trait BlockTrait {
 
     public function init(){
+        if( method_exists( $this,'filter_block_content' ) ){
+            add_filter( 'render_block', [ $this , 'filter_block_content' ], 999, 2 );
+        }
         add_action( 'init', [ $this , 'register_styles_and_scripts' ] );
         add_action( 'enqueue_block_editor_assets', [ $this , 'enqueue_block_editor_assets' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_styles' ] );
     }
+
+    // public function register_block(){
+    //     register_block_type( 
+    //         $this->block_type, 
+    //         [
+    //             'render_callback' => [ $this, 'render' ]
+    //         ]
+    //     );
+    // }
 
     public function register_styles_and_scripts() {
 
@@ -87,5 +99,23 @@ trait BlockTrait {
 
     public function get_asset_version( $filename ){
         return @filemtime( $this->get_asset_location( $filename, true ) );
+    }
+
+    public static function load_template( $block_slug ){
+        $themed_template = get_stylesheet_directory() . '/dining-dashboard/' . $block_slug . '.php';
+        if( file_exists( $themed_template ) ){
+            $template = $themed_template;
+        }
+        else {
+            $template = DD_PLUGIN_PATH . 'templates/' .  $block_slug . '.php';
+        }
+        return $template;
+    }
+
+    public static function render_template( $file, $variables ){
+        extract( $variables );
+        ob_start();
+        include self::load_template( $file );
+        return ob_get_clean();
     }
 }
