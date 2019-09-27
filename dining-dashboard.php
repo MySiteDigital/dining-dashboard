@@ -66,11 +66,15 @@ final class DiningDashboard {
     {
         include_once( DD_PLUGIN_PATH . 'includes/post-types/trait-dining-dashboard-post-type-trait.php' );
         include_once( DD_PLUGIN_PATH . 'includes/post-types/class-dining-dashboard-menu.php' );
-
+        
         include_once( DD_PLUGIN_PATH . 'includes/blocks/trait-dining-dashboard-block-trait.php' );
         include_once( DD_PLUGIN_PATH . 'includes/blocks/class-dining-dashboard-menu-item.php' );
-        include_once( DD_PLUGIN_PATH . 'includes/blocks/class-dining-dashboard-menu-blocks.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/blocks/class-dining-dashboard-menu-section.php' );
         include_once( DD_PLUGIN_PATH . 'includes/blocks/class-dining-dashboard-menu-section-heading.php' );
+
+        include_once( DD_PLUGIN_PATH . 'includes/assets/trait-dining-dashboard-assets-trait.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/assets/class-dining-dashboard-menu-blocks.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/assets/class-dining-dashboard-menu-post-type.php' );
 
         if ( is_admin() ) {
             include_once( DD_PLUGIN_PATH . 'includes/admin/class-dining-dashboard-admin.php' );

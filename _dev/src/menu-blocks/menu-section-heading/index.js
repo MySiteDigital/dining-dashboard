@@ -30,7 +30,5 @@ registerBlockType(
         },
 
         edit: Editor,
-
-        save,
     }
 );

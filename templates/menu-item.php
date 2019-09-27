@@ -48,7 +48,6 @@
 
                 echo '</div>';
             }
-            ?>                                                                                           
-        </div>
+        ?>                                                                                           
     </div>
 </figure>

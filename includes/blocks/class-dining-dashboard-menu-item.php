@@ -22,6 +22,16 @@ class MenuItem {
 
     public $block_type = "dining-dashboard/menu-item";
 
+    protected static $_instance = null;
+
+    public static function instance()
+    {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
     public function __construct() {
        $this->init();
     }
@@ -34,13 +44,7 @@ class MenuItem {
         $variables[ 'gluten_free' ] = isset( $attributes[ 'glutenFree' ] ) ? $attributes[ 'glutenFree' ] : false;
         $variables[ 'price' ] = isset( $attributes[ 'price' ] ) ? $this->format_price( $attributes[ 'price' ] ) : 0;
         $variables[ 'has_meta' ] = $this->has_meta( $variables );
-        if( is_admin() ){
-            return self::render_template( 'menu-item', $variables );    
-        }
-        else {
-            extract( $variables );
-            include self::load_template( 'menu-item' );
-        }
+        return self::render_template( 'menu-item', $variables ); 
     }
 
     public function format_price( $price ){

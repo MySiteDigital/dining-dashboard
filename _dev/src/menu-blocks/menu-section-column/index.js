@@ -36,11 +36,8 @@ registerBlockType(
         edit: Editor,
 
         save({ attributes, className }) {
-            console.log(attributes);
             return (
-                <div className="menu-section__column">
-                    <InnerBlocks.Content />
-                </div>
+                <InnerBlocks.Content />
             );
         },
     }

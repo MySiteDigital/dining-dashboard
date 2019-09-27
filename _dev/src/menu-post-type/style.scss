@@ -1,0 +1,49 @@
+.wp-block-dining-dashboard {
+    &-menu-section {
+        margin: 0 auto; 
+
+        &.align {
+
+            &-narrow {
+                max-width: 60%;
+            }
+
+            &-wide {
+                max-width: 80%;
+            }
+
+            &-full {
+                max-width: 100%;
+            }
+
+        }
+
+        &-grid {
+            display: grid;
+            grid-gap: 20px;
+            grid-auto-rows: minmax(min-content, max-content);
+
+            &.cols-1 {
+                grid-template-columns: 1fr;
+            }
+
+            &.cols-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            &.cols-3 {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            &.cols-4 {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+        }
+
+    }
+
+    &-menu-item {
+        align-self: start;
+    }
+}
