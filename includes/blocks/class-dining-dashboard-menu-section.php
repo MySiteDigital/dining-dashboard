@@ -30,14 +30,17 @@ class MenuSection {
         if( $block[ 'blockName' ] == $this->block_type ){
             $attributes = $block["attrs"];
             $inner_blocks = $block[ 'innerBlocks' ];
-            $columns = intval( $attributes[ 'sectionColumns' ] );
+            $columns = isset( $attributes[ 'sectionColumns' ] ) ? intval( $attributes[ 'sectionColumns' ] ) : 1;
 
             $variables[ 'columns' ] = $columns;
-            $variables[ 'align' ] = isset( $attributes[ 'align' ] ) ? $attributes[ 'align' ] : 'narrow';
+            $variables[ 'align' ] = $this->get_default_alignment( $attributes );
             $variables[ 'slide_toggle' ] = isset( $attributes[ 'hasSlideToggle' ] ) ? $attributes[ 'hasSlideToggle' ] : false;
-            $variables[ 'section_title' ] = MenuSectionHeading::inner_block_content(
-                $inner_blocks[ 0 ][ 'attrs' ]
-            );
+            $variables[ 'section_title' ] = '';
+            if( isset( $inner_blocks[ 0 ] ) ) {
+                $variables[ 'section_title' ] = MenuSectionHeading::inner_block_content(
+                    $inner_blocks[ 0 ][ 'attrs' ]
+                );
+            } 
             $variables[ 'rendered_columns' ] =  $this->render_columns( $inner_blocks, $columns );
             
             return self::render_template( 'menu-section', $variables ); 
@@ -68,7 +71,7 @@ class MenuSection {
         $index = 0;
         while( $index < $most_items ) {
             foreach( $menu_columns as $menu_column ){
-                if( isset( $menu_column[ $index ] ) ){
+                if( isset( $menu_column[ $index ] ) && isset( $menu_column[ $index ][ 'attrs' ] ) && $menu_column[ $index ][ 'attrs' ] ){
                     $attributes = $menu_column[ $index ][ 'attrs' ];
                     $rendered_columns[] = $menu_item_class->render( $attributes );
                 }
@@ -79,6 +82,19 @@ class MenuSection {
             $index++;
         }
         return $rendered_columns;
+    }
+
+
+    /* 
+     * https://wordpress.stackexchange.com/questions/325724/style-new-block-editor-alignfull-class-without-scrollbars-or-overflow
+     */
+    public function get_default_alignment( $attributes ){
+
+        if( get_theme_support( 'align-wide' ) ){
+            return isset( $attributes[ 'align' ] ) ? $attributes[ 'align' ] : 'narrow';
+        }
+
+        return 'full';
     }
 }
 

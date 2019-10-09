@@ -66,26 +66,50 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 48:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
 
-/***/ 49:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(48);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 
+;
+
+(function ($) {
+  jQuery(document).ready(function () {
+    menuNav.init();
+  });
+})(jQuery);
+
+var menuNav = {
+  slideToggleTrigger: jQuery('.has-slide-toggle header'),
+  menuSectionClass: '.wp-block-dining-dashboard-menu-section',
+  gridHolderClass: '.grid-holder',
+  init: function init() {
+    if (menuNav.slideToggleTrigger.length) {
+      menuNav.buttonListener();
+    }
+  },
+  buttonListener: function buttonListener() {
+    menuNav.slideToggleTrigger.on('click', function () {
+      jQuery(this).toggleClass('open');
+      jQuery(this).closest(menuNav.menuSectionClass).find(menuNav.gridHolderClass).slideToggle();
+    });
+  }
+};
 
 /***/ })
 

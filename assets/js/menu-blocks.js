@@ -66,7 +66,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 47);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -77,94 +77,6 @@
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var setPrototypeOf = __webpack_require__(144);
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) setPrototypeOf(subClass, superClass);
-}
-
-module.exports = _inherits;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-function _getPrototypeOf(o) {
-  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-module.exports = _getPrototypeOf;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _typeof = __webpack_require__(145);
-
-var assertThisInitialized = __webpack_require__(9);
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return assertThisInitialized(self);
-}
-
-module.exports = _possibleConstructorReturn;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-module.exports = _createClass;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck;
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports) {
 
 /**
@@ -196,7 +108,7 @@ module.exports = isArray;
 
 
 /***/ }),
-/* 7 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var freeGlobal = __webpack_require__(41);
@@ -211,49 +123,99 @@ module.exports = root;
 
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-function _extends() {
-  module.exports = _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-module.exports = _extends;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-module.exports = _assertThisInitialized;
-
-/***/ }),
-/* 10 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsNative = __webpack_require__(130),
-    getValue = __webpack_require__(124);
+var setPrototypeOf = __webpack_require__(136);
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) setPrototypeOf(subClass, superClass);
+}
+
+module.exports = _inherits;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+function _getPrototypeOf(o) {
+  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+module.exports = _getPrototypeOf;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(137);
+
+var assertThisInitialized = __webpack_require__(27);
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return assertThisInitialized(self);
+}
+
+module.exports = _possibleConstructorReturn;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIsNative = __webpack_require__(122),
+    getValue = __webpack_require__(116);
 
 /**
  * Gets the native function at `key` of `object`.
@@ -272,28 +234,7 @@ module.exports = getNative;
 
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-
-/***/ }),
-/* 12 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /**
@@ -328,12 +269,12 @@ module.exports = isObjectLike;
 
 
 /***/ }),
-/* 13 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(17),
-    getRawTag = __webpack_require__(128),
-    objectToString = __webpack_require__(127);
+var Symbol = __webpack_require__(14),
+    getRawTag = __webpack_require__(120),
+    objectToString = __webpack_require__(119);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -362,10 +303,10 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 14 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSymbol = __webpack_require__(21);
+var isSymbol = __webpack_require__(19);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -389,10 +330,10 @@ module.exports = toKey;
 
 
 /***/ }),
-/* 15 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isKeyable = __webpack_require__(115);
+var isKeyable = __webpack_require__(107);
 
 /**
  * Gets the data for `map`.
@@ -413,10 +354,10 @@ module.exports = getMapData;
 
 
 /***/ }),
-/* 16 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(10);
+var getNative = __webpack_require__(8);
 
 /* Built-in method references that are verified to be native. */
 var nativeCreate = getNative(Object, 'create');
@@ -425,10 +366,10 @@ module.exports = nativeCreate;
 
 
 /***/ }),
-/* 17 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(7);
+var root = __webpack_require__(2);
 
 /** Built-in value references. */
 var Symbol = root.Symbol;
@@ -437,7 +378,7 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 18 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var eq = __webpack_require__(43);
@@ -464,14 +405,14 @@ module.exports = assocIndexOf;
 
 
 /***/ }),
-/* 19 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var listCacheClear = __webpack_require__(140),
-    listCacheDelete = __webpack_require__(139),
-    listCacheGet = __webpack_require__(138),
-    listCacheHas = __webpack_require__(137),
-    listCacheSet = __webpack_require__(136);
+var listCacheClear = __webpack_require__(132),
+    listCacheDelete = __webpack_require__(131),
+    listCacheGet = __webpack_require__(130),
+    listCacheHas = __webpack_require__(129),
+    listCacheSet = __webpack_require__(128);
 
 /**
  * Creates an list cache object.
@@ -502,13 +443,13 @@ module.exports = ListCache;
 
 
 /***/ }),
-/* 20 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayMap = __webpack_require__(45),
-    baseIteratee = __webpack_require__(143),
-    baseMap = __webpack_require__(63),
-    isArray = __webpack_require__(6);
+    baseIteratee = __webpack_require__(135),
+    baseMap = __webpack_require__(55),
+    isArray = __webpack_require__(1);
 
 /**
  * Creates an array of values by running each element in `collection` thru
@@ -561,11 +502,32 @@ module.exports = map;
 
 
 /***/ }),
-/* 21 */
+/* 18 */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(13),
-    isObjectLike = __webpack_require__(12);
+var baseGetTag = __webpack_require__(10),
+    isObjectLike = __webpack_require__(9);
 
 /** `Object#toString` result references. */
 var symbolTag = '[object Symbol]';
@@ -596,11 +558,11 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isArray = __webpack_require__(6),
-    isSymbol = __webpack_require__(21);
+var isArray = __webpack_require__(1),
+    isSymbol = __webpack_require__(19);
 
 /** Used to match property names within property paths. */
 var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
@@ -631,11 +593,11 @@ module.exports = isKey;
 
 
 /***/ }),
-/* 23 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isFunction = __webpack_require__(42),
-    isLength = __webpack_require__(24);
+    isLength = __webpack_require__(22);
 
 /**
  * Checks if `value` is array-like. A value is considered array-like if it's
@@ -670,7 +632,7 @@ module.exports = isArrayLike;
 
 
 /***/ }),
-/* 24 */
+/* 22 */
 /***/ (function(module, exports) {
 
 /** Used as references for various `Number` constants. */
@@ -711,12 +673,12 @@ module.exports = isLength;
 
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeKeys = __webpack_require__(94),
-    baseKeys = __webpack_require__(87),
-    isArrayLike = __webpack_require__(23);
+var arrayLikeKeys = __webpack_require__(86),
+    baseKeys = __webpack_require__(79),
+    isArrayLike = __webpack_require__(21);
 
 /**
  * Creates an array of the own enumerable property names of `object`.
@@ -754,14 +716,14 @@ module.exports = keys;
 
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapCacheClear = __webpack_require__(123),
-    mapCacheDelete = __webpack_require__(116),
-    mapCacheGet = __webpack_require__(114),
-    mapCacheHas = __webpack_require__(113),
-    mapCacheSet = __webpack_require__(112);
+var mapCacheClear = __webpack_require__(115),
+    mapCacheDelete = __webpack_require__(108),
+    mapCacheGet = __webpack_require__(106),
+    mapCacheHas = __webpack_require__(105),
+    mapCacheSet = __webpack_require__(104);
 
 /**
  * Creates a map cache object to store key-value pairs.
@@ -792,7 +754,7 @@ module.exports = MapCache;
 
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports) {
 
 /**
@@ -829,11 +791,11 @@ module.exports = isObject;
 
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(10),
-    root = __webpack_require__(7);
+var getNative = __webpack_require__(8),
+    root = __webpack_require__(2);
 
 /* Built-in method references that are verified to be native. */
 var Map = getNative(root, 'Map');
@@ -842,13 +804,51 @@ module.exports = Map;
 
 
 /***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+module.exports = _assertThisInitialized;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+
+/***/ }),
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isArray = __webpack_require__(6),
-    isKey = __webpack_require__(22),
-    stringToPath = __webpack_require__(75),
-    toString = __webpack_require__(72);
+var isArray = __webpack_require__(1),
+    isKey = __webpack_require__(20),
+    stringToPath = __webpack_require__(67),
+    toString = __webpack_require__(64);
 
 /**
  * Casts `value` to a path array if it's not one.
@@ -873,7 +873,7 @@ module.exports = castPath;
 /***/ (function(module, exports, __webpack_require__) {
 
 var castPath = __webpack_require__(29),
-    toKey = __webpack_require__(14);
+    toKey = __webpack_require__(11);
 
 /**
  * The base implementation of `_.get` without support for default values.
@@ -928,7 +928,7 @@ module.exports = matchesStrictComparable;
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(27);
+var isObject = __webpack_require__(25);
 
 /**
  * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
@@ -949,9 +949,9 @@ module.exports = isStrictComparable;
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsTypedArray = __webpack_require__(90),
-    baseUnary = __webpack_require__(89),
-    nodeUtil = __webpack_require__(88);
+var baseIsTypedArray = __webpack_require__(82),
+    baseUnary = __webpack_require__(81),
+    nodeUtil = __webpack_require__(80);
 
 /* Node.js helper references. */
 var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -1041,8 +1041,8 @@ module.exports = function(module) {
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(7),
-    stubFalse = __webpack_require__(91);
+/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(2),
+    stubFalse = __webpack_require__(83);
 
 /** Detect free variable `exports`. */
 var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -1086,8 +1086,8 @@ module.exports = isBuffer;
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsArguments = __webpack_require__(92),
-    isObjectLike = __webpack_require__(12);
+var baseIsArguments = __webpack_require__(84),
+    isObjectLike = __webpack_require__(9);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -1128,9 +1128,9 @@ module.exports = isArguments;
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SetCache = __webpack_require__(110),
-    arraySome = __webpack_require__(107),
-    cacheHas = __webpack_require__(106);
+var SetCache = __webpack_require__(102),
+    arraySome = __webpack_require__(99),
+    cacheHas = __webpack_require__(98);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1,
@@ -1217,8 +1217,8 @@ module.exports = equalArrays;
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsEqualDeep = __webpack_require__(111),
-    isObjectLike = __webpack_require__(12);
+var baseIsEqualDeep = __webpack_require__(103),
+    isObjectLike = __webpack_require__(9);
 
 /**
  * The base implementation of `_.isEqual` which supports partial comparisons
@@ -1288,14 +1288,14 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 
 module.exports = freeGlobal;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(129)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(121)))
 
 /***/ }),
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(13),
-    isObject = __webpack_require__(27);
+var baseGetTag = __webpack_require__(10),
+    isObject = __webpack_require__(25);
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
@@ -1380,12 +1380,12 @@ module.exports = eq;
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(19),
-    stackClear = __webpack_require__(135),
-    stackDelete = __webpack_require__(134),
-    stackGet = __webpack_require__(133),
-    stackHas = __webpack_require__(132),
-    stackSet = __webpack_require__(131);
+var ListCache = __webpack_require__(16),
+    stackClear = __webpack_require__(127),
+    stackDelete = __webpack_require__(126),
+    stackGet = __webpack_require__(125),
+    stackHas = __webpack_require__(124),
+    stackSet = __webpack_require__(123);
 
 /**
  * Creates a stack cache object to store key-value pairs.
@@ -1438,64 +1438,54 @@ module.exports = arrayMap;
 
 /***/ }),
 /* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithHoles = __webpack_require__(52);
-
-var iterableToArrayLimit = __webpack_require__(51);
-
-var nonIterableRest = __webpack_require__(50);
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || nonIterableRest();
-}
-
-module.exports = _slicedToArray;
-
-/***/ }),
-/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var food_and_drinks_namespaceObject = {};
-__webpack_require__.d(food_and_drinks_namespaceObject, "name", function() { return food_and_drinks_name; });
-__webpack_require__.d(food_and_drinks_namespaceObject, "settings", function() { return settings; });
-var food_item_namespaceObject = {};
-__webpack_require__.d(food_item_namespaceObject, "name", function() { return food_item_name; });
-__webpack_require__.d(food_item_namespaceObject, "title", function() { return title; });
-__webpack_require__.d(food_item_namespaceObject, "icon", function() { return food_item_icon; });
-__webpack_require__.d(food_item_namespaceObject, "settings", function() { return food_item_settings; });
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(11);
-var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
-var classCallCheck = __webpack_require__(5);
-var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/createClass.js
-var createClass = __webpack_require__(4);
-var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
-var possibleConstructorReturn = __webpack_require__(3);
-var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
-var getPrototypeOf = __webpack_require__(2);
-var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
-var inherits = __webpack_require__(1);
-var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
 // EXTERNAL MODULE: external {"this":["wp","element"]}
 var external_this_wp_element_ = __webpack_require__(0);
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
+var classCallCheck = __webpack_require__(7);
+var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/createClass.js
+var createClass = __webpack_require__(6);
+var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
+var possibleConstructorReturn = __webpack_require__(5);
+var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
+var getPrototypeOf = __webpack_require__(4);
+var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
+var inherits = __webpack_require__(3);
+var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
+
+// CONCATENATED MODULE: ./src/menu-blocks/menu-section/js/AlignmentText.js
+
+
+/**
+ * WordPress dependencies.
+ */
+var __ = wp.i18n.__;
+var IconButton = wp.components.IconButton;
+
+var AlignmentText_AlignmentText = function AlignmentText() {
+  var alignInstructionsHeading = __('Alignment Recommendations.');
+
+  var alignInstructions = __('"Wide Width" alignment is recommended when selecting three columns and "Full Width" alignment is recommended when selecting four columns.');
+
+  return Object(external_this_wp_element_["createElement"])("p", null, Object(external_this_wp_element_["createElement"])("h3", null, alignInstructionsHeading), alignInstructions);
+};
+
+/* harmony default export */ var js_AlignmentText = (AlignmentText_AlignmentText);
 // EXTERNAL MODULE: ./node_modules/lodash/map.js
-var map = __webpack_require__(20);
+var map = __webpack_require__(17);
 var map_default = /*#__PURE__*/__webpack_require__.n(map);
 
 // CONCATENATED MODULE: ./src/menu-blocks/menu-section/js/Inspector.js
@@ -1505,11 +1495,12 @@ var map_default = /*#__PURE__*/__webpack_require__.n(map);
  * External dependencies
  */
 
+
 /**
  * WordPress dependencies.
  */
 
-var __ = wp.i18n.__;
+var Inspector_ = wp.i18n.__;
 var _wp$components = wp.components,
     PanelBody = _wp$components.PanelBody,
     ToggleControl = _wp$components.ToggleControl,
@@ -1525,12 +1516,13 @@ var Inspector_Inspector = function Inspector(props) {
   var attributes = props.attributes,
       setAttributes = props.setAttributes,
       columnOptions = props.columnOptions;
-  var sectionColumns = attributes.sectionColumns;
-  return Object(external_this_wp_element_["createElement"])(InspectorControls, null, Object(external_this_wp_element_["createElement"])(PanelBody, {
-    title: __('Columns'),
+  var sectionColumns = attributes.sectionColumns; //for a future version
+
+  var columnsPanel = Object(external_this_wp_element_["createElement"])(PanelBody, {
+    title: Inspector_('Columns'),
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(ButtonGroup, {
-    "aria-label": __('Select Columns'),
+    "aria-label": Inspector_('Select Columns'),
     id: "menu-section-inspector-columns"
   }, map_default()(columnOptions, function (_ref) {
     var name = _ref.name,
@@ -1547,12 +1539,13 @@ var Inspector_Inspector = function Inspector(props) {
         });
       }
     }, icon));
-  }))), Object(external_this_wp_element_["createElement"])(PanelBody, {
-    title: __('Section Settings'),
+  })));
+  return Object(external_this_wp_element_["createElement"])(InspectorControls, null, Object(external_this_wp_element_["createElement"])(PanelBody, {
+    title: Inspector_('Section Settings'),
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(ToggleControl, {
-    label: __('Slide Toggle'),
-    help: attributes.hasSlideToggle ? __('Menu Items in this section are initially hidden and open via Slide Toggle') : __('Menu Items in this section are always shown'),
+    label: Inspector_('Slide Toggle'),
+    help: attributes.hasSlideToggle ? Inspector_('Menu Items in this section are initially hidden and open via Slide Toggle') : Inspector_('Menu Items in this section are always shown'),
     checked: attributes.hasSlideToggle,
     onChange: function onChange() {
       setAttributes({
@@ -1560,8 +1553,8 @@ var Inspector_Inspector = function Inspector(props) {
       });
     }
   }), Object(external_this_wp_element_["createElement"])(ToggleControl, {
-    label: __('Images'),
-    help: attributes.showImages ? __('Showing images for each item') : __('Toggle to show images for each item.'),
+    label: Inspector_('Images'),
+    help: attributes.showImages ? Inspector_('Showing images for each item') : Inspector_('Toggle to show images for each item.'),
     checked: attributes.showImages,
     onChange: function onChange() {
       setAttributes({
@@ -1569,15 +1562,15 @@ var Inspector_Inspector = function Inspector(props) {
       });
     }
   }), Object(external_this_wp_element_["createElement"])(ToggleControl, {
-    label: __('Prices'),
-    help: attributes.showPrices ? __('Showing the price of each item') : __('Toggle to show the price of each item.'),
+    label: Inspector_('Prices'),
+    help: attributes.showPrices ? Inspector_('Showing the price of each item') : Inspector_('Toggle to show the price of each item.'),
     checked: attributes.showPrices,
     onChange: function onChange() {
       setAttributes({
         showPrices: !attributes.showPrices
       });
     }
-  })));
+  }), Object(external_this_wp_element_["createElement"])(js_AlignmentText, null)));
 };
 
 /* harmony default export */ var js_Inspector = (Inspector_Inspector);
@@ -1799,6 +1792,7 @@ RowIcons.colFour = Object(external_this_wp_element_["createElement"])("svg", {
 
 
 
+
 /**
  * external dependencies
  */
@@ -1863,12 +1857,14 @@ function (_Component) {
           setAttributes = _this$props.setAttributes;
       var sectionColumns = attributes.sectionColumns;
 
+      var selectInstructions = Editor_('Select the number of columns for this menu section.');
+
       if (!sectionColumns) {
         return Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])(Placeholder, {
           key: "placeholder",
           icon: utils_Icons.MenuSection,
           label: Object(external_this_wp_element_["createElement"])("span", null, Editor_('Menu Section')),
-          instructions: Editor_('Select the number of columns for this menu section.')
+          instructions: selectInstructions
         }, Object(external_this_wp_element_["createElement"])(Editor_ButtonGroup, {
           "aria-label": Editor_('Select Menu Section Columns')
         }, map_default()(Editor_columnOptions, function (_ref) {
@@ -1885,10 +1881,9 @@ function (_Component) {
               });
             }
           }, icon));
-        }))));
+        })), Object(external_this_wp_element_["createElement"])(js_AlignmentText, null)));
       }
 
-      console.log(TEMPLATE[sectionColumns]);
       return Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])(js_Inspector, {
         attributes: attributes,
         setAttributes: setAttributes,
@@ -1897,6 +1892,7 @@ function (_Component) {
         className: columnClasses[sectionColumns]
       }, Object(external_this_wp_element_["createElement"])(InnerBlocks, {
         template: TEMPLATE[sectionColumns],
+        templateLock: "all",
         allowedBlocks: ALLOWED_BLOCKS,
         renderAppender: function renderAppender() {
           return null;
@@ -1922,7 +1918,7 @@ function Save_save(_ref) {
   return Object(external_this_wp_element_["createElement"])(Save_InnerBlocks.Content, null);
 }
 // EXTERNAL MODULE: ./src/menu-blocks/menu-section/scss/style.scss
-var style = __webpack_require__(57);
+var style = __webpack_require__(49);
 
 // CONCATENATED MODULE: ./src/menu-blocks/menu-section/index.js
 
@@ -2060,7 +2056,7 @@ menu_section_heading_registerBlockType('dining-dashboard/menu-section-heading', 
   edit: menu_section_heading_Editor
 });
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
-var assertThisInitialized = __webpack_require__(9);
+var assertThisInitialized = __webpack_require__(27);
 var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
 
 // CONCATENATED MODULE: ./src/menu-blocks/menu-section-column/js/Editor.js
@@ -2080,7 +2076,7 @@ var Editor_wp$element = wp.element,
     js_Editor_Component = Editor_wp$element.Component,
     Editor_Fragment = Editor_wp$element.Fragment;
 var Editor_InnerBlocks = wp.blockEditor.InnerBlocks;
-var IconButton = wp.components.IconButton;
+var Editor_IconButton = wp.components.IconButton;
 var _wp$data = wp.data,
     dispatch = _wp$data.dispatch,
     Editor_select = _wp$data.select;
@@ -2123,11 +2119,12 @@ function (_Component) {
 
       return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])(Editor_InnerBlocks, {
         template: menuItems,
+        templateLock: false,
         allowedBlocks: ['dining-dashboard/menu-item'],
         renderAppender: function renderAppender() {
           return null;
         }
-      }), Object(external_this_wp_element_["createElement"])(IconButton, {
+      }), Object(external_this_wp_element_["createElement"])(Editor_IconButton, {
         icon: "insert",
         label: js_Editor_('Add New Menu Item'),
         className: "add-new-menu-item",
@@ -2175,8 +2172,12 @@ menu_section_column_registerBlockType('dining-dashboard/menu-section-column', {
     return Object(external_this_wp_element_["createElement"])(menu_section_column_InnerBlocks.Content, null);
   }
 });
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
+var defineProperty = __webpack_require__(18);
+var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
+
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
-var helpers_extends = __webpack_require__(8);
+var helpers_extends = __webpack_require__(28);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
 // CONCATENATED MODULE: ./src/menu-blocks/menu-item/js/Inspector.js
@@ -2185,7 +2186,7 @@ var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 /**
  * WordPress dependencies.
  */
-var Inspector_ = wp.i18n.__;
+var js_Inspector_ = wp.i18n.__;
 var Inspector_wp$components = wp.components,
     Inspector_PanelBody = Inspector_wp$components.PanelBody,
     Inspector_ToggleControl = Inspector_wp$components.ToggleControl,
@@ -2196,7 +2197,7 @@ var js_Inspector_Inspector = function Inspector(props) {
   var attributes = props.attributes,
       setAttributes = props.setAttributes;
   return Object(external_this_wp_element_["createElement"])(Inspector_InspectorControls, null, Object(external_this_wp_element_["createElement"])(Inspector_PanelBody, {
-    title: Inspector_('Item Settings'),
+    title: js_Inspector_('Item Settings'),
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(TextControl, {
     label: 'Price',
@@ -2210,8 +2211,8 @@ var js_Inspector_Inspector = function Inspector(props) {
       });
     }
   }), Object(external_this_wp_element_["createElement"])(Inspector_ToggleControl, {
-    label: Inspector_('Vegetarian'),
-    help: attributes.vegetarian ? Inspector_('Show vegetarian icon for this menu item.') : Inspector_('Toggle to show the vegetarian icon for this menu item.'),
+    label: js_Inspector_('Vegetarian'),
+    help: attributes.vegetarian ? js_Inspector_('Show vegetarian icon for this menu item.') : js_Inspector_('Toggle to show the vegetarian icon for this menu item.'),
     checked: attributes.vegetarian,
     onChange: function onChange() {
       return setAttributes({
@@ -2219,8 +2220,8 @@ var js_Inspector_Inspector = function Inspector(props) {
       });
     }
   }), Object(external_this_wp_element_["createElement"])(Inspector_ToggleControl, {
-    label: Inspector_('Vegan'),
-    help: attributes.vegan ? Inspector_('Show vegan icon for this menu item.') : Inspector_('Toggle to show the vegan icon for this menu item.'),
+    label: js_Inspector_('Vegan'),
+    help: attributes.vegan ? js_Inspector_('Show vegan icon for this menu item.') : js_Inspector_('Toggle to show the vegan icon for this menu item.'),
     checked: attributes.vegan,
     onChange: function onChange() {
       return setAttributes({
@@ -2228,8 +2229,8 @@ var js_Inspector_Inspector = function Inspector(props) {
       });
     }
   }), Object(external_this_wp_element_["createElement"])(Inspector_ToggleControl, {
-    label: Inspector_('Gluten Free'),
-    help: attributes.glutenFree ? Inspector_('Show gluten free icon for this menu item.') : Inspector_('Toggle to show the gluten free icon for this menu item.'),
+    label: js_Inspector_('Gluten Free'),
+    help: attributes.glutenFree ? js_Inspector_('Show gluten free icon for this menu item.') : js_Inspector_('Toggle to show the gluten free icon for this menu item.'),
     checked: attributes.glutenFree,
     onChange: function onChange() {
       return setAttributes({
@@ -2533,976 +2534,73 @@ menu_item_registerBlockType('dining-dashboard/menu-item', (_registerBlockType = 
     type: "string"
   }
 }), defineProperty_default()(_registerBlockType, "edit", menu_item_js_Editor), _registerBlockType));
-// EXTERNAL MODULE: ./src/menu-blocks/food-and-drinks/styles/editor.scss
-var editor = __webpack_require__(56);
-
-// EXTERNAL MODULE: ./src/menu-blocks/food-and-drinks/styles/style.scss
-var styles_style = __webpack_require__(55);
-
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/edit.js
-
-
-
-
-
-
-
-/**
- * WordPress dependencies.
- */
-var edit_ = wp.i18n.__;
-var edit_wp$element = wp.element,
-    edit_Component = edit_wp$element.Component,
-    edit_Fragment = edit_wp$element.Fragment;
-var edit_InnerBlocks = wp.blockEditor.InnerBlocks;
-var edit_ALLOWED_BLOCKS = ['coblocks/food-item'];
-var edit_TEMPLATE = [['core/heading', {
-  level: 3,
-  placeholder: edit_('Menu title...'),
-  align: 'center'
-}], ['coblocks/food-item'], ['coblocks/food-item']];
-
-var edit_FoodItem =
-/*#__PURE__*/
-function (_Component) {
-  inherits_default()(FoodItem, _Component);
-
-  function FoodItem() {
-    classCallCheck_default()(this, FoodItem);
-
-    return possibleConstructorReturn_default()(this, getPrototypeOf_default()(FoodItem).apply(this, arguments));
-  }
-
-  createClass_default()(FoodItem, [{
-    key: "render",
-    value: function render() {
-      return Object(external_this_wp_element_["createElement"])(edit_Fragment, null, Object(external_this_wp_element_["createElement"])("div", null, Object(external_this_wp_element_["createElement"])(edit_InnerBlocks, {
-        allowedBlocks: edit_ALLOWED_BLOCKS,
-        template: edit_TEMPLATE
-      })));
-    }
-  }]);
-
-  return FoodItem;
-}(edit_Component);
-
-/* harmony default export */ var edit = (edit_FoodItem);
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/save.js
-
-
-/**
- * WordPress dependencies.
- */
-var save_InnerBlocks = wp.blockEditor.InnerBlocks;
-function food_and_drinks_save_save(_ref) {
-  var attributes = _ref.attributes,
-      className = _ref.className;
-  console.log('saving f&ds: ' + attributes);
-  return Object(external_this_wp_element_["createElement"])("div", {
-    className: className,
-    "data-columns": attributes.columns,
-    itemScope: true,
-    itemType: "http://schema.org/Menu"
-  }, Object(external_this_wp_element_["createElement"])(save_InnerBlocks.Content, null));
-}
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/index.js
-/**
- * Internal dependencies.
- */
-
-
-
-
-/**
- * WordPress dependencies.
- */
-
-var food_and_drinks_ = wp.i18n.__;
-/**
- * Block constants.
- */
-
-var food_and_drinks_name = "food-and-drinks";
-var settings = {
-  title: food_and_drinks_('Food & Drinks'),
-  description: food_and_drinks_('Display a menu or price list.'),
-  keywords: [food_and_drinks_('restaurant'), food_and_drinks_('menu')],
-  attributes: {
-    "showImages": {
-      "type": "boolean",
-      "default": false
-    },
-    "showPrices": {
-      "type": "boolean",
-      "default": true
-    },
-    "columns": {
-      "type": "number",
-      "default": 2
-    }
-  },
-  supports: {
-    align: ['wide']
-  },
-  edit: edit,
-  save: food_and_drinks_save_save
-};
-
-// EXTERNAL MODULE: ./src/menu-blocks/food-and-drinks/food-item/styles/editor.scss
-var styles_editor = __webpack_require__(54);
-
-// EXTERNAL MODULE: ./src/menu-blocks/food-and-drinks/food-item/styles/style.scss
-var food_item_styles_style = __webpack_require__(53);
-
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/food-item/icons.js
-
-
-/**
- * WordPress dependencies
- */
-var icons_wp$components = wp.components,
-    SVG = icons_wp$components.SVG,
-    Path = icons_wp$components.Path,
-    G = icons_wp$components.G;
-/**
- * Block user interface icons
- */
-
-var icons = {};
-icons.foodItem = Object(external_this_wp_element_["createElement"])(SVG, {
-  height: "14",
-  viewBox: "0 0 14 14",
-  width: "14",
-  xmlns: "http://www.w3.org/2000/svg"
-}, Object(external_this_wp_element_["createElement"])(G, {
-  fill: "none",
-  fillRule: "evenodd",
-  transform: "translate(-.296875)"
-}, Object(external_this_wp_element_["createElement"])(Path, {
-  d: "m0 0h14v14h-14z"
-}), Object(external_this_wp_element_["createElement"])(Path, {
-  d: "m.92485099 13.8456845c1.18168444 1.0642985 9.10914361-3.6546135 10.28300231-5.64234758.5634522-.95473842-.1017344-2.35554316-1.1895101-3.4746218 1.2364645-.8217011 2.3242402 1.7373109 3.3572359 1.19733589.4695435-.25042319.7747468-1.02516995.5478007-1.50253916-.4069377-.84517827-1.760788-.84517827-2.6763978-.9469127.6495351-.15651449 2.2068543-.8217011 2.2381572-1.76078807.0313029-.71996668-.8843069-1.54166778-1.6042735-1.45558481-.9469127.10956015-1.2912446 1.47123626-1.6120993 2.34771744-.0391287-.55562646-.1565145-1.77643953-.76692106-2.30858881-.81387538-.71214096-1.79209097-.03912863-1.81556815.8217011-.0313029 1.04082139 2.20685439 1.61992503 1.50253916 2.87204099-1.18951017-.9156098-2.5903149-1.41645618-3.49027325-.89213262-.38346051.24259746-.8217011.71214095-1.27559314 1.32254748.69648951.73561813 1.65905365 1.61992503 2.41814896 2.12859714.15651449.10956015.20346884.32868044.08608297.48519494-.10956015.16434022-.32868044.20346884-.48519494.09390869-.77474675-.52432356-1.72165945-1.39297901-2.42597468-2.12077141-.35215761.52432356-.71214095 1.11907864-1.04864712 1.74513662.66518661.67301234 1.51036488 1.43210764 2.18337722 1.88599968.15651449.10956014.19564311.32868044.08608297.48519493-.10956015.16434022-.32868044.20346885-.49302066.0939087-.66518661-.45389204-1.45558481-1.15820727-2.12077142-1.81556815-1.38515328 2.73117791-2.4024975 5.81451351-1.69818227 6.44057151z",
-  fill: "currentColor"
-})));
-icons.glutenFree = Object(external_this_wp_element_["createElement"])(SVG, {
-  height: "14",
-  viewBox: "0 0 14 14",
-  width: "14",
-  xmlns: "http://www.w3.org/2000/svg"
-}, Object(external_this_wp_element_["createElement"])(Path, {
-  d: "m6.99766252.00002487c-3.85852931 0-6.99766252 3.13913321-6.99766252 6.99766252s3.13913321 6.99766251 6.99766252 6.99766251c3.85857908 0 6.99771228-3.1391332 6.99771228-6.99766251s-3.1391332-6.99766252-6.99771228-6.99766252zm-.16527708 8.72190053c-.1740675.18691119-.36012079.35314565-.65887034.49870337-.29879929.14560746-.67575489.21838011-1.13207283.21838011-.58016696 0-1.06856305-.18033392-1.43575843-.54106394-.36724512-.36068029-.56548313-.82895915-.56548313-1.40479929v-.99086679c0-.5736643.19144938-1.04139609.54459503-1.40318295.35308348-.36179928.81523268-.54269271 1.37153996-.54269271.57799112 0 1.02444938.14072113 1.33193961.42208881.30746536.28142984.46633925.6577016.47285435 1.11614565l-.00465009.02587389h-.89634813c-.01741918-.27353464-.0977762-.45774778-.24119538-.60442452-.14340675-.14666429-.35313322-.22316696-.62905507-.22316696-.29121492 0-.51775133.1107691-.69588454.33546537-.17819538.2247087-.25912434.5123428-.25912434.86619715v.99646181c0 .36036945.08417407.65290231.26889698.87761102.18467318.22469627.42943695.33699467.74233571.33699467.22163765 0 .40621136-.02271581.54097691-.06824689.13470337-.04548135.20091119-.10180462.31281172-.16898224v-.86832327h-.88277087v-.6589698h1.81527531v1.78079751zm4.11545296-3.37229663h-2.36234462v1.31793961h2.02664302v.70870338h-2.02664302v1.97690941h-.93250444v-4.71225577h3.29484906z"
-}));
-icons.vegetarian = Object(external_this_wp_element_["createElement"])(SVG, {
-  height: "18",
-  viewBox: "0 0 18 18",
-  width: "18",
-  xmlns: "http://www.w3.org/2000/svg"
-}, Object(external_this_wp_element_["createElement"])(Path, {
-  d: "m.29488995 17.8015943c1.51930857 1.3683839 11.71175615-4.6987887 13.22100305-7.2544468.7244385-1.22752086-.1308014-3.02855552-1.5293702-4.46737092 1.58974-1.05647284 2.9883089 2.23368544 4.3164462 1.53943186.6036987-.32197268.9961029-1.31807564.7043152-1.93183606-.5232056-1.08665778-2.2638704-1.08665778-3.441083-1.21745918.8351166-.20123292 2.8373842-1.05647285 2.8776308-2.26387038.0402466-.92567145-1.136966-1.98214429-2.0626375-1.87146618-1.2174591.14086304-1.6601716 1.89158947-2.0726991 3.01849384-.0503082-.71437688-.2012329-2.28399368-.9860413-2.96818561-1.0464112-.9156098-2.30411695-.05030823-2.33430189 1.05647284-.04024658 1.33819894 2.83738419 2.08276075 1.93183609 3.69262413-1.52937024-1.17721259-3.3304049-1.82115795-4.48749421-1.14702766-.49302066.31191103-1.05647284.9156098-1.64004832 1.7004182.89548651.94579474 2.13306898 2.08276075 3.10904866 2.73676775.20123292.14086305.2616028.42258914.11067811.62382206-.14086305.21129457-.42258914.2616028-.62382206.12073976-.99610297-.6741303-2.21356215-1.79097302-3.11911031-2.72670611-.45277407.67413029-.9156098 1.4388154-1.34826058 2.24374709.85523992.86530157 1.9418977 1.84128127 2.80719927 2.42485667.20123293.1408631.25154116.4225892.11067811.6238221-.14086305.2112946-.42258914.2616028-.63388371.1207398-.85523992-.5835755-1.87146618-1.4891237-2.7267061-2.33430194-1.78091137 3.51151454-3.08892536 7.47580304-2.18337721 8.28073474z",
-  fillRule: "evenodd"
-}));
-icons.spicy = Object(external_this_wp_element_["createElement"])(SVG, {
-  height: "18",
-  viewBox: "0 0 18 18",
-  width: "18",
-  xmlns: "http://www.w3.org/2000/svg"
-}, Object(external_this_wp_element_["createElement"])(Path, {
-  d: "m6.42857143 11.814845c-1.14837923 1.2471524-1.79672242 3.3088707-1.94503154 6.185155-2.79750264-.7772099-4.48353989-3.2093657-4.48353989-6.0371114 0-4.76263563 3.60857176-5.79732963 3.19071462-11.9628886.78714296.01369448 3.9678567 1.93929045 4.56142846 6.51096418.62167351-.65045468.93894923-2.80369415.81928582-3.68457578 2.8228569 2.25882831 4.285714 5.15901471 4.285714 8.3947159 0 3.2026027-1.6730476 5.9184005-4.4842629 6.7649668-.14968088-2.8690124-.79778374-4.9260878-1.94430857-6.1712261z",
-  fillRule: "evenodd",
-  transform: "translate(2.5)"
-}));
-icons.pescatarian = Object(external_this_wp_element_["createElement"])(SVG, {
-  height: "18",
-  viewBox: "0 0 18 18",
-  width: "18",
-  xmlns: "http://www.w3.org/2000/svg"
-}, Object(external_this_wp_element_["createElement"])(Path, {
-  d: "m17.8325581 4.90148962c-.1046511.04822471-2.344186.91626951-3.9767441 2.12188728-.711628-.94038186-1.7162791-1.88076372-2.9302326-2.55590967-.8162791-1.47085369.3348837-2.79703324.3348837-2.79703324-2.34418603-.6992583-4.10232557.89215716-5.0232558 2.00132551-3.45348837.86804479-6.09069767 4.89480815-6.09069767 5.69051588 0 .62692124 3.07674418 5.47350472 6.96976744 5.81107762.52325581.675146 1.59069767 1.6396402 2.99302323 1.2297302 0 0-.66976742-.747483-.23023253-1.5914155 1.75813953-.6028089 3.20232553-1.7843143 4.10232553-3.0381568 1.611628 1.1573931 3.7465117 2.0013255 3.8720931 2.0495502-.0418605-.1446741-.9627907-3.327505-.9627907-4.46078572-.0209303-1.66375252.9209302-4.36433633.9418604-4.46078576zm-13.8359579 4.14672815c-.54545455 0-1-.45454545-1-1 0-.54545454.45454545-1 1-1s1 .45454546 1 1c0 .56363637-.45454545 1-1 1z"
-}));
-icons.vegan = Object(external_this_wp_element_["createElement"])(SVG, {
-  height: "18",
-  viewBox: "0 0 18 18",
-  width: "18",
-  xmlns: "http://www.w3.org/2000/svg"
-}, Object(external_this_wp_element_["createElement"])(Path, {
-  d: "m13.95.43125c-.13125-.4125-.69375-.46875-.91875-.09375-1.74375 3.1875-5.55 4.1625-5.0625 6.8625.1125.58125.45 1.06875.9375 1.44375.84375-1.5 1.875-2.49375 2.5125-3.0375l-4.74375 9.80625-5.1375-10.59375c-.1875-.375-.6375-.525-1.0125-.35625-.375.1875-.525.6375-.35625 1.0125l5.8125 12c.13125.2625.39375.43125.675.43125s.5625-.16875.675-.43125l3.88125-7.9875c1.125.09375 2.26875-.20625 2.94375-.99375 1.36875-1.6125.58125-5.7375-.20625-8.0625z",
-  fillRule: "evenodd",
-  transform: "translate(1.5)"
-}));
-/* harmony default export */ var food_item_icons = (icons);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/slicedToArray.js
-var slicedToArray = __webpack_require__(46);
-var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
-
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/food-item/inspector.js
-
-
-/**
- * WordPress dependencies.
- */
-var inspector_ = wp.i18n.__;
-var inspector_Fragment = wp.element.Fragment;
-var inspector_wp$components = wp.components,
-    inspector_PanelBody = inspector_wp$components.PanelBody,
-    inspector_ToggleControl = inspector_wp$components.ToggleControl,
-    CheckboxControl = inspector_wp$components.CheckboxControl,
-    FocalPointPicker = inspector_wp$components.FocalPointPicker,
-    ExternalLink = inspector_wp$components.ExternalLink,
-    TextareaControl = inspector_wp$components.TextareaControl;
-var inspector_InspectorControls = wp.blockEditor.InspectorControls;
-
-var inspector_Inspector = function Inspector(props) {
-  var attributes = props.attributes,
-      setAttributes = props.setAttributes,
-      setSpicyTo = props.setSpicyTo,
-      setHotTo = props.setHotTo;
-  return Object(external_this_wp_element_["createElement"])(inspector_InspectorControls, null, Object(external_this_wp_element_["createElement"])(inspector_PanelBody, {
-    title: inspector_('Item Settings'),
-    initialOpen: true
-  }, Object(external_this_wp_element_["createElement"])(inspector_ToggleControl, {
-    label: inspector_('Image'),
-    help: attributes.showImage ? inspector_('Showing an image for this item.') : inspector_('Toggle to show an image for this item.'),
-    checked: attributes.showImage,
-    onChange: function onChange() {
-      return setAttributes({
-        showImage: !attributes.showImage
-      });
-    }
-  }), Object(external_this_wp_element_["createElement"])(inspector_ToggleControl, {
-    label: inspector_('Price'),
-    help: attributes.showPrice ? inspector_('Showing the price for this item.') : inspector_('Toggle to show the price for this item.'),
-    checked: attributes.showPrice,
-    onChange: function onChange() {
-      return setAttributes({
-        showPrice: !attributes.showPrice
-      });
-    }
-  }), Object(external_this_wp_element_["createElement"])("div", {
-    className: "components-food-item-attributes"
-  }, Object(external_this_wp_element_["createElement"])("p", {
-    className: "components-food-item-attributes__label"
-  }, inspector_('Item Attributes')), Object(external_this_wp_element_["createElement"])(CheckboxControl, {
-    label: inspector_('Gluten Free'),
-    checked: attributes.glutenFree,
-    onChange: function onChange() {
-      return setAttributes({
-        glutenFree: !attributes.glutenFree
-      });
-    }
-  }), Object(external_this_wp_element_["createElement"])(CheckboxControl, {
-    label: inspector_('Pescatarian'),
-    checked: attributes.pescatarian,
-    onChange: function onChange() {
-      return setAttributes({
-        pescatarian: !attributes.pescatarian
-      });
-    }
-  }), Object(external_this_wp_element_["createElement"])(CheckboxControl, {
-    label: inspector_('Spicy'),
-    checked: attributes.spicy,
-    onChange: setSpicyTo
-  }), Object(external_this_wp_element_["createElement"])(CheckboxControl, {
-    label: inspector_('Spicier'),
-    checked: attributes.spicier,
-    onChange: setHotTo
-  }), Object(external_this_wp_element_["createElement"])(CheckboxControl, {
-    label: inspector_('Vegan'),
-    checked: attributes.vegan,
-    onChange: function onChange() {
-      return setAttributes({
-        vegan: !attributes.vegan
-      });
-    }
-  }), Object(external_this_wp_element_["createElement"])(CheckboxControl, {
-    label: inspector_('Vegetarian'),
-    checked: attributes.vegetarian,
-    onChange: function onChange() {
-      return setAttributes({
-        vegetarian: !attributes.vegetarian
-      });
-    }
-  }))), attributes.url && Object(external_this_wp_element_["createElement"])(inspector_PanelBody, {
-    title: inspector_('Image Settings'),
-    initialOpen: false
-  }, Object(external_this_wp_element_["createElement"])(TextareaControl, {
-    label: inspector_('Alt Text (Alternative Text)'),
-    value: attributes.alt,
-    onChange: function onChange(value) {
-      return setAttributes({
-        alt: value
-      });
-    },
-    help: Object(external_this_wp_element_["createElement"])(inspector_Fragment, null, Object(external_this_wp_element_["createElement"])(ExternalLink, {
-      href: "https://www.w3.org/WAI/tutorials/images/decision-tree"
-    }, inspector_('Describe the purpose of the image')), inspector_('Leave empty if the image is purely decorative.'))
-  }), Object(external_this_wp_element_["createElement"])(FocalPointPicker, {
-    label: inspector_('Focal Point'),
-    url: attributes.url,
-    value: attributes.focalPoint,
-    onChange: function onChange(value) {
-      return setAttributes({
-        focalPoint: value
-      });
-    }
-  })));
-};
-
-/* harmony default export */ var inspector = (inspector_Inspector);
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/food-item/edit.js
-
-
-
-
-
-
-
-
-
-
-/**
- * Internal dependencies.
- */
-
-
-/**
- * WordPress dependencies.
- */
-
-var food_item_edit_ = wp.i18n.__;
-var food_item_edit_wp$element = wp.element,
-    food_item_edit_Component = food_item_edit_wp$element.Component,
-    food_item_edit_Fragment = food_item_edit_wp$element.Fragment;
-var edit_wp$components = wp.components,
-    edit_IconButton = edit_wp$components.IconButton,
-    DropZone = edit_wp$components.DropZone,
-    Spinner = edit_wp$components.Spinner,
-    Icon = edit_wp$components.Icon;
-var edit_wp$data = wp.data,
-    edit_dispatch = edit_wp$data.dispatch,
-    edit_select = edit_wp$data.select;
-var edit_wp$blockEditor = wp.blockEditor,
-    edit_RichText = edit_wp$blockEditor.RichText,
-    edit_MediaPlaceholder = edit_wp$blockEditor.MediaPlaceholder;
-var mediaUpload = wp.editor.mediaUpload;
-var isBlobURL = wp.blob.isBlobURL;
-/**
- * Handle creation and removal of placeholder elements so that we always have one available to use.
- *
- * @param {Integer} childClientId The child block's ClientId.
- * @param {String} blockName The block to insert.
- * @param {Object} blockAttributes The attributes for the placeholder block.
- */
-
-var handlePlaceholderPlacement = function handlePlaceholderPlacement(childClientId, blockName) {
-  var blockAttributes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  var itemClientId = edit_select('core/block-editor').getBlockRootClientId(childClientId);
-  var foodItems = edit_select('core/block-editor').getBlocksByClientId(itemClientId)[0].innerBlocks;
-  var placeholders = foodItems.filter(function (item) {
-    return item.name === blockName;
-  }); // Remove trailing placholders if there are more than one.
-
-  edit_dispatch('core/block-editor').removeBlocks(placeholders.filter(function (item, index) {
-    return item.clientId !== childClientId && index !== 0;
-  }).map(function (item) {
-    return item.clientId;
-  }), false); // Add a placeholder if there are none.
-
-  if (placeholders.length === 0) {
-    var newFoodItem = wp.blocks.createBlock(blockName, blockAttributes);
-    edit_dispatch('core/block-editor').insertBlocks(newFoodItem, foodItems.length, itemClientId, false);
-  }
-};
-
-var edit_FoodAndDrinksEdit =
-/*#__PURE__*/
-function (_Component) {
-  inherits_default()(FoodAndDrinksEdit, _Component);
-
-  function FoodAndDrinksEdit() {
-    var _this;
-
-    classCallCheck_default()(this, FoodAndDrinksEdit);
-
-    _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(FoodAndDrinksEdit).apply(this, arguments));
-    _this.replaceImage = _this.replaceImage.bind(assertThisInitialized_default()(_this));
-    _this.setSpicyTo = _this.setSpicyTo.bind(assertThisInitialized_default()(_this));
-    _this.setHotTo = _this.setHotTo.bind(assertThisInitialized_default()(_this));
-    return _this;
-  }
-
-  createClass_default()(FoodAndDrinksEdit, [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (!prevProps.isSelected && this.props.isSelected) {
-        var _this$props$attribute = this.props.attributes,
-            showImage = _this$props$attribute.showImage,
-            showPrice = _this$props$attribute.showPrice;
-        handlePlaceholderPlacement(this.props.clientId, 'coblocks/food-item', {
-          showImage: showImage,
-          showPrice: showPrice
-        });
-      }
-    }
-  }, {
-    key: "replaceImage",
-    value: function replaceImage(files) {
-      var _this2 = this;
-
-      mediaUpload({
-        allowedTypes: ['image'],
-        filesList: files,
-        onFileChange: function onFileChange(_ref) {
-          var _ref2 = slicedToArray_default()(_ref, 1),
-              media = _ref2[0];
-
-          return _this2.props.setAttributes({
-            url: media.url,
-            alt: media.alt
-          });
-        }
-      });
-    }
-  }, {
-    key: "setSpicyTo",
-    value: function setSpicyTo() {
-      var _this$props = this.props,
-          attributes = _this$props.attributes,
-          setAttributes = _this$props.setAttributes;
-
-      if (!!attributes.spicier) {
-        setAttributes({
-          spicier: !attributes.spicier
-        });
-      }
-
-      setAttributes({
-        spicy: !attributes.spicy
-      });
-    }
-  }, {
-    key: "setHotTo",
-    value: function setHotTo() {
-      var _this$props2 = this.props,
-          attributes = _this$props2.attributes,
-          setAttributes = _this$props2.setAttributes;
-
-      if (!attributes.spicy) {
-        setAttributes({
-          spicy: !attributes.spicier
-        });
-      }
-
-      setAttributes({
-        spicier: !attributes.spicier
-      });
-    }
-  }, {
-    key: "renderImage",
-    value: function renderImage() {
-      var _this$props3 = this.props,
-          attributes = _this$props3.attributes,
-          setAttributes = _this$props3.setAttributes,
-          isSelected = _this$props3.isSelected;
-      var classes = 'wp-block-coblocks-food-item__figure';
-      var dropZone = Object(external_this_wp_element_["createElement"])(DropZone, {
-        onFilesDrop: this.replaceImage,
-        label: food_item_edit_('Drop image to replace')
-      });
-      return Object(external_this_wp_element_["createElement"])(food_item_edit_Fragment, null, Object(external_this_wp_element_["createElement"])("figure", {
-        className: classes
-      }, isSelected && Object(external_this_wp_element_["createElement"])("div", {
-        className: "wp-block-coblocks-food-item__remove-menu"
-      }, Object(external_this_wp_element_["createElement"])(edit_IconButton, {
-        icon: "no-alt",
-        onClick: function onClick() {
-          return setAttributes({
-            url: ''
-          });
-        },
-        className: "coblocks-gallery-item__button",
-        label: food_item_edit_('Remove Image'),
-        disabled: !isSelected
-      })), dropZone, isBlobURL(attributes.url) && Object(external_this_wp_element_["createElement"])(Spinner, null), Object(external_this_wp_element_["createElement"])("img", {
-        src: attributes.url,
-        alt: attributes.alt,
-        style: {
-          objectPosition: attributes.focalPoint ? "".concat(attributes.focalPoint.x * 100, "% ").concat(attributes.focalPoint.y * 100, "%") : undefined
-        }
-      })));
-    }
-  }, {
-    key: "renderPlaceholder",
-    value: function renderPlaceholder() {
-      var setAttributes = this.props.setAttributes;
-      return Object(external_this_wp_element_["createElement"])(edit_MediaPlaceholder, {
-        allowedTypes: ['image'],
-        multiple: false,
-        icon: "format-image",
-        labels: {
-          title: ' '
-        },
-        onSelect: function onSelect(el) {
-          return setAttributes({
-            url: el.url,
-            alt: el.alt
-          });
-        }
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props4 = this.props,
-          className = _this$props4.className,
-          attributes = _this$props4.attributes,
-          setAttributes = _this$props4.setAttributes,
-          isSelected = _this$props4.isSelected;
-      var richTextAttributes = {
-        keepPlaceholderOnFocus: true,
-        formattingControls: ['bold', 'italic']
-      };
-      return Object(external_this_wp_element_["createElement"])(food_item_edit_Fragment, null, Object(external_this_wp_element_["createElement"])(inspector, extends_default()({}, this.props, {
-        setSpicyTo: this.setSpicyTo,
-        setHotTo: this.setHotTo
-      })), Object(external_this_wp_element_["createElement"])("div", null, !!attributes.showImage && (attributes.url ? this.renderImage() : this.renderPlaceholder()), Object(external_this_wp_element_["createElement"])("div", {
-        className: "wp-block-coblocks-food-item__content"
-      }, Object(external_this_wp_element_["createElement"])("div", {
-        className: "wp-block-coblocks-food-item__heading-wrapper"
-      }, Object(external_this_wp_element_["createElement"])(edit_RichText, extends_default()({
-        value: attributes.title,
-        tagName: "h4",
-        wrapperClassName: "wp-block-coblocks-food-item__heading",
-        placeholder: food_item_edit_('Add title...'),
-        onChange: function onChange(title) {
-          return setAttributes({
-            title: title
-          });
-        }
-      }, richTextAttributes)), Object(external_this_wp_element_["createElement"])("div", {
-        className: "wp-block-coblocks-food-item__attributes"
-      }, isSelected && attributes.title ? Object(external_this_wp_element_["createElement"])("span", null, Object(external_this_wp_element_["createElement"])(edit_IconButton, {
-        icon: food_item_icons.spicy,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--spicy",
-        onClick: this.setSpicyTo,
-        label: food_item_edit_('Spicy'),
-        isToggled: attributes.spicy
-      })) : !!attributes.spicy && Object(external_this_wp_element_["createElement"])(Icon, {
-        icon: food_item_icons.spicy,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--spicy"
-      }), isSelected && attributes.title && !!attributes.spicy ? Object(external_this_wp_element_["createElement"])("span", null, Object(external_this_wp_element_["createElement"])(edit_IconButton, {
-        icon: food_item_icons.spicy,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--spicier",
-        onClick: function onClick() {
-          return setAttributes({
-            spicier: !attributes.spicier
-          });
-        },
-        label: food_item_edit_('Hot'),
-        isToggled: attributes.spicier
-      })) : !!attributes.spicier && Object(external_this_wp_element_["createElement"])(Icon, {
-        icon: food_item_icons.spicy,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--spicier"
-      }), isSelected && attributes.title ? Object(external_this_wp_element_["createElement"])("span", null, Object(external_this_wp_element_["createElement"])(edit_IconButton, {
-        icon: food_item_icons.vegetarian,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--vegetarian",
-        onClick: function onClick() {
-          return setAttributes({
-            vegetarian: !attributes.vegetarian
-          });
-        },
-        label: food_item_edit_('Vegetarian'),
-        isToggled: attributes.vegetarian
-      })) : !!attributes.vegetarian && Object(external_this_wp_element_["createElement"])(Icon, {
-        icon: food_item_icons.vegetarian,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--vegetarian"
-      }), isSelected && attributes.title && !attributes.pescatarian && !attributes.vegan ? // disable reason: 10 tabs seems to be correct indent
-      // eslint-disable-next-line react/jsx-indent
-      Object(external_this_wp_element_["createElement"])("span", null, Object(external_this_wp_element_["createElement"])(edit_IconButton, {
-        icon: food_item_icons.glutenFree,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--gf",
-        onClick: function onClick() {
-          return setAttributes({
-            glutenFree: !attributes.glutenFree
-          });
-        },
-        label: food_item_edit_('Gluten Free'),
-        isToggled: attributes.glutenFree
-      })) : !!attributes.glutenFree && Object(external_this_wp_element_["createElement"])(Icon, {
-        icon: food_item_icons.glutenFree,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--gf"
-      }), isSelected && !!attributes.pescatarian ? // Only renders if the option is checked within the Settings sidebar.
-      Object(external_this_wp_element_["createElement"])("span", null, Object(external_this_wp_element_["createElement"])(edit_IconButton, {
-        icon: food_item_icons.pescatarian,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--pescatarian",
-        onClick: function onClick() {
-          return setAttributes({
-            pescatarian: !attributes.pescatarian
-          });
-        },
-        label: food_item_edit_('Pescatarian'),
-        isToggled: attributes.pescatarian
-      })) : !!attributes.pescatarian && Object(external_this_wp_element_["createElement"])(Icon, {
-        icon: food_item_icons.pescatarian,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--pescatarian"
-      }), isSelected && !!attributes.vegan ? // Only renders if the option is checked within the Settings sidebar.
-      Object(external_this_wp_element_["createElement"])("span", null, Object(external_this_wp_element_["createElement"])(edit_IconButton, {
-        icon: food_item_icons.vegan,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--vegan",
-        onClick: function onClick() {
-          return setAttributes({
-            vegan: !attributes.vegan
-          });
-        },
-        label: food_item_edit_('Vegan'),
-        isToggled: attributes.vegan
-      })) : !!attributes.vegan && Object(external_this_wp_element_["createElement"])(Icon, {
-        icon: food_item_icons.vegan,
-        className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--vegan"
-      }))), Object(external_this_wp_element_["createElement"])(edit_RichText, extends_default()({
-        value: attributes.description,
-        tagName: "p",
-        wrapperClassName: "wp-block-coblocks-food-item__description",
-        placeholder: food_item_edit_('Add description...'),
-        onChange: function onChange(description) {
-          return setAttributes({
-            description: description
-          });
-        }
-      }, richTextAttributes)), !!attributes.showPrice && (attributes.price || isSelected) && Object(external_this_wp_element_["createElement"])(edit_RichText, extends_default()({
-        value: attributes.price,
-        tagName: "p",
-        wrapperClassName: "wp-block-coblocks-food-item__price",
-        placeholder: food_item_edit_('$0.00'),
-        onChange: function onChange(price) {
-          return setAttributes({
-            price: price
-          });
-        }
-      }, richTextAttributes)))));
-    }
-  }]);
-
-  return FoodAndDrinksEdit;
-}(food_item_edit_Component);
-
-/* harmony default export */ var food_item_edit = (edit_FoodAndDrinksEdit);
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/food-item/save.js
-
-
-/**
- * Internal dependencies.
- */
-
-/**
- * WordPress dependencies.
- */
-
-var save_ = wp.i18n.__;
-var save_RichText = wp.blockEditor.RichText;
-var save_Icon = wp.components.Icon;
-function food_item_save_save(_ref) {
-  var attributes = _ref.attributes;
-  console.log('saving item: ' + attributes);
-  return Object(external_this_wp_element_["createElement"])("div", {
-    className: attributes.className,
-    itemScope: true,
-    itemType: "http://schema.org/MenuItem"
-  }, !!attributes.showImage && attributes.url && Object(external_this_wp_element_["createElement"])("figure", {
-    className: "wp-block-coblocks-food-item__figure"
-  }, Object(external_this_wp_element_["createElement"])("img", {
-    src: attributes.url,
-    alt: attributes.alt,
-    itemProp: "image",
-    style: {
-      objectPosition: attributes.focalPoint ? "".concat(attributes.focalPoint.x * 100, "% ").concat(attributes.focalPoint.y * 100, "%") : undefined
-    }
-  })), Object(external_this_wp_element_["createElement"])("div", {
-    className: "wp-block-coblocks-food-item__content"
-  }, Object(external_this_wp_element_["createElement"])("div", {
-    className: "wp-block-coblocks-food-item__heading-wrapper"
-  }, Object(external_this_wp_element_["createElement"])(save_RichText.Content, {
-    tagName: "h4",
-    className: "wp-block-coblocks-food-item__heading",
-    value: attributes.title,
-    itemprop: "name"
-  }), (!!attributes.spicy || !!attributes.vegetarian || !!attributes.glutenFree || !!attributes.pescatarian || !!attributes.vegan) && Object(external_this_wp_element_["createElement"])("div", {
-    className: "wp-block-coblocks-food-item__attributes"
-  }, !!attributes.spicy && Object(external_this_wp_element_["createElement"])("span", {
-    className: "hint--top",
-    "aria-label": save_('Spicy')
-  }, Object(external_this_wp_element_["createElement"])(save_Icon, {
-    icon: food_item_icons.spicy,
-    className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--spicy"
-  })), !!attributes.spicier && !!attributes.spicy && Object(external_this_wp_element_["createElement"])("span", {
-    className: "hint--top",
-    "aria-label": save_('Spicier')
-  }, Object(external_this_wp_element_["createElement"])(save_Icon, {
-    icon: food_item_icons.spicy,
-    className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--spicier"
-  })), !!attributes.vegetarian && Object(external_this_wp_element_["createElement"])("span", {
-    className: "hint--top",
-    "aria-label": save_('Vegetarian')
-  }, Object(external_this_wp_element_["createElement"])(save_Icon, {
-    icon: food_item_icons.vegetarian,
-    className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--veg"
-  })), !!attributes.glutenFree && Object(external_this_wp_element_["createElement"])("span", {
-    className: "hint--top",
-    "aria-label": save_('Gluten Free')
-  }, Object(external_this_wp_element_["createElement"])(save_Icon, {
-    icon: food_item_icons.glutenFree,
-    className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--gf"
-  })), !!attributes.pescatarian && Object(external_this_wp_element_["createElement"])("span", {
-    className: "hint--top",
-    "aria-label": save_('Pescatarian')
-  }, Object(external_this_wp_element_["createElement"])(save_Icon, {
-    icon: food_item_icons.pescatarian,
-    className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--pescatarian"
-  })), !!attributes.vegan && Object(external_this_wp_element_["createElement"])("span", {
-    className: "hint--top",
-    "aria-label": save_('Vegan')
-  }, Object(external_this_wp_element_["createElement"])(save_Icon, {
-    icon: food_item_icons.vegan,
-    className: "wp-block-coblocks-food-item__attribute wp-block-coblocks-food-item__attribute--vegan"
-  })))), Object(external_this_wp_element_["createElement"])(save_RichText.Content, {
-    tagName: "p",
-    className: "wp-block-coblocks-food-item__description",
-    value: attributes.description,
-    itemprop: "description"
-  }), !!attributes.showPrice && attributes.price && Object(external_this_wp_element_["createElement"])("p", {
-    className: "wp-block-coblocks-food-item__price",
-    itemProp: "offers",
-    itemScope: true,
-    itemType: "http://schema.org/Offer"
-  }, Object(external_this_wp_element_["createElement"])(save_RichText.Content, {
-    tagName: "span",
-    value: attributes.price,
-    itemprop: "price"
-  }))));
-}
-// CONCATENATED MODULE: ./src/menu-blocks/food-and-drinks/food-item/index.js
-/**
- * Internal dependencies.
- */
-
-
-
-
-
-/**
- * WordPress dependencies.
- */
-
-var food_item_ = wp.i18n.__;
-/**
- * Block constants.
- */
-
-var food_item_name = 'food-item';
-
-var title = food_item_('Food Item');
-
-var food_item_icon = food_item_icons.foodItem;
-var keywords = [];
-var food_item_attributes = {
-  title: {
-    type: 'string',
-    source: 'html',
-    selector: '.wp-block-coblocks-food-item__heading',
-    default: ''
-  },
-  description: {
-    type: 'string',
-    source: 'html',
-    selector: '.wp-block-coblocks-food-item__description',
-    default: ''
-  },
-  price: {
-    type: 'string',
-    source: 'html',
-    selector: '.wp-block-coblocks-food-item__price span',
-    default: ''
-  },
-  url: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'img',
-    attribute: 'src',
-    default: ''
-  },
-  alt: {
-    type: 'string',
-    source: 'attribute',
-    selector: 'img',
-    attribute: 'alt',
-    default: ''
-  },
-  focalPoint: {
-    type: 'object'
-  },
-  glutenFree: {
-    type: 'boolean'
-  },
-  pescatarian: {
-    type: 'boolean'
-  },
-  spicy: {
-    type: 'boolean'
-  },
-  spicier: {
-    type: 'boolean'
-  },
-  vegetarian: {
-    type: 'boolean'
-  },
-  vegan: {
-    type: 'boolean'
-  },
-  showImage: {
-    type: 'boolean',
-    default: false
-  },
-  showPrice: {
-    type: 'boolean',
-    default: true
-  }
-};
-var food_item_settings = {
-  title: title,
-  description: food_item_('A food and drink item within the Food & Drinks block.'),
-  keywords: keywords,
-  attributes: food_item_attributes,
-  supports: {
-    inserter: false,
-    customClassName: false,
-    reusable: false,
-    html: false
-  },
-  parent: ['coblocks/food-and-drinks'],
-  edit: food_item_edit,
-  save: food_item_save_save
-};
-
 // CONCATENATED MODULE: ./src/menu-blocks/index.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerBlocks", function() { return registerBlocks; });
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
 
 
+var menu_blocks_ = wp.i18n.__;
+var registerPlugin = wp.plugins.registerPlugin;
+var PluginDocumentSettingPanel = wp.editPost.PluginDocumentSettingPanel;
+var menu_blocks_wp$components = wp.components,
+    RadioControl = menu_blocks_wp$components.RadioControl,
+    menu_blocks_TextControl = menu_blocks_wp$components.TextControl;
 
+var menu_blocks_DiningDashboardMenuMeta = function DiningDashboardMenuMeta() {
+  var value = wp.data.select('core/editor').getEditedPostAttribute('meta'); //.getEditedPostAttribute('meta')['_post_title_width'];
 
-var menu_blocks_registerBlockType = wp.blocks.registerBlockType;
-function registerBlocks() {
-  [food_and_drinks_namespaceObject, food_item_namespaceObject].forEach(function (block) {
-    if (!block) {
-      return;
+  console.log(value); //https://css-tricks.com/managing-wordpress-metadata-in-gutenberg-using-a-sidebar-plugin/
+
+  return Object(external_this_wp_element_["createElement"])(PluginDocumentSettingPanel, {
+    name: "menu-meta",
+    title: "Menu Title Width",
+    initialOpen: true
+  }, Object(external_this_wp_element_["createElement"])(RadioControl, {
+    label: menu_blocks_('Max Width'),
+    options: [{
+      label: '100%',
+      value: 'full'
+    }, {
+      label: '1500px',
+      value: 'wider'
+    }, {
+      label: '1200px',
+      value: 'wide'
+    }, {
+      label: '600px',
+      value: 'narrow'
+    }]
+  }), Object(external_this_wp_element_["createElement"])(menu_blocks_TextControl, {
+    value: value,
+    label: menu_blocks_("Text Meta", "textdomain"),
+    onChange: function onChange(value) {
+      return wp.data.dispatch('core/editor').editPost({
+        meta: {
+          _menu_title_width: value
+        }
+      });
     }
+  }));
+};
 
-    var name = block.name,
-        settings = block.settings;
-    console.log(name);
-    console.log(settings);
-    menu_blocks_registerBlockType("dining-dashboard/".concat(name), _objectSpread({
-      category: 'menu-blocks'
-    }, settings));
-  });
-}
-registerBlocks();
+registerPlugin('dining-dashboard-menu-meta', {
+  render: menu_blocks_DiningDashboardMenuMeta
+});
 
 /***/ }),
+/* 47 */,
 /* 48 */,
-/* 49 */,
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
 /* 50 */
-/***/ (function(module, exports) {
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
-}
-
-module.exports = _nonIterableRest;
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-function _iterableToArrayLimit(arr, i) {
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-module.exports = _iterableToArrayLimit;
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-module.exports = _arrayWithHoles;
-
-/***/ }),
-/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isArrayLike = __webpack_require__(23);
+var isArrayLike = __webpack_require__(21);
 
 /**
  * Creates a `baseEach` or `baseEachRight` function.
@@ -3537,7 +2635,7 @@ module.exports = createBaseEach;
 
 
 /***/ }),
-/* 59 */
+/* 51 */
 /***/ (function(module, exports) {
 
 /**
@@ -3568,10 +2666,10 @@ module.exports = createBaseFor;
 
 
 /***/ }),
-/* 60 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var createBaseFor = __webpack_require__(59);
+var createBaseFor = __webpack_require__(51);
 
 /**
  * The base implementation of `baseForOwn` which iterates over `object`
@@ -3590,11 +2688,11 @@ module.exports = baseFor;
 
 
 /***/ }),
-/* 61 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFor = __webpack_require__(60),
-    keys = __webpack_require__(25);
+var baseFor = __webpack_require__(52),
+    keys = __webpack_require__(23);
 
 /**
  * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -3612,11 +2710,11 @@ module.exports = baseForOwn;
 
 
 /***/ }),
-/* 62 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseForOwn = __webpack_require__(61),
-    createBaseEach = __webpack_require__(58);
+var baseForOwn = __webpack_require__(53),
+    createBaseEach = __webpack_require__(50);
 
 /**
  * The base implementation of `_.forEach` without support for iteratee shorthands.
@@ -3632,11 +2730,11 @@ module.exports = baseEach;
 
 
 /***/ }),
-/* 63 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseEach = __webpack_require__(62),
-    isArrayLike = __webpack_require__(23);
+var baseEach = __webpack_require__(54),
+    isArrayLike = __webpack_require__(21);
 
 /**
  * The base implementation of `_.map` without support for iteratee shorthands.
@@ -3660,7 +2758,7 @@ module.exports = baseMap;
 
 
 /***/ }),
-/* 64 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGet = __webpack_require__(30);
@@ -3682,7 +2780,7 @@ module.exports = basePropertyDeep;
 
 
 /***/ }),
-/* 65 */
+/* 57 */
 /***/ (function(module, exports) {
 
 /**
@@ -3702,13 +2800,13 @@ module.exports = baseProperty;
 
 
 /***/ }),
-/* 66 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseProperty = __webpack_require__(65),
-    basePropertyDeep = __webpack_require__(64),
-    isKey = __webpack_require__(22),
-    toKey = __webpack_require__(14);
+var baseProperty = __webpack_require__(57),
+    basePropertyDeep = __webpack_require__(56),
+    isKey = __webpack_require__(20),
+    toKey = __webpack_require__(11);
 
 /**
  * Creates a function that returns the value at `path` of a given object.
@@ -3740,7 +2838,7 @@ module.exports = property;
 
 
 /***/ }),
-/* 67 */
+/* 59 */
 /***/ (function(module, exports) {
 
 /**
@@ -3767,15 +2865,15 @@ module.exports = identity;
 
 
 /***/ }),
-/* 68 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var castPath = __webpack_require__(29),
     isArguments = __webpack_require__(37),
-    isArray = __webpack_require__(6),
+    isArray = __webpack_require__(1),
     isIndex = __webpack_require__(34),
-    isLength = __webpack_require__(24),
-    toKey = __webpack_require__(14);
+    isLength = __webpack_require__(22),
+    toKey = __webpack_require__(11);
 
 /**
  * Checks if `path` exists on `object`.
@@ -3812,7 +2910,7 @@ module.exports = hasPath;
 
 
 /***/ }),
-/* 69 */
+/* 61 */
 /***/ (function(module, exports) {
 
 /**
@@ -3831,11 +2929,11 @@ module.exports = baseHasIn;
 
 
 /***/ }),
-/* 70 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseHasIn = __webpack_require__(69),
-    hasPath = __webpack_require__(68);
+var baseHasIn = __webpack_require__(61),
+    hasPath = __webpack_require__(60);
 
 /**
  * Checks if `path` is a direct or inherited property of `object`.
@@ -3871,13 +2969,13 @@ module.exports = hasIn;
 
 
 /***/ }),
-/* 71 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(17),
+var Symbol = __webpack_require__(14),
     arrayMap = __webpack_require__(45),
-    isArray = __webpack_require__(6),
-    isSymbol = __webpack_require__(21);
+    isArray = __webpack_require__(1),
+    isSymbol = __webpack_require__(19);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -3914,10 +3012,10 @@ module.exports = baseToString;
 
 
 /***/ }),
-/* 72 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseToString = __webpack_require__(71);
+var baseToString = __webpack_require__(63);
 
 /**
  * Converts `value` to a string. An empty string is returned for `null`
@@ -3948,10 +3046,10 @@ module.exports = toString;
 
 
 /***/ }),
-/* 73 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MapCache = __webpack_require__(26);
+var MapCache = __webpack_require__(24);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -4027,10 +3125,10 @@ module.exports = memoize;
 
 
 /***/ }),
-/* 74 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var memoize = __webpack_require__(73);
+var memoize = __webpack_require__(65);
 
 /** Used as the maximum memoize cache size. */
 var MAX_MEMOIZE_SIZE = 500;
@@ -4059,10 +3157,10 @@ module.exports = memoizeCapped;
 
 
 /***/ }),
-/* 75 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var memoizeCapped = __webpack_require__(74);
+var memoizeCapped = __webpack_require__(66);
 
 /** Used to match property names within property paths. */
 var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
@@ -4092,7 +3190,7 @@ module.exports = stringToPath;
 
 
 /***/ }),
-/* 76 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGet = __webpack_require__(30);
@@ -4131,16 +3229,16 @@ module.exports = get;
 
 
 /***/ }),
-/* 77 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseIsEqual = __webpack_require__(39),
-    get = __webpack_require__(76),
-    hasIn = __webpack_require__(70),
-    isKey = __webpack_require__(22),
+    get = __webpack_require__(68),
+    hasIn = __webpack_require__(62),
+    isKey = __webpack_require__(20),
     isStrictComparable = __webpack_require__(32),
     matchesStrictComparable = __webpack_require__(31),
-    toKey = __webpack_require__(14);
+    toKey = __webpack_require__(11);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1,
@@ -4170,11 +3268,11 @@ module.exports = baseMatchesProperty;
 
 
 /***/ }),
-/* 78 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isStrictComparable = __webpack_require__(32),
-    keys = __webpack_require__(25);
+    keys = __webpack_require__(23);
 
 /**
  * Gets the property names, values, and compare flags of `object`.
@@ -4200,11 +3298,11 @@ module.exports = getMatchData;
 
 
 /***/ }),
-/* 79 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(10),
-    root = __webpack_require__(7);
+var getNative = __webpack_require__(8),
+    root = __webpack_require__(2);
 
 /* Built-in method references that are verified to be native. */
 var WeakMap = getNative(root, 'WeakMap');
@@ -4213,11 +3311,11 @@ module.exports = WeakMap;
 
 
 /***/ }),
-/* 80 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(10),
-    root = __webpack_require__(7);
+var getNative = __webpack_require__(8),
+    root = __webpack_require__(2);
 
 /* Built-in method references that are verified to be native. */
 var Set = getNative(root, 'Set');
@@ -4226,11 +3324,11 @@ module.exports = Set;
 
 
 /***/ }),
-/* 81 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(10),
-    root = __webpack_require__(7);
+var getNative = __webpack_require__(8),
+    root = __webpack_require__(2);
 
 /* Built-in method references that are verified to be native. */
 var Promise = getNative(root, 'Promise');
@@ -4239,11 +3337,11 @@ module.exports = Promise;
 
 
 /***/ }),
-/* 82 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(10),
-    root = __webpack_require__(7);
+var getNative = __webpack_require__(8),
+    root = __webpack_require__(2);
 
 /* Built-in method references that are verified to be native. */
 var DataView = getNative(root, 'DataView');
@@ -4252,15 +3350,15 @@ module.exports = DataView;
 
 
 /***/ }),
-/* 83 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var DataView = __webpack_require__(82),
-    Map = __webpack_require__(28),
-    Promise = __webpack_require__(81),
-    Set = __webpack_require__(80),
-    WeakMap = __webpack_require__(79),
-    baseGetTag = __webpack_require__(13),
+var DataView = __webpack_require__(74),
+    Map = __webpack_require__(26),
+    Promise = __webpack_require__(73),
+    Set = __webpack_require__(72),
+    WeakMap = __webpack_require__(71),
+    baseGetTag = __webpack_require__(10),
     toSource = __webpack_require__(40);
 
 /** `Object#toString` result references. */
@@ -4316,7 +3414,7 @@ module.exports = getTag;
 
 
 /***/ }),
-/* 84 */
+/* 76 */
 /***/ (function(module, exports) {
 
 /**
@@ -4337,10 +3435,10 @@ module.exports = overArg;
 
 
 /***/ }),
-/* 85 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var overArg = __webpack_require__(84);
+var overArg = __webpack_require__(76);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeKeys = overArg(Object.keys, Object);
@@ -4349,7 +3447,7 @@ module.exports = nativeKeys;
 
 
 /***/ }),
-/* 86 */
+/* 78 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -4373,11 +3471,11 @@ module.exports = isPrototype;
 
 
 /***/ }),
-/* 87 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isPrototype = __webpack_require__(86),
-    nativeKeys = __webpack_require__(85);
+var isPrototype = __webpack_require__(78),
+    nativeKeys = __webpack_require__(77);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -4409,7 +3507,7 @@ module.exports = baseKeys;
 
 
 /***/ }),
-/* 88 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(41);
@@ -4446,7 +3544,7 @@ module.exports = nodeUtil;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(35)(module)))
 
 /***/ }),
-/* 89 */
+/* 81 */
 /***/ (function(module, exports) {
 
 /**
@@ -4466,12 +3564,12 @@ module.exports = baseUnary;
 
 
 /***/ }),
-/* 90 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(13),
-    isLength = __webpack_require__(24),
-    isObjectLike = __webpack_require__(12);
+var baseGetTag = __webpack_require__(10),
+    isLength = __webpack_require__(22),
+    isObjectLike = __webpack_require__(9);
 
 /** `Object#toString` result references. */
 var argsTag = '[object Arguments]',
@@ -4532,7 +3630,7 @@ module.exports = baseIsTypedArray;
 
 
 /***/ }),
-/* 91 */
+/* 83 */
 /***/ (function(module, exports) {
 
 /**
@@ -4556,11 +3654,11 @@ module.exports = stubFalse;
 
 
 /***/ }),
-/* 92 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(13),
-    isObjectLike = __webpack_require__(12);
+var baseGetTag = __webpack_require__(10),
+    isObjectLike = __webpack_require__(9);
 
 /** `Object#toString` result references. */
 var argsTag = '[object Arguments]';
@@ -4580,7 +3678,7 @@ module.exports = baseIsArguments;
 
 
 /***/ }),
-/* 93 */
+/* 85 */
 /***/ (function(module, exports) {
 
 /**
@@ -4606,12 +3704,12 @@ module.exports = baseTimes;
 
 
 /***/ }),
-/* 94 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseTimes = __webpack_require__(93),
+var baseTimes = __webpack_require__(85),
     isArguments = __webpack_require__(37),
-    isArray = __webpack_require__(6),
+    isArray = __webpack_require__(1),
     isBuffer = __webpack_require__(36),
     isIndex = __webpack_require__(34),
     isTypedArray = __webpack_require__(33);
@@ -4661,7 +3759,7 @@ module.exports = arrayLikeKeys;
 
 
 /***/ }),
-/* 95 */
+/* 87 */
 /***/ (function(module, exports) {
 
 /**
@@ -4690,7 +3788,7 @@ module.exports = stubArray;
 
 
 /***/ }),
-/* 96 */
+/* 88 */
 /***/ (function(module, exports) {
 
 /**
@@ -4721,11 +3819,11 @@ module.exports = arrayFilter;
 
 
 /***/ }),
-/* 97 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayFilter = __webpack_require__(96),
-    stubArray = __webpack_require__(95);
+var arrayFilter = __webpack_require__(88),
+    stubArray = __webpack_require__(87);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -4757,7 +3855,7 @@ module.exports = getSymbols;
 
 
 /***/ }),
-/* 98 */
+/* 90 */
 /***/ (function(module, exports) {
 
 /**
@@ -4783,11 +3881,11 @@ module.exports = arrayPush;
 
 
 /***/ }),
-/* 99 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayPush = __webpack_require__(98),
-    isArray = __webpack_require__(6);
+var arrayPush = __webpack_require__(90),
+    isArray = __webpack_require__(1);
 
 /**
  * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
@@ -4809,12 +3907,12 @@ module.exports = baseGetAllKeys;
 
 
 /***/ }),
-/* 100 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetAllKeys = __webpack_require__(99),
-    getSymbols = __webpack_require__(97),
-    keys = __webpack_require__(25);
+var baseGetAllKeys = __webpack_require__(91),
+    getSymbols = __webpack_require__(89),
+    keys = __webpack_require__(23);
 
 /**
  * Creates an array of own enumerable property names and symbols of `object`.
@@ -4831,10 +3929,10 @@ module.exports = getAllKeys;
 
 
 /***/ }),
-/* 101 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getAllKeys = __webpack_require__(100);
+var getAllKeys = __webpack_require__(92);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1;
@@ -4926,7 +4024,7 @@ module.exports = equalObjects;
 
 
 /***/ }),
-/* 102 */
+/* 94 */
 /***/ (function(module, exports) {
 
 /**
@@ -4950,7 +4048,7 @@ module.exports = setToArray;
 
 
 /***/ }),
-/* 103 */
+/* 95 */
 /***/ (function(module, exports) {
 
 /**
@@ -4974,10 +4072,10 @@ module.exports = mapToArray;
 
 
 /***/ }),
-/* 104 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(7);
+var root = __webpack_require__(2);
 
 /** Built-in value references. */
 var Uint8Array = root.Uint8Array;
@@ -4986,15 +4084,15 @@ module.exports = Uint8Array;
 
 
 /***/ }),
-/* 105 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(17),
-    Uint8Array = __webpack_require__(104),
+var Symbol = __webpack_require__(14),
+    Uint8Array = __webpack_require__(96),
     eq = __webpack_require__(43),
     equalArrays = __webpack_require__(38),
-    mapToArray = __webpack_require__(103),
-    setToArray = __webpack_require__(102);
+    mapToArray = __webpack_require__(95),
+    setToArray = __webpack_require__(94);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1,
@@ -5104,7 +4202,7 @@ module.exports = equalByTag;
 
 
 /***/ }),
-/* 106 */
+/* 98 */
 /***/ (function(module, exports) {
 
 /**
@@ -5123,7 +4221,7 @@ module.exports = cacheHas;
 
 
 /***/ }),
-/* 107 */
+/* 99 */
 /***/ (function(module, exports) {
 
 /**
@@ -5152,7 +4250,7 @@ module.exports = arraySome;
 
 
 /***/ }),
-/* 108 */
+/* 100 */
 /***/ (function(module, exports) {
 
 /**
@@ -5172,7 +4270,7 @@ module.exports = setCacheHas;
 
 
 /***/ }),
-/* 109 */
+/* 101 */
 /***/ (function(module, exports) {
 
 /** Used to stand-in for `undefined` hash values. */
@@ -5197,12 +4295,12 @@ module.exports = setCacheAdd;
 
 
 /***/ }),
-/* 110 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MapCache = __webpack_require__(26),
-    setCacheAdd = __webpack_require__(109),
-    setCacheHas = __webpack_require__(108);
+var MapCache = __webpack_require__(24),
+    setCacheAdd = __webpack_require__(101),
+    setCacheHas = __webpack_require__(100);
 
 /**
  *
@@ -5230,15 +4328,15 @@ module.exports = SetCache;
 
 
 /***/ }),
-/* 111 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Stack = __webpack_require__(44),
     equalArrays = __webpack_require__(38),
-    equalByTag = __webpack_require__(105),
-    equalObjects = __webpack_require__(101),
-    getTag = __webpack_require__(83),
-    isArray = __webpack_require__(6),
+    equalByTag = __webpack_require__(97),
+    equalObjects = __webpack_require__(93),
+    getTag = __webpack_require__(75),
+    isArray = __webpack_require__(1),
     isBuffer = __webpack_require__(36),
     isTypedArray = __webpack_require__(33);
 
@@ -5319,10 +4417,10 @@ module.exports = baseIsEqualDeep;
 
 
 /***/ }),
-/* 112 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(15);
+var getMapData = __webpack_require__(12);
 
 /**
  * Sets the map `key` to `value`.
@@ -5347,10 +4445,10 @@ module.exports = mapCacheSet;
 
 
 /***/ }),
-/* 113 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(15);
+var getMapData = __webpack_require__(12);
 
 /**
  * Checks if a map value for `key` exists.
@@ -5369,10 +4467,10 @@ module.exports = mapCacheHas;
 
 
 /***/ }),
-/* 114 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(15);
+var getMapData = __webpack_require__(12);
 
 /**
  * Gets the map value for `key`.
@@ -5391,7 +4489,7 @@ module.exports = mapCacheGet;
 
 
 /***/ }),
-/* 115 */
+/* 107 */
 /***/ (function(module, exports) {
 
 /**
@@ -5412,10 +4510,10 @@ module.exports = isKeyable;
 
 
 /***/ }),
-/* 116 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(15);
+var getMapData = __webpack_require__(12);
 
 /**
  * Removes `key` and its value from the map.
@@ -5436,10 +4534,10 @@ module.exports = mapCacheDelete;
 
 
 /***/ }),
-/* 117 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(16);
+var nativeCreate = __webpack_require__(13);
 
 /** Used to stand-in for `undefined` hash values. */
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -5465,10 +4563,10 @@ module.exports = hashSet;
 
 
 /***/ }),
-/* 118 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(16);
+var nativeCreate = __webpack_require__(13);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -5494,10 +4592,10 @@ module.exports = hashHas;
 
 
 /***/ }),
-/* 119 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(16);
+var nativeCreate = __webpack_require__(13);
 
 /** Used to stand-in for `undefined` hash values. */
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -5530,7 +4628,7 @@ module.exports = hashGet;
 
 
 /***/ }),
-/* 120 */
+/* 112 */
 /***/ (function(module, exports) {
 
 /**
@@ -5553,10 +4651,10 @@ module.exports = hashDelete;
 
 
 /***/ }),
-/* 121 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(16);
+var nativeCreate = __webpack_require__(13);
 
 /**
  * Removes all key-value entries from the hash.
@@ -5574,14 +4672,14 @@ module.exports = hashClear;
 
 
 /***/ }),
-/* 122 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var hashClear = __webpack_require__(121),
-    hashDelete = __webpack_require__(120),
-    hashGet = __webpack_require__(119),
-    hashHas = __webpack_require__(118),
-    hashSet = __webpack_require__(117);
+var hashClear = __webpack_require__(113),
+    hashDelete = __webpack_require__(112),
+    hashGet = __webpack_require__(111),
+    hashHas = __webpack_require__(110),
+    hashSet = __webpack_require__(109);
 
 /**
  * Creates a hash object.
@@ -5612,12 +4710,12 @@ module.exports = Hash;
 
 
 /***/ }),
-/* 123 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Hash = __webpack_require__(122),
-    ListCache = __webpack_require__(19),
-    Map = __webpack_require__(28);
+var Hash = __webpack_require__(114),
+    ListCache = __webpack_require__(16),
+    Map = __webpack_require__(26);
 
 /**
  * Removes all key-value entries from the map.
@@ -5639,7 +4737,7 @@ module.exports = mapCacheClear;
 
 
 /***/ }),
-/* 124 */
+/* 116 */
 /***/ (function(module, exports) {
 
 /**
@@ -5658,10 +4756,10 @@ module.exports = getValue;
 
 
 /***/ }),
-/* 125 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(7);
+var root = __webpack_require__(2);
 
 /** Used to detect overreaching core-js shims. */
 var coreJsData = root['__core-js_shared__'];
@@ -5670,10 +4768,10 @@ module.exports = coreJsData;
 
 
 /***/ }),
-/* 126 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var coreJsData = __webpack_require__(125);
+var coreJsData = __webpack_require__(117);
 
 /** Used to detect methods masquerading as native. */
 var maskSrcKey = (function() {
@@ -5696,7 +4794,7 @@ module.exports = isMasked;
 
 
 /***/ }),
-/* 127 */
+/* 119 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -5724,10 +4822,10 @@ module.exports = objectToString;
 
 
 /***/ }),
-/* 128 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(17);
+var Symbol = __webpack_require__(14);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -5776,7 +4874,7 @@ module.exports = getRawTag;
 
 
 /***/ }),
-/* 129 */
+/* 121 */
 /***/ (function(module, exports) {
 
 var g;
@@ -5802,12 +4900,12 @@ module.exports = g;
 
 
 /***/ }),
-/* 130 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isFunction = __webpack_require__(42),
-    isMasked = __webpack_require__(126),
-    isObject = __webpack_require__(27),
+    isMasked = __webpack_require__(118),
+    isObject = __webpack_require__(25),
     toSource = __webpack_require__(40);
 
 /**
@@ -5855,12 +4953,12 @@ module.exports = baseIsNative;
 
 
 /***/ }),
-/* 131 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(19),
-    Map = __webpack_require__(28),
-    MapCache = __webpack_require__(26);
+var ListCache = __webpack_require__(16),
+    Map = __webpack_require__(26),
+    MapCache = __webpack_require__(24);
 
 /** Used as the size to enable large array optimizations. */
 var LARGE_ARRAY_SIZE = 200;
@@ -5895,7 +4993,7 @@ module.exports = stackSet;
 
 
 /***/ }),
-/* 132 */
+/* 124 */
 /***/ (function(module, exports) {
 
 /**
@@ -5915,7 +5013,7 @@ module.exports = stackHas;
 
 
 /***/ }),
-/* 133 */
+/* 125 */
 /***/ (function(module, exports) {
 
 /**
@@ -5935,7 +5033,7 @@ module.exports = stackGet;
 
 
 /***/ }),
-/* 134 */
+/* 126 */
 /***/ (function(module, exports) {
 
 /**
@@ -5959,10 +5057,10 @@ module.exports = stackDelete;
 
 
 /***/ }),
-/* 135 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(19);
+var ListCache = __webpack_require__(16);
 
 /**
  * Removes all key-value entries from the stack.
@@ -5980,10 +5078,10 @@ module.exports = stackClear;
 
 
 /***/ }),
-/* 136 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(18);
+var assocIndexOf = __webpack_require__(15);
 
 /**
  * Sets the list cache `key` to `value`.
@@ -6012,10 +5110,10 @@ module.exports = listCacheSet;
 
 
 /***/ }),
-/* 137 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(18);
+var assocIndexOf = __webpack_require__(15);
 
 /**
  * Checks if a list cache value for `key` exists.
@@ -6034,10 +5132,10 @@ module.exports = listCacheHas;
 
 
 /***/ }),
-/* 138 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(18);
+var assocIndexOf = __webpack_require__(15);
 
 /**
  * Gets the list cache value for `key`.
@@ -6059,10 +5157,10 @@ module.exports = listCacheGet;
 
 
 /***/ }),
-/* 139 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(18);
+var assocIndexOf = __webpack_require__(15);
 
 /** Used for built-in method references. */
 var arrayProto = Array.prototype;
@@ -6100,7 +5198,7 @@ module.exports = listCacheDelete;
 
 
 /***/ }),
-/* 140 */
+/* 132 */
 /***/ (function(module, exports) {
 
 /**
@@ -6119,7 +5217,7 @@ module.exports = listCacheClear;
 
 
 /***/ }),
-/* 141 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Stack = __webpack_require__(44),
@@ -6187,11 +5285,11 @@ module.exports = baseIsMatch;
 
 
 /***/ }),
-/* 142 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsMatch = __webpack_require__(141),
-    getMatchData = __webpack_require__(78),
+var baseIsMatch = __webpack_require__(133),
+    getMatchData = __webpack_require__(70),
     matchesStrictComparable = __webpack_require__(31);
 
 /**
@@ -6215,14 +5313,14 @@ module.exports = baseMatches;
 
 
 /***/ }),
-/* 143 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseMatches = __webpack_require__(142),
-    baseMatchesProperty = __webpack_require__(77),
-    identity = __webpack_require__(67),
-    isArray = __webpack_require__(6),
-    property = __webpack_require__(66);
+var baseMatches = __webpack_require__(134),
+    baseMatchesProperty = __webpack_require__(69),
+    identity = __webpack_require__(59),
+    isArray = __webpack_require__(1),
+    property = __webpack_require__(58);
 
 /**
  * The base implementation of `_.iteratee`.
@@ -6252,7 +5350,7 @@ module.exports = baseIteratee;
 
 
 /***/ }),
-/* 144 */
+/* 136 */
 /***/ (function(module, exports) {
 
 function _setPrototypeOf(o, p) {
@@ -6267,7 +5365,7 @@ function _setPrototypeOf(o, p) {
 module.exports = _setPrototypeOf;
 
 /***/ }),
-/* 145 */
+/* 137 */
 /***/ (function(module, exports) {
 
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }

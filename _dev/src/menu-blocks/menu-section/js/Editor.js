@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import InspectorControls from './Inspector';
+import AlignmentText from './AlignmentText';
 import Icons from '../../utils/Icons';
 import RowIcons from './RowIcons';
 
@@ -80,6 +81,8 @@ class Editor extends Component {
             sectionColumns
         } = attributes;
 
+        const selectInstructions = __('Select the number of columns for this menu section.');
+
         if (!sectionColumns) {
             return (
                 <Fragment>
@@ -87,7 +90,7 @@ class Editor extends Component {
                         key="placeholder"
                         icon={Icons.MenuSection}
                         label={<span>{__('Menu Section')}</span>}
-                        instructions={__('Select the number of columns for this menu section.')}
+                        instructions={selectInstructions}
                     >
                         <ButtonGroup aria-label={__('Select Menu Section Columns')}>
                             {
@@ -113,13 +116,12 @@ class Editor extends Component {
                                 )
                             }
                         </ButtonGroup>
+                        <AlignmentText/>
                     </Placeholder>
                 </Fragment>
             );
         }
 
-        console.log(TEMPLATE[sectionColumns]);
-        
         return (
             <Fragment>
                 <InspectorControls
@@ -130,6 +132,7 @@ class Editor extends Component {
                 <div className={columnClasses[sectionColumns]}>
                     <InnerBlocks
                         template={TEMPLATE[sectionColumns]}
+                        templateLock="all"
                         allowedBlocks={ALLOWED_BLOCKS}
                         renderAppender={() => (null)}
                     />

@@ -26,6 +26,12 @@ class MenuPostType {
         'src' => 'menu-post-type.css',
     ];
 
+    protected $frontend_scripts = [
+        'post_types' => [ 'menu' ],
+        'handle' => 'dining-dashboard-menu',
+        'src' => 'menu-post-type.js',
+    ];
+
     public function __construct() {
        $this->init();
     }

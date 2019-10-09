@@ -25,13 +25,16 @@ class MenuSectionHeading {
     }
 
     public static function inner_block_content( $attributes ){
-        $variables[ 'section_title' ] = wp_kses( 
-            $attributes[ 'sectionTitle' ],
-            [
-                'em' => [],
-                'strong' => [],
-            ]
-        );
+        $variables[ 'section_title' ] = 
+            isset( $variables[ 'section_title' ] ) ?
+            wp_kses( 
+                $attributes[ 'sectionTitle' ],
+                [
+                    'em' => [],
+                    'strong' => [],
+                ]
+            ) :
+            '';
         return self::render_template( 'menu-section-heading', $variables );
     }
 }

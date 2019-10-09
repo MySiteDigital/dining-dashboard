@@ -42,6 +42,7 @@ class Editor extends Component {
                 <div>
                     <InnerBlocks
                         template={menuItems}
+                        templateLock={false}
                         allowedBlocks={['dining-dashboard/menu-item']}
                         renderAppender={() => (null)}
                     />

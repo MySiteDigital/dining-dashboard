@@ -75,6 +75,7 @@ final class DiningDashboard {
         include_once( DD_PLUGIN_PATH . 'includes/assets/trait-dining-dashboard-assets-trait.php' );
         include_once( DD_PLUGIN_PATH . 'includes/assets/class-dining-dashboard-menu-blocks.php' );
         include_once( DD_PLUGIN_PATH . 'includes/assets/class-dining-dashboard-menu-post-type.php' );
+        include_once( DD_PLUGIN_PATH . 'includes/assets/class-dining-dashboard-svg.php' );
 
         if ( is_admin() ) {
             include_once( DD_PLUGIN_PATH . 'includes/admin/class-dining-dashboard-admin.php' );

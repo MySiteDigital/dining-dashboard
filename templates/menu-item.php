@@ -1,3 +1,4 @@
+<?php use MySiteDigital\DiningDashboard\Assets\SVG; ?>
 <figure class="wp-block-dining-dashboard-menu-item"  itemscope itemtype="http://schema.org/MenuItem">
     <div class="img">
         <meta itemprop="image" content="bg.jpg"></meta>
@@ -15,7 +16,7 @@
                             <span class="screen-reader-text">
                                 Vegetarian                                   
                             </span>
-                            Vegan
+                            ' .  SVG::icon( 'vegetarian' ) . '
                         </span>
                     ';
                 }
@@ -26,7 +27,7 @@
                             <span class="screen-reader-text">
                                 Vegan                                        
                             </span>
-                            Vegan
+                            ' .  SVG::icon( 'vegan' ) . '
                         </span>
                     ';
                 }
@@ -37,7 +38,7 @@
                             <span class="screen-reader-text">
                                 Gluten Free                                  
                             </span>
-                            Vegan
+                            ' .  SVG::icon( 'gluten-free' ) . '
                         </span>
                     ';
                 }

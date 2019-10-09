@@ -1,3 +1,4 @@
+import AlignmentText from './AlignmentText';
 /**
  * External dependencies
  */
@@ -22,36 +23,38 @@ const Inspector = props => {
 		sectionColumns
 	} = attributes;
 
+	//for a future version
+	const columnsPanel = 
+		<PanelBody title={__('Columns')} initialOpen={true}>
+			<ButtonGroup aria-label={__('Select Columns')} id="menu-section-inspector-columns">
+				{
+					map(
+						columnOptions, ({ name, columns, icon }) => (
+							<Tooltip text={name}>
+								<Button
+									isSmall
+									className={(columns === sectionColumns) ? 'is-selected' : 'test'}
+									onClick={
+										() => {
+											setAttributes(
+												{
+													sectionColumns: columns,
+												}
+											);
+										}
+									}
+								>
+									{icon}
+								</Button>
+							</Tooltip>
+						)
+					)
+				}
+			</ButtonGroup>
+		</PanelBody>
+
 	return (
 		<InspectorControls>
-			<PanelBody title={__('Columns')} initialOpen={true}>
-				<ButtonGroup aria-label={__('Select Columns')} id="menu-section-inspector-columns">
-					{
-						map(
-							columnOptions, ({ name, columns, icon }) => (
-								<Tooltip text={name}>
-									<Button
-										isSmall
-										className={(columns === sectionColumns) ? 'is-selected' : 'test'}
-										onClick={
-											() => {
-												setAttributes(
-													{
-														sectionColumns: columns,
-													}
-												);
-											}
-										}
-									>
-										{icon}
-									</Button>
-								</Tooltip>
-							)
-						)
-					}
-				</ButtonGroup>
-			</PanelBody>
-
 			<PanelBody title={__('Section Settings')} initialOpen={true}>
 				<ToggleControl
 					label={__('Slide Toggle')}
@@ -107,6 +110,7 @@ const Inspector = props => {
 						}
 					}
 				/>
+				<AlignmentText/>
 			</PanelBody>
 		</InspectorControls>
 	);

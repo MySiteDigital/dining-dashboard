@@ -37,8 +37,8 @@ class MenuItem {
     }
 
     public function render( $attributes ){
-        $variables[ 'item_title' ] = $attributes[ 'itemTitle' ];
-        $variables[ 'description' ] = $attributes[ 'description' ];
+        $variables[ 'item_title' ] = isset( $attributes[ 'itemTitle' ] ) ? $attributes[ 'itemTitle' ] : '';
+        $variables[ 'description' ] = isset( $attributes[ 'description' ] ) ? $attributes[ 'description' ] : '';
         $variables[ 'vegetarian' ] = isset( $attributes[ 'vegetarian' ] ) ? $attributes[ 'vegetarian' ] : false;
         $variables[ 'vegan' ] = isset( $attributes[ 'vegan' ] ) ? $attributes[ 'vegan' ] : false;
         $variables[ 'gluten_free' ] = isset( $attributes[ 'glutenFree' ] ) ? $attributes[ 'glutenFree' ] : false;

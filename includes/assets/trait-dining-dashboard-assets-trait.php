@@ -20,6 +20,7 @@ trait AssetsTrait {
         add_action( 'init', [ $this , 'register_styles_and_scripts' ] );
         add_action( 'enqueue_block_editor_assets', [ $this , 'enqueue_block_editor_assets' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_styles' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_scripts' ] );
     }
 
     public function register_styles_and_scripts() {
@@ -37,7 +38,7 @@ trait AssetsTrait {
             $test = wp_register_script(
                 $this->editor_scripts[ 'handle' ],
                 $this->get_asset_location( $this->editor_scripts['src'] ),
-                ['wp-blocks','wp-i18n','wp-element'],
+                [ 'wp-blocks', 'wp-i18n', 'wp-element' ],
                 $this->get_asset_version( $this->editor_scripts['src'] ),
                 true
             );
@@ -49,6 +50,16 @@ trait AssetsTrait {
                 $this->get_asset_location( $this->frontend_styles['src'] ),
                 [],
                 $this->get_asset_version( $this->frontend_styles['src'] )
+            );
+        }
+
+        if( property_exists( self::class, 'frontend_scripts' ) ){
+            wp_register_script(
+                $this->frontend_scripts[ 'handle' ],
+                $this->get_asset_location( $this->frontend_scripts['src'] ),
+                [ 'jquery' ],
+                $this->get_asset_version( $this->frontend_scripts['src'] ),
+                true
             );
         }
     }
@@ -78,7 +89,16 @@ trait AssetsTrait {
                 wp_enqueue_style( $this->frontend_styles[ 'handle' ] );
             }
         }
+    }
 
+    public function enqueue_frontend_scripts(){
+        global $post;
+
+        if( property_exists( self::class, 'frontend_scripts' ) ){
+            if( in_array( $post->post_type, $this->frontend_scripts[ 'post_types' ] ) ){
+                wp_enqueue_script( $this->frontend_scripts[ 'handle' ] );
+            }
+        }
     }
     
     public function get_asset_location( $filename, $dir = false ){
