@@ -45,16 +45,10 @@ registerBlockType(
             },
             mediaURL: {
                 type: 'string',
-                source: 'attribute',
-                selector: 'img',
-                attribute: 'src',
                 default: ""
             },
             mediaAlt: {
                 type: 'string',
-                source: 'attribute',
-                selector: 'img',
-                attribute: 'alt',
                 default: ""
             },
             vegetarian: {

@@ -6,7 +6,9 @@ import formatPrice from './formatPrice';
  */
 const { __ } = wp.i18n;
 const { Component, Fragment } = wp.element;
+const { IconButton, DropZone, Spinner } = wp.components;
 const { RichText, MediaPlaceholder } = wp.blockEditor;
+const { isBlobURL } = wp.blob;
 
 class Editor extends Component {
 
@@ -38,6 +40,62 @@ class Editor extends Component {
             />
         );
     }
+
+    replaceImage(files) {
+        mediaUpload(
+            {
+                allowedTypes: ['image'],
+                filesList: files,
+                onFileChange: (
+                    [media]
+                ) => this.props.setAttributes(
+                    {
+                        mediaURL: media.url,
+                        mediaAlt: media.alt
+                    }
+                )
+            }
+        );
+    }
+
+
+    renderImage() {
+        const { attributes, setAttributes, isSelected } = this.props;
+
+        const dropZone = (
+            <DropZone
+                onFilesDrop={this.replaceImage}
+                label={__('Drop image to replace')}
+            />
+        );
+
+        return (
+            <Fragment>
+                <figure>
+                    {
+                        isSelected && 
+                        (
+                            <div>
+                                <IconButton
+                                    icon="no-alt"
+                                    onClick={() => setAttributes({ mediaURL: '' })}
+                                    label={__('Remove Image')}
+                                    disabled={!isSelected}
+                                />
+                            </div>
+                        )
+                    }
+                    {dropZone}
+                    {isBlobURL(attributes.mediaURL) && <Spinner />}
+                    <img
+                        src={attributes.mediaURL}
+                        alt={attributes.mediaAlt}
+                    />
+                </figure>
+            </Fragment>
+        );
+    }
+
 
     renderPlaceholder() {
         const { setAttributes } = this.props;
