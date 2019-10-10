@@ -26,7 +26,7 @@ class MenuSectionHeading {
 
     public static function inner_block_content( $attributes ){
         $variables[ 'section_title' ] = 
-            isset( $variables[ 'section_title' ] ) ?
+            isset( $attributes[ 'sectionTitle' ] ) ?
             wp_kses( 
                 $attributes[ 'sectionTitle' ],
                 [

@@ -47,13 +47,16 @@
 
         &.align {
 
-            &-narrow {
+            &narrow {
                 @include bp(min-md){
-                    &.cols-1,
+                    &.cols-1 {
+                        max-width: 600px;
+                    }
+                    
                     &.cols-2,
                     &.cols-3,
                     &.cols-4 {
-                        max-width: 600px;
+                        max-width: 100%;
                     }
                 }
 
@@ -66,11 +69,11 @@
                 }
             }
 
-            &-wide {
+            &wide {
                 max-width: 1500px;
             }
 
-            &-full {
+            &full {
                 max-width: 100%;
             }
 
@@ -83,7 +86,7 @@
             grid-template-columns: 1fr;
 
             &.cols-2 {
-                @include bp(min-sm){
+                @include bp(min-md){
                     grid-template-columns: 1fr 1fr;
                 }
             }
@@ -92,15 +95,54 @@
                 @include bp(min-lg){
                     grid-template-columns: 1fr 1fr 1fr;
                 }
+
+                .wp-block-dining-dashboard-menu-item {
+
+                    @include bp(min-md){
+                        .img {
+                            min-width: 200px;
+                        }
+                    }
+
+                    @include bp(min-lg){
+                        flex-direction: column;
+                        .img {
+                            min-width: 100%;
+                            height: 150px;
+                            border-radius: 4px 4px 0 0;
+                        }
+                    }
+
+                     @include bp(min-xl){
+                        flex-direction: row;
+                        .img {
+                            min-width: 150px;
+                            height: auto;
+                            border-radius: 4px 0 0 4px;
+                        }
+                    }
+                    
+                }
             }
 
             &.cols-4 {
-                @include bp(min-sm){
+                @include bp(min-md){
                     grid-template-columns: 1fr 1fr;
                 }
 
                 @include bp(min-xl){
                     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+                    .wp-block-dining-dashboard-menu-item {
+                        @include bp(min-lg){
+                            flex-direction: column;
+                            .img {
+                                min-width: 100%;
+                                height: 150px;
+                                border-radius: 4px 4px 0 0;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -115,30 +157,46 @@
     }
 
     &-menu-item {
+        display: flex;
+        flex-direction: column;
         align-self: start;
         margin: 0;
         border: 4px solid;
         border-radius: 8px;
 
+        @include bp(min-sm){
+            flex-direction: row;
+        }
+
         &.empty-item {
             border: none;
         }
 
+        .img {
+            height: 150px;
+            border-radius: 4px 4px 0 0;
+            background-color: lightblue;
+            background-size: cover;
+            background-position: center center;
+
+            @include bp(min-sm){
+                min-width: 200px;
+                height: auto;
+                border-radius: 4px 0 0 4px;
+            }
+
+            @include bp(min-md){
+                min-width: 150px;
+            }
+
+            @include bp(min-lg){
+                min-width: 200px;
+            }
+        }
+
         .details {
+            width: calc(100% - 32px);
             margin: 16px;
-
-            //has image
-            // @include bp(min-sm){
-            //     width: calc(100% - 200px);
-            // }
-
-            // @include bp(min-md){
-            //     width: calc(100% - 150px);
-            // }
-
-            // @include bp(min-lg){
-            //     width: calc(100% - 200px);
-            // }
 
             h3 {
                 margin: 0 0 12px 0;
@@ -148,10 +206,6 @@
             p {
                 margin: 0 0 12px 0;
             }
-        }
-
-        .img {
-            display: none;
         }
 
         .meta {
@@ -164,4 +218,23 @@
             margin-left: auto;
         }
     }
+}
+
+
+.is-twentythirteen {
+    .alignnarrow {
+         @include bp(min-md){
+            &.cols-1 {
+                max-width: 100%;
+            }
+        }
+
+        @include bp(min-lg){
+            &.cols-2 {
+                width: 864px;
+                margin-left: -130px;
+                margin-right: -130px;
+            }
+        }
+    }                              
 }

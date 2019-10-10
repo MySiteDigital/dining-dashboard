@@ -87,6 +87,7 @@ class MenuSection {
 
     /* 
      * https://wordpress.stackexchange.com/questions/325724/style-new-block-editor-alignfull-class-without-scrollbars-or-overflow
+     * https://github.com/WordPress/gutenberg/issues/8289
      */
     public function get_default_alignment( $attributes ){
 

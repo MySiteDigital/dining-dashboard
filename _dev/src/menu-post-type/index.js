@@ -5,7 +5,7 @@ import './style.scss';
 
         jQuery(document).ready(
             function () {
-                menuNav.init();
+                diningDashboard.init();
             }
         );
 
@@ -14,7 +14,7 @@ import './style.scss';
 
 
 
-var menuNav = {
+var diningDashboard = {
 
     slideToggleTrigger: jQuery('.has-slide-toggle header'),
 
@@ -22,19 +22,64 @@ var menuNav = {
 
     gridHolderClass: '.grid-holder',
 
+    imageClass: '.img',
+
     init: function () {
-        if (menuNav.slideToggleTrigger.length) {
-            menuNav.buttonListener();
+        
+        diningDashboard.loadImages();
+        diningDashboard.scrollListener();
+        diningDashboard.resizeListener();
+
+        if (diningDashboard.slideToggleTrigger.length) {
+            diningDashboard.buttonListener();
         }
     },
 
+    loadImages: function() {
+        jQuery(diningDashboard.imageClass).each(
+            function (i, el) {
+                let element = jQuery(el);
+                if (diningDashboard.isElementInView(element)){
+                    let imageUrl = element.data('image');
+                    element.css('background-image', 'url(' + imageUrl + ')');
+                }
+            }
+        );
+    },
+
+    scrollListener: function(){
+        jQuery(window).scroll(
+            function () {
+                diningDashboard.loadImages();
+            }
+        );
+    },
+
+    resizeListener: function(){
+        jQuery(window).on(
+            'resize', 
+            function () {
+                diningDashboard.loadImages();
+            }
+        );
+    },
+
     buttonListener: function () {
-        menuNav.slideToggleTrigger.on(
+        diningDashboard.slideToggleTrigger.on(
             'click',
             function () {
                 jQuery(this).toggleClass('open');
-                jQuery(this).closest(menuNav.menuSectionClass).find(menuNav.gridHolderClass).slideToggle();
+                jQuery(this).closest(diningDashboard.menuSectionClass).find(diningDashboard.gridHolderClass).slideToggle();
             }
         );
+    },
+
+
+    isElementInView: function (element) {
+        let pageTop = jQuery(window).scrollTop();
+        let pageBottom = pageTop + jQuery(window).height();
+        let elementTop = element.offset().top;
+        let elementBottom = elementTop + element.height();
+        return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
     }
 }

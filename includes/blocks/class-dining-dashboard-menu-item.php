@@ -37,6 +37,8 @@ class MenuItem {
     }
 
     public function render( $attributes ){
+        $variables[ 'image' ] = isset( $attributes[ 'mediaURL' ] ) ? $attributes[ 'mediaURL' ] : '';
+        $variables[ 'alt_text' ] = isset( $attributes[ 'mediaAlt' ] ) ? $attributes[ 'mediaAlt' ] : '';
         $variables[ 'item_title' ] = isset( $attributes[ 'itemTitle' ] ) ? $attributes[ 'itemTitle' ] : '';
         $variables[ 'description' ] = isset( $attributes[ 'description' ] ) ? $attributes[ 'description' ] : '';
         $variables[ 'vegetarian' ] = isset( $attributes[ 'vegetarian' ] ) ? $attributes[ 'vegetarian' ] : false;

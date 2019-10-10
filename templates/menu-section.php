@@ -5,7 +5,7 @@
         $slide_toggle_class = ' has-slide-toggle';
     }
 ?>
-<section itemscope itemtype="http://schema.org/MenuSection" class="wp-block-dining-dashboard-menu-section align-<?php echo $align; ?> cols-<?php echo $columns . $slide_toggle_class; ?>">
+<section itemscope itemtype="http://schema.org/MenuSection" class="wp-block-dining-dashboard-menu-section align<?php echo $align; ?> cols-<?php echo $columns . $slide_toggle_class; ?>">
     <header>
         <?php 
             echo $section_title; 

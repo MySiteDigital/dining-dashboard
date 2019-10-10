@@ -1,8 +1,14 @@
 <?php use MySiteDigital\DiningDashboard\Assets\SVG; ?>
 <figure class="wp-block-dining-dashboard-menu-item"  itemscope itemtype="http://schema.org/MenuItem">
-    <div class="img">
-        <meta itemprop="image" content="bg.jpg"></meta>
-    </div>
+    <?php
+        if ( $image ) {
+            ?>
+            <div class="img" data-image="<?php echo $image; ?>">
+                <meta itemprop="image" content="<?php echo $image; ?>"></meta>
+            </div>
+            <?php
+        }
+    ?>
     <div class="details">
         <?php
             echo '<h3 itemprop="name">' . $item_title . '</h3>';

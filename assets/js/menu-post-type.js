@@ -90,24 +90,56 @@ __webpack_require__.r(__webpack_exports__);
 
 (function ($) {
   jQuery(document).ready(function () {
-    menuNav.init();
+    diningDashboard.init();
   });
 })(jQuery);
 
-var menuNav = {
+var diningDashboard = {
   slideToggleTrigger: jQuery('.has-slide-toggle header'),
   menuSectionClass: '.wp-block-dining-dashboard-menu-section',
   gridHolderClass: '.grid-holder',
+  imageClass: '.img',
   init: function init() {
-    if (menuNav.slideToggleTrigger.length) {
-      menuNav.buttonListener();
+    diningDashboard.loadImages();
+    diningDashboard.scrollListener();
+    diningDashboard.resizeListener();
+
+    if (diningDashboard.slideToggleTrigger.length) {
+      diningDashboard.buttonListener();
     }
   },
-  buttonListener: function buttonListener() {
-    menuNav.slideToggleTrigger.on('click', function () {
-      jQuery(this).toggleClass('open');
-      jQuery(this).closest(menuNav.menuSectionClass).find(menuNav.gridHolderClass).slideToggle();
+  loadImages: function loadImages() {
+    jQuery(diningDashboard.imageClass).each(function (i, el) {
+      var element = jQuery(el);
+
+      if (diningDashboard.isElementInView(element)) {
+        var imageUrl = element.data('image');
+        element.css('background-image', 'url(' + imageUrl + ')');
+      }
     });
+  },
+  scrollListener: function scrollListener() {
+    jQuery(window).scroll(function () {
+      diningDashboard.loadImages();
+    });
+  },
+  resizeListener: function resizeListener() {
+    jQuery(window).on('resize', function () {
+      diningDashboard.loadImages();
+    });
+  },
+  buttonListener: function buttonListener() {
+    diningDashboard.slideToggleTrigger.on('click', function () {
+      jQuery(this).toggleClass('open');
+      jQuery(this).closest(diningDashboard.menuSectionClass).find(diningDashboard.gridHolderClass).slideToggle();
+    });
+  },
+  isElementInView: function isElementInView(element) {
+    var pageTop = jQuery(window).scrollTop();
+    var pageBottom = pageTop + jQuery(window).height();
+    var elementTop = element.offset().top;
+    var elementBottom = elementTop + element.height();
+    return elementTop <= pageBottom && elementBottom >= pageTop;
   }
 };
 
