@@ -1,1 +1,62 @@
-.editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder__label{display:block}.editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder__label svg{width:48px;height:48px}.editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder__label span{display:block;font-weight:700}.editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder button{height:auto;margin:0 10px;padding:12px}.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-heading"]{width:100%;max-width:100%}.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"]{margin:0}.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"] .block-list-appender{width:96%;margin:0 auto}.editor-styles-wrapper .wp-block .four-cols .editor-block-list__layout,.editor-styles-wrapper .wp-block .one-col .editor-block-list__layout,.editor-styles-wrapper .wp-block .three-cols .editor-block-list__layout,.editor-styles-wrapper .wp-block .two-cols .editor-block-list__layout{display:flex;flex-wrap:wrap}.editor-styles-wrapper .wp-block .one-col .wp-block[data-type="dining-dashboard/menu-section-column"]{width:100%}.editor-styles-wrapper .wp-block .two-cols .wp-block[data-type="dining-dashboard/menu-section-column"]{width:50%}.editor-styles-wrapper .wp-block .three-cols .wp-block[data-type="dining-dashboard/menu-section-column"]{width:33.3333%}.editor-styles-wrapper .wp-block .four-cols .wp-block[data-type="dining-dashboard/menu-section-column"]{width:25%}#menu-section-inspector-columns button{width:calc(50% - 20px);height:auto;margin:10px;padding:12px}#menu-section-inspector-columns button.is-selected{box-shadow:0 0 0 2px #11a0d2}#menu-section-inspector-columns button svg{margin:0 auto}.add-new-menu-item{width:100%;background:rgba(139,139,150,.1);outline:1px dashed #8d96a0}.add-new-menu-item:active,.add-new-menu-item:focus,.add-new-menu-item:hover{outline:1px solid #8d96a0}
+.editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder__label {
+  display: block; }
+  .editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder__label svg {
+    width: 48px;
+    height: 48px; }
+  .editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder__label span {
+    display: block;
+    font-weight: bold; }
+
+.editor-styles-wrapper .wp-block[data-type="dining-dashboard/menu-section"] .components-placeholder button {
+  height: auto;
+  margin: 0 10px;
+  padding: 12px; }
+
+.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-heading"] {
+  width: 100%;
+  max-width: 100%; }
+
+.editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  margin: 0; }
+  .editor-styles-wrapper .wp-block .wp-block[data-type="dining-dashboard/menu-section-column"] .block-list-appender {
+    width: 96%;
+    margin: 0 auto; }
+
+.editor-styles-wrapper .wp-block .one-col .editor-block-list__layout,
+.editor-styles-wrapper .wp-block .two-cols .editor-block-list__layout,
+.editor-styles-wrapper .wp-block .three-cols .editor-block-list__layout,
+.editor-styles-wrapper .wp-block .four-cols .editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap; }
+
+.editor-styles-wrapper .wp-block .one-col .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 100%; }
+
+.editor-styles-wrapper .wp-block .two-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 50%; }
+
+.editor-styles-wrapper .wp-block .three-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 33.3333%; }
+
+.editor-styles-wrapper .wp-block .four-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
+  width: 25%; }
+
+#menu-section-inspector-columns button {
+  width: calc(50% - 20px);
+  height: auto;
+  margin: 10px;
+  padding: 12px; }
+  #menu-section-inspector-columns button.is-selected {
+    box-shadow: 0 0 0 2px #11a0d2; }
+  #menu-section-inspector-columns button svg {
+    margin: 0 auto; }
+
+.add-new-menu-item {
+  width: 100%;
+  background: rgba(139, 139, 150, 0.1);
+  outline: 1px dashed #8d96a0; }
+  .add-new-menu-item:hover, .add-new-menu-item:active, .add-new-menu-item:focus {
+    outline: 1px solid #8d96a0; }
+
+
+/*# sourceMappingURL=menu-blocks.css.map*/

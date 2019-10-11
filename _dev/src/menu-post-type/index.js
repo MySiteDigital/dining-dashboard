@@ -20,6 +20,10 @@ var diningDashboard = {
 
     menuSectionClass: '.wp-block-dining-dashboard-menu-section',
 
+    menuGridClass: '.wp-block-dining-dashboard-menu-section-grid',
+
+    menuItemClass: '.wp-block-dining-dashboard-menu-item',
+    
     gridHolderClass: '.grid-holder',
 
     imageClass: '.img',
@@ -27,6 +31,7 @@ var diningDashboard = {
     init: function () {
         
         diningDashboard.loadImages();
+        //diningDashboard.menuMasonry();
         diningDashboard.scrollListener();
         diningDashboard.resizeListener();
 
@@ -47,6 +52,34 @@ var diningDashboard = {
         );
     },
 
+    menuMasonry: function() {
+        jQuery(diningDashboard.menuGridClass).each(
+            function (i, el) {
+                let grid = jQuery(el);
+                if (grid.hasClass('cols-2') || grid.hasClass('cols-3') || grid.hasClass('cols-4')) {
+                    let gridColumns = grid.css('grid-template-columns');
+                    let cols = (gridColumns.match(/px/g) || []).length;
+                    if(cols > 1){
+                        let gridItems = grid.find(diningDashboard.menuItemClass).length;
+                        for (let i = cols; i < gridItems; i++) {
+                            let currentItem = grid.find(diningDashboard.menuItemClass).eq(i);
+                            let itemAbove = grid.find(diningDashboard.menuItemClass).eq(i - cols);
+                            let itemAboveBottom = itemAbove.offset().top + itemAbove.outerHeight();
+                            let currentTop = currentItem.offset().top;
+                            let gap = itemAbove.hasClass('empty-item') ? 0 : 20;
+                            let distance = currentTop - itemAboveBottom - gap;
+                            currentItem.css('marginTop', -distance);
+                        }
+                    }
+                    else {
+                        grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
+                        grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
+                    }
+                }
+            }
+        );
+    },
+
     scrollListener: function(){
         jQuery(window).scroll(
             function () {
@@ -60,6 +93,7 @@ var diningDashboard = {
             'resize', 
             function () {
                 diningDashboard.loadImages();
+                diningDashboard.menuMasonry();
             }
         );
     },

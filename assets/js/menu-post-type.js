@@ -66,24 +66,21 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/menu-post-type/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 48:
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ 49:
+/***/ "./src/menu-post-type/index.js":
+/*!*************************************!*\
+  !*** ./src/menu-post-type/index.js ***!
+  \*************************************/
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(48);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./src/menu-post-type/style.scss");
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 ;
@@ -97,10 +94,13 @@ __webpack_require__.r(__webpack_exports__);
 var diningDashboard = {
   slideToggleTrigger: jQuery('.has-slide-toggle header'),
   menuSectionClass: '.wp-block-dining-dashboard-menu-section',
+  menuGridClass: '.wp-block-dining-dashboard-menu-section-grid',
+  menuItemClass: '.wp-block-dining-dashboard-menu-item',
   gridHolderClass: '.grid-holder',
   imageClass: '.img',
   init: function init() {
-    diningDashboard.loadImages();
+    diningDashboard.loadImages(); //diningDashboard.menuMasonry();
+
     diningDashboard.scrollListener();
     diningDashboard.resizeListener();
 
@@ -118,6 +118,33 @@ var diningDashboard = {
       }
     });
   },
+  menuMasonry: function menuMasonry() {
+    jQuery(diningDashboard.menuGridClass).each(function (i, el) {
+      var grid = jQuery(el);
+
+      if (grid.hasClass('cols-2') || grid.hasClass('cols-3') || grid.hasClass('cols-4')) {
+        var gridColumns = grid.css('grid-template-columns');
+        var cols = (gridColumns.match(/px/g) || []).length;
+
+        if (cols > 1) {
+          var gridItems = grid.find(diningDashboard.menuItemClass).length;
+
+          for (var _i = cols; _i < gridItems; _i++) {
+            var currentItem = grid.find(diningDashboard.menuItemClass).eq(_i);
+            var itemAbove = grid.find(diningDashboard.menuItemClass).eq(_i - cols);
+            var itemAboveBottom = itemAbove.offset().top + itemAbove.outerHeight();
+            var currentTop = currentItem.offset().top;
+            var gap = itemAbove.hasClass('empty-item') ? 0 : 20;
+            var distance = currentTop - itemAboveBottom - gap;
+            currentItem.css('marginTop', -distance);
+          }
+        } else {
+          grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
+          grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
+        }
+      }
+    });
+  },
   scrollListener: function scrollListener() {
     jQuery(window).scroll(function () {
       diningDashboard.loadImages();
@@ -126,6 +153,7 @@ var diningDashboard = {
   resizeListener: function resizeListener() {
     jQuery(window).on('resize', function () {
       diningDashboard.loadImages();
+      diningDashboard.menuMasonry();
     });
   },
   buttonListener: function buttonListener() {
@@ -143,6 +171,18 @@ var diningDashboard = {
   }
 };
 
+/***/ }),
+
+/***/ "./src/menu-post-type/style.scss":
+/*!***************************************!*\
+  !*** ./src/menu-post-type/style.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
 /***/ })
 
 /******/ });
+//# sourceMappingURL=menu-post-type.js.map
