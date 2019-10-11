@@ -1,4 +1,4 @@
-import Icons from '../utils/Icons';
+import BlockIcons from '../utils/BlockIcons';
 import Editor from './js/Editor';
 
 
@@ -17,7 +17,7 @@ registerBlockType(
 
         description: __('A column within a menu section'),
 
-        icon: Icons.MenuSectionColumn,
+        icon: BlockIcons.MenuSectionColumn,
 
         category: 'menu-blocks',
 

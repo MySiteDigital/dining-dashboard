@@ -34,7 +34,6 @@ class Menu {
         add_action( 'init', [ $this , 'init' ] );
         add_action( 'init', [ $this , 'register_settings' ], 4 );
         add_action( 'init', [ $this , 'register_post_type' ], 5 );
-        add_action( 'init', [ $this , 'register_meta' ], 5 );
         add_action( 'transition_post_status', [ $this , 'update_archive_slug' ], 10, 3 );
 
         add_filter( 'allowed_block_types', [ $this , 'set_allowed_block_types' ], 10, 2 );
@@ -124,22 +123,6 @@ class Menu {
         }
     }
 
-    public function register_meta(){
-        register_meta(
-            self::$post_type_slug, 
-            '_menu_title_width', 
-            [
-                'show_in_rest' => true,
-                'type' => 'string',
-                'single' => true,
-                'sanitize_callback' => 'sanitize_text_field',
-                'auth_callback' => function() { 
-                    return current_user_can( 'edit_posts' );
-                }
-            ]
-        );
-    }
-
     public function update_archive_slug( $new_status, $old_status, $post ) {
 
         if( $post->post_type == self::$post_type_slug ){
@@ -170,9 +153,9 @@ class Menu {
     public function set_allowed_block_types( $allowed_block_types, $post ) {
         if ( $post->post_type === self::$post_type_slug  ) {
             $allowed_block_types = [
+                'dining-dashboard/menu-intro',
                 'dining-dashboard/menu-section',
                 'dining-dashboard/menu-item',
-                'dining-dashboard/food-and-drinks',
             ];
         }
         return $allowed_block_types;

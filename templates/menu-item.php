@@ -10,50 +10,56 @@
         }
     ?>
     <div class="details">
+        <h3 itemprop="name"><?php echo $item_title; ?></h3>
+        <p  itemprop="description"><?php echo $description; ?></p>
         <?php
-            echo '<h3 itemprop="name">' . $item_title . '</h3>';
-            echo '<p  itemprop="description">' . $description . '</p>';
             if ( $has_meta ) {
-                echo '<div class="meta">';
-                
-                if ( $vegetarian ) {
-                    echo '
-                        <span title="Vegetarian">
-                            <span class="screen-reader-text">
-                                Vegetarian                                   
-                            </span>
-                            ' .  SVG::icon( 'vegetarian' ) . '
-                        </span>
-                    ';
-                }
+                ?>
+                    <div class="meta">
+                        <?php
+                            if ( $vegetarian ) {
+                                ?>
+                                    <span title="Vegetarian">
+                                        <span class="screen-reader-text">
+                                            Vegetarian                                   
+                                        </span>
+                                        <?php SVG::icon( 'vegetarian' ); ?>
+                                    </span>
+                                <?php
+                            }
 
-                if ( $vegan ) {
-                    echo '
-                        <span title="Vegan">
-                            <span class="screen-reader-text">
-                                Vegan                                        
-                            </span>
-                            ' .  SVG::icon( 'vegan' ) . '
-                        </span>
-                    ';
-                }
+                            if ( $vegan ) {
+                                ?>
+                                    <span title="Vegan">
+                                        <span class="screen-reader-text">
+                                            Vegan                                   
+                                        </span>
+                                        <?php SVG::icon( 'vegan' ); ?>
+                                    </span>
+                                <?php
+                            }
 
-                if ( $gluten_free ) {
-                    echo '
-                        <span title="Gluten Free">
-                            <span class="screen-reader-text">
-                                Gluten Free                                  
-                            </span>
-                            ' .  SVG::icon( 'gluten-free' ) . '
-                        </span>
-                    ';
-                }
+                            if ( $gluten_free ) {
+                                ?>
+                                    <span title="Gluten Free">
+                                        <span class="screen-reader-text">
+                                            Gluten Free
+                                        </span>
+                                        <?php SVG::icon( 'gluten-free' ); ?>
+                                    </span>
+                                <?php
+                            }
 
-                if ( $price ) {
-                    echo '<span class="price">' . $price . '</span>';
-                }
-
-                echo '</div>';
+                            if ( $price ) {
+                                ?>
+                                <span class="price">
+                                    <?php echo $price; ?>
+                                </span>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                <?php
             }
         ?>                                                                                           
     </div>

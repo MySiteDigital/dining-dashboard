@@ -1,5 +1,5 @@
 import InspectorControls from './Inspector';
-import DietaryIcons from './DietaryIcons';
+import DietaryIcons from '../../utils/DietaryIcons';
 import formatPrice from './formatPrice';
 /**
  * WordPress dependencies

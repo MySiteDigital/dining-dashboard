@@ -1,6 +1,6 @@
 import Editor from './js/Editor.js';
 import save from './js/Save.js';
-import Icons from '../utils/Icons';
+import BlockIcons from '../utils/BlockIcons';
 
 import './scss/style.scss';
 
@@ -16,7 +16,7 @@ registerBlockType(
     {
         title: __('Menu Section'),
 
-        icon: Icons.MenuSection,
+        icon: BlockIcons.MenuSection,
 
         category: 'menu-blocks',
 
@@ -32,9 +32,6 @@ registerBlockType(
         },
 
         attributes: {
-            id: {
-                type: 'number',
-            },
             sectionColumns: {
                 type: 'number',
             },

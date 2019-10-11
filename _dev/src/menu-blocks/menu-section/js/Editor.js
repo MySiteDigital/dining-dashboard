@@ -3,7 +3,7 @@
  */
 import InspectorControls from './Inspector';
 import AlignmentText from './AlignmentText';
-import Icons from '../../utils/Icons';
+import BlockIcons from '../../utils/BlockIcons';
 import RowIcons from './RowIcons';
 
 /**
@@ -88,7 +88,7 @@ class Editor extends Component {
                 <Fragment>
                     <Placeholder
                         key="placeholder"
-                        icon={Icons.MenuSection}
+                        icon={BlockIcons.MenuSection}
                         label={<span>{__('Menu Section')}</span>}
                         instructions={selectInstructions}
                     >

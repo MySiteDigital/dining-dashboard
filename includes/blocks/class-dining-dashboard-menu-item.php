@@ -1,6 +1,6 @@
 <?php
 /**
- * @trait     Blocks\MenuSection
+ * @class     Blocks\MenuItem
  * @Version: 0.0.1
  * @package   DiningDashboard/Blocks
  * @category  Class
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * MenuSection Class.
+ * MenuItem Class.
  */
 class MenuItem {
 
@@ -39,8 +39,8 @@ class MenuItem {
     public function render( $attributes ){
         $variables[ 'image' ] = isset( $attributes[ 'mediaURL' ] ) ? $attributes[ 'mediaURL' ] : '';
         $variables[ 'alt_text' ] = isset( $attributes[ 'mediaAlt' ] ) ? $attributes[ 'mediaAlt' ] : '';
-        $variables[ 'item_title' ] = isset( $attributes[ 'itemTitle' ] ) ? $attributes[ 'itemTitle' ] : '';
-        $variables[ 'description' ] = isset( $attributes[ 'description' ] ) ? $attributes[ 'description' ] : '';
+        $variables[ 'item_title' ] = isset( $attributes[ 'itemTitle' ] ) ? self::parse_html( $attributes[ 'itemTitle' ] ) : '';
+        $variables[ 'description' ] = isset( $attributes[ 'description' ] ) ? self::parse_html( $attributes[ 'description' ] ) : '';
         $variables[ 'vegetarian' ] = isset( $attributes[ 'vegetarian' ] ) ? $attributes[ 'vegetarian' ] : false;
         $variables[ 'vegan' ] = isset( $attributes[ 'vegan' ] ) ? $attributes[ 'vegan' ] : false;
         $variables[ 'gluten_free' ] = isset( $attributes[ 'glutenFree' ] ) ? $attributes[ 'glutenFree' ] : false;

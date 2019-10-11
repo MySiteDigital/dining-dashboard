@@ -1,6 +1,6 @@
 import Editor from './js/Editor.js';
 import save from './js/Save.js';
-import Icons from '../utils/Icons';
+import BlockIcons from '../utils/BlockIcons';
 /**
  * WordPress dependencies
  */
@@ -16,7 +16,7 @@ registerBlockType(
 
         description: __('A menu item which can be either added to a Menu Section or directly to a Menu'),
 
-        icon: Icons.MenuItem,
+        icon: BlockIcons.MenuItem,
 
         category: 'menu-blocks',
 

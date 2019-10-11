@@ -1,6 +1,6 @@
 <?php
 /**
- * @trait     Blocks\MenuSection
+ * @class     Blocks\MenuSectionHeading
  * @Version: 0.0.1
  * @package   DiningDashboard/Blocks
  * @category  Class
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * MenuSection Class.
+ * MenuSectionHeading Class.
  */
 class MenuSectionHeading {
 
@@ -25,16 +25,7 @@ class MenuSectionHeading {
     }
 
     public static function inner_block_content( $attributes ){
-        $variables[ 'section_title' ] = 
-            isset( $attributes[ 'sectionTitle' ] ) ?
-            wp_kses( 
-                $attributes[ 'sectionTitle' ],
-                [
-                    'em' => [],
-                    'strong' => [],
-                ]
-            ) :
-            '';
+        $variables[ 'section_title' ] = isset( $attributes[ 'sectionTitle' ] ) ? self::parse_html( $attributes[ 'sectionTitle' ] ) : '';
         return self::render_template( 'menu-section-heading', $variables );
     }
 }

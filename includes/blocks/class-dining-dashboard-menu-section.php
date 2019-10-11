@@ -1,6 +1,6 @@
 <?php
 /**
- * @trait     Blocks\MenuSection
+ * @class     Blocks\MenuSection
  * @Version: 0.0.1
  * @package   DiningDashboard/Blocks
  * @category  Class

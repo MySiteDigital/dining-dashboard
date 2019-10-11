@@ -22,7 +22,7 @@ class SVG {
 
     public static function icon( $icon )
     {
-        return 
+        echo 
             '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <use xlink:href="' . self::icons_link( $icon ) . '"/>
             </svg>';

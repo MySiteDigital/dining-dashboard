@@ -1,6 +1,5 @@
-import Icons from '../utils/Icons';
-import Editor from './Editor';
-import save from './save';
+import BlockIcons from '../utils/BlockIcons';
+import Editor from './js/Editor';
 /**
  * WordPress dependencies
  */
@@ -14,7 +13,7 @@ registerBlockType(
 
         description: __('A column inside the menu sections where menu items can be added'),
 
-        icon: Icons.MenuSectionHeading,
+        icon: BlockIcons.MenuSectionHeading,
 
         category: 'menu-blocks',
 

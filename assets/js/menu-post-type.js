@@ -66,21 +66,24 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/menu-post-type/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/menu-post-type/index.js":
-/*!*************************************!*\
-  !*** ./src/menu-post-type/index.js ***!
-  \*************************************/
-/*! no exports provided */
+/***/ 48:
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./src/menu-post-type/style.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(48);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 ;
@@ -171,18 +174,6 @@ var diningDashboard = {
   }
 };
 
-/***/ }),
-
-/***/ "./src/menu-post-type/style.scss":
-/*!***************************************!*\
-  !*** ./src/menu-post-type/style.scss ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
 /***/ })
 
 /******/ });
-//# sourceMappingURL=menu-post-type.js.map

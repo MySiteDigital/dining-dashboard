@@ -34,6 +34,27 @@ trait BlockTrait {
         );
     }
 
+    public static function parse_html( $string, $advanced = false ){
+        $allowed_html = [
+            'em' => [],
+            'strong' => [],
+        ];
+
+        if( $advanced ){
+            $allowed_html['a'] = [
+                'href' => [],
+                'target' => [],
+            ];
+            $allowed_html['s'] = [];
+            $allowed_html['br'] = [];
+        }
+
+        return wp_kses( 
+            $string,
+            $allowed_html
+            );
+    }
+
     public static function load_template( $block_slug ){
         $themed_template = get_stylesheet_directory() . '/dining-dashboard/' . $block_slug . '.php';
         if( file_exists( $themed_template ) ){
