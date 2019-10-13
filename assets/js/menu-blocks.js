@@ -1440,11 +1440,11 @@ module.exports = arrayMap;
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayWithHoles = __webpack_require__(52);
+var arrayWithHoles = __webpack_require__(53);
 
-var iterableToArrayLimit = __webpack_require__(51);
+var iterableToArrayLimit = __webpack_require__(52);
 
-var nonIterableRest = __webpack_require__(50);
+var nonIterableRest = __webpack_require__(51);
 
 function _slicedToArray(arr, i) {
   return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || nonIterableRest();
@@ -1722,7 +1722,9 @@ function (_Component) {
           });
         },
         allowedFormats: formatControls
-      }), !!attributes.showVegetarianDesc && Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])("span", {
+      }), !!attributes.showVegetarianDesc && Object(external_this_wp_element_["createElement"])("div", {
+        class: "icon-and-description-holder"
+      }, Object(external_this_wp_element_["createElement"])("span", {
         title: "Vegetarian"
       }, utils_DietaryIcons.Vegetarian), Object(external_this_wp_element_["createElement"])(RichText, {
         value: attributes.vegetarianDescription,
@@ -1734,7 +1736,9 @@ function (_Component) {
           });
         },
         allowedFormats: formatControls
-      })), !!attributes.showVeganDesc && Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])("span", {
+      })), !!attributes.showVeganDesc && Object(external_this_wp_element_["createElement"])("div", {
+        class: "icon-and-description-holder"
+      }, Object(external_this_wp_element_["createElement"])("span", {
         title: "Vegan"
       }, utils_DietaryIcons.Vegan), Object(external_this_wp_element_["createElement"])(RichText, {
         value: attributes.veganDescription,
@@ -1746,7 +1750,9 @@ function (_Component) {
           });
         },
         allowedFormats: formatControls
-      })), !!attributes.showGlutenFreeDesc && Object(external_this_wp_element_["createElement"])(Fragment, null, Object(external_this_wp_element_["createElement"])("span", {
+      })), !!attributes.showGlutenFreeDesc && Object(external_this_wp_element_["createElement"])("div", {
+        class: "icon-and-description-holder"
+      }, Object(external_this_wp_element_["createElement"])("span", {
         title: "Gluten Free"
       }, utils_DietaryIcons.GlutenFree), Object(external_this_wp_element_["createElement"])(RichText, {
         value: attributes.glutenFreeDescription,
@@ -1874,10 +1880,15 @@ function (_Component) {
           attributes = _this$props.attributes,
           setAttributes = _this$props.setAttributes;
       var formatControls = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough'];
-      return Object(external_this_wp_element_["createElement"])(Editor_Fragment, null, Object(external_this_wp_element_["createElement"])(js_Inspector, {
+      var columnClass = !!attributes.twoColumnLayout ? "cols-2" : "cols-1";
+      return Object(external_this_wp_element_["createElement"])("div", {
+        className: columnClass
+      }, Object(external_this_wp_element_["createElement"])(js_Inspector, {
         attributes: attributes,
         setAttributes: setAttributes
-      }), Object(external_this_wp_element_["createElement"])(Editor_RichText, {
+      }), Object(external_this_wp_element_["createElement"])("div", {
+        className: "intro-column"
+      }, Object(external_this_wp_element_["createElement"])(Editor_RichText, {
         value: attributes.introContent,
         placeholder: Editor_('Intro  Content'),
         onChange: function onChange(introContent) {
@@ -1886,10 +1897,12 @@ function (_Component) {
           });
         },
         allowedFormats: formatControls
-      }), !!attributes.showMenuLegend && Object(external_this_wp_element_["createElement"])(js_DietaryRequirements, {
+      })), !!attributes.showMenuLegend && Object(external_this_wp_element_["createElement"])("div", {
+        className: "intro-column"
+      }, Object(external_this_wp_element_["createElement"])(js_DietaryRequirements, {
         attributes: attributes,
         setAttributes: setAttributes
-      }));
+      })));
     }
   }]);
 
@@ -2017,7 +2030,7 @@ var js_Inspector_Inspector = function Inspector(props) {
     initialOpen: true
   }, Object(external_this_wp_element_["createElement"])(ButtonGroup, {
     "aria-label": js_Inspector_('Select Columns'),
-    id: "menu-section-inspector-columns"
+    class: "menu-section-inspector-columns"
   }, map_default()(columnOptions, function (_ref) {
     var name = _ref.name,
         columns = _ref.columns,
@@ -2286,11 +2299,7 @@ function Save_save(_ref) {
       className = _ref.className;
   return Object(external_this_wp_element_["createElement"])(Save_InnerBlocks.Content, null);
 }
-// EXTERNAL MODULE: ./src/menu-blocks/menu-section/scss/style.scss
-var style = __webpack_require__(53);
-
 // CONCATENATED MODULE: ./src/menu-blocks/menu-section/index.js
-
 
 
 
@@ -2899,7 +2908,11 @@ menu_item_registerBlockType('dining-dashboard/menu-item', (_registerBlockType = 
     type: "string"
   }
 }), defineProperty_default()(_registerBlockType, "edit", menu_item_js_Editor), _registerBlockType));
+// EXTERNAL MODULE: ./src/menu-blocks/scss/style.scss
+var style = __webpack_require__(50);
+
 // CONCATENATED MODULE: ./src/menu-blocks/index.js
+
 
 
 
@@ -2910,6 +2923,12 @@ menu_item_registerBlockType('dining-dashboard/menu-item', (_registerBlockType = 
 /* 48 */,
 /* 49 */,
 /* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 51 */
 /***/ (function(module, exports) {
 
 function _nonIterableRest() {
@@ -2919,7 +2938,7 @@ function _nonIterableRest() {
 module.exports = _nonIterableRest;
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 function _iterableToArrayLimit(arr, i) {
@@ -2951,7 +2970,7 @@ function _iterableToArrayLimit(arr, i) {
 module.exports = _iterableToArrayLimit;
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports) {
 
 function _arrayWithHoles(arr) {
@@ -2959,12 +2978,6 @@ function _arrayWithHoles(arr) {
 }
 
 module.exports = _arrayWithHoles;
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 /* 54 */

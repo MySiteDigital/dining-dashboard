@@ -22,26 +22,32 @@ class Editor extends Component {
 
         const formatControls = ['core/bold', 'core/italic', 'core/link', 'core/strikethrough'];
 
+        const columnClass = !!attributes.twoColumnLayout ? "cols-2" : "cols-1";
+
         return (
-            <Fragment>
+            <div className={columnClass}>
                 <InspectorControls
                     attributes={attributes}
                     setAttributes={setAttributes}
                 />
-                <RichText
-                    value={attributes.introContent}
-                    placeholder={__('Intro  Content')}
-                    onChange={(introContent) => setAttributes({ introContent })}
-                    allowedFormats={formatControls}
-                />
+                <div className="intro-column">
+                    <RichText
+                        value={attributes.introContent}
+                        placeholder={__('Intro  Content')}
+                        onChange={(introContent) => setAttributes({ introContent })}
+                        allowedFormats={formatControls}
+                    />
+                </div>
                 {
                     !!attributes.showMenuLegend &&
-                    <DietaryRequirements
-                        attributes={attributes}
-                        setAttributes={setAttributes}
-                    />
+                    <div className="intro-column">
+                        <DietaryRequirements
+                            attributes={attributes}
+                            setAttributes={setAttributes}
+                        />
+                    </div>
                 }
-            </Fragment>
+            </div>
         );
 
     }

@@ -11,18 +11,18 @@
             echo $section_title; 
 
             if( $slide_toggle ){
-                echo '
-                    <button>
-                        ' . SVG::icon( 'down' ) . '
-                    </button>
-                    ';
+                ?>
+                <button>
+                    <?php SVG::icon( 'down' ); ?>
+                </button>
+                <?php
             }
         ?>
     </header>
     <div class="grid-holder">
         <?php 
             if( count( $rendered_columns ) ){
-                echo '<div class="wp-block-dining-dashboard-menu-section-grid cols-' . $columns . $slide_toggle_class . '">';
+                echo '<div class="wp-block-dining-dashboard-menu-section-grid cols-' . $columns . $slide_toggle_class . '" data-columns="' . $columns . '">';
                 foreach( $rendered_columns as $rendered_column ){
                     echo $rendered_column;
                 }

@@ -31,7 +31,7 @@ var diningDashboard = {
     init: function () {
         
         diningDashboard.loadImages();
-        //diningDashboard.menuMasonry();
+        diningDashboard.menuMasonry();
         diningDashboard.scrollListener();
         diningDashboard.resizeListener();
 
@@ -56,28 +56,69 @@ var diningDashboard = {
         jQuery(diningDashboard.menuGridClass).each(
             function (i, el) {
                 let grid = jQuery(el);
-                if (grid.hasClass('cols-2') || grid.hasClass('cols-3') || grid.hasClass('cols-4')) {
-                    let gridColumns = grid.css('grid-template-columns');
-                    let cols = (gridColumns.match(/px/g) || []).length;
+                let gridCols = grid.data('columns');
+                if (gridCols > 1) {
+                    console.log('grid', grid.data('columns'));
+                    //reset margin-top
+                    grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
+                    //find out actual columns as set in the css
+                    let cols = grid.css('grid-template-columns');
+                    cols = (cols.match(/px/g) || []).length;
                     if(cols > 1){
-                        let gridItems = grid.find(diningDashboard.menuItemClass).length;
-                        for (let i = cols; i < gridItems; i++) {
-                            let currentItem = grid.find(diningDashboard.menuItemClass).eq(i);
-                            let itemAbove = grid.find(diningDashboard.menuItemClass).eq(i - cols);
-                            let itemAboveBottom = itemAbove.offset().top + itemAbove.outerHeight();
-                            let currentTop = currentItem.offset().top;
-                            let gap = itemAbove.hasClass('empty-item') ? 0 : 20;
-                            let distance = currentTop - itemAboveBottom - gap;
-                            currentItem.css('marginTop', -distance);
+                        let gridTop = parseInt(grid.offset().top);
+                        for (let i = 1; i <= gridCols; i++) {
+                            let columnClass = '.column-' + i;
+                            let columnItems = grid.find(diningDashboard.menuItemClass + columnClass);
+                            console.log(columnClass);
+                            
+                            if (columnItems.length){
+                                diningDashboard.columnMasonry(gridTop, columnItems);
+                            }
                         }
-                    }
-                    else {
-                        grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
-                        grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
                     }
                 }
             }
         );
+    },
+
+    columnMasonry: function (gridTop, columnItems){
+        let previousItem = {};
+        let previousItemBottom = 0
+        console.log('grid top', gridTop);
+        for (let index = 0; index < columnItems.length; index++) {
+            let distance = 0;
+            let currentItem = columnItems.eq(index);
+            currentItem.height(currentItem.outerHeight())
+            let currentTop = parseInt(currentItem.offset().top);
+            currentItem.data('top', currentTop);
+            currentItem.data('bottom', currentItem.outerHeight());
+            console.log('index', index);
+            console.log('current item top', currentTop);    
+            console.log('current item outerHeight', currentItem.outerHeight(true));
+            
+            if (index < 1){
+                distance = currentTop - gridTop;
+            }
+            else {
+                distance = currentTop - previousItemBottom - 20;
+            }
+
+            if (distance < 0){
+                distance = 0;
+            }
+            // currentItem.animate(
+            //     { marginTop: -distance },
+            //     500
+            // );
+            currentItem.css('marginTop', -distance);
+
+            previousItem = currentItem;
+            previousItemBottom = currentTop - distance + currentItem.outerHeight();
+            console.log('prviou test');
+            console.log('distance', distance);
+            console.log('previous bottom', previousItemBottom);
+            
+        }
     },
 
     scrollListener: function(){
@@ -115,5 +156,20 @@ var diningDashboard = {
         let elementTop = element.offset().top;
         let elementBottom = elementTop + element.height();
         return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
+    }
+}
+
+function resizeGridItem(item) {
+    grid = document.getElementsByClassName("grid")[0];
+    rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+    rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+    rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+    item.style.gridRowEnd = "span " + rowSpan;
+}
+
+function resizeAllGridItems() {
+    allItems = document.getElementsByClassName("item");
+    for (x = 0; x < allItems.length; x++) {
+        resizeGridItem(allItems[x]);
     }
 }

@@ -102,8 +102,8 @@ var diningDashboard = {
   gridHolderClass: '.grid-holder',
   imageClass: '.img',
   init: function init() {
-    diningDashboard.loadImages(); //diningDashboard.menuMasonry();
-
+    diningDashboard.loadImages();
+    diningDashboard.menuMasonry();
     diningDashboard.scrollListener();
     diningDashboard.resizeListener();
 
@@ -124,29 +124,69 @@ var diningDashboard = {
   menuMasonry: function menuMasonry() {
     jQuery(diningDashboard.menuGridClass).each(function (i, el) {
       var grid = jQuery(el);
+      var gridCols = grid.data('columns');
 
-      if (grid.hasClass('cols-2') || grid.hasClass('cols-3') || grid.hasClass('cols-4')) {
-        var gridColumns = grid.css('grid-template-columns');
-        var cols = (gridColumns.match(/px/g) || []).length;
+      if (gridCols > 1) {
+        console.log('grid', grid.data('columns')); //reset margin-top
+
+        grid.find(diningDashboard.menuItemClass).css('marginTop', 0); //find out actual columns as set in the css
+
+        var cols = grid.css('grid-template-columns');
+        cols = (cols.match(/px/g) || []).length;
 
         if (cols > 1) {
-          var gridItems = grid.find(diningDashboard.menuItemClass).length;
+          var gridTop = parseInt(grid.offset().top);
 
-          for (var _i = cols; _i < gridItems; _i++) {
-            var currentItem = grid.find(diningDashboard.menuItemClass).eq(_i);
-            var itemAbove = grid.find(diningDashboard.menuItemClass).eq(_i - cols);
-            var itemAboveBottom = itemAbove.offset().top + itemAbove.outerHeight();
-            var currentTop = currentItem.offset().top;
-            var gap = itemAbove.hasClass('empty-item') ? 0 : 20;
-            var distance = currentTop - itemAboveBottom - gap;
-            currentItem.css('marginTop', -distance);
+          for (var _i = 1; _i <= gridCols; _i++) {
+            var columnClass = '.column-' + _i;
+            var columnItems = grid.find(diningDashboard.menuItemClass + columnClass);
+            console.log(columnClass);
+
+            if (columnItems.length) {
+              diningDashboard.columnMasonry(gridTop, columnItems);
+            }
           }
-        } else {
-          grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
-          grid.find(diningDashboard.menuItemClass).css('marginTop', 0);
         }
       }
     });
+  },
+  columnMasonry: function columnMasonry(gridTop, columnItems) {
+    var previousItem = {};
+    var previousItemBottom = 0;
+    console.log('grid top', gridTop);
+
+    for (var index = 0; index < columnItems.length; index++) {
+      var distance = 0;
+      var currentItem = columnItems.eq(index);
+      currentItem.height(currentItem.outerHeight());
+      var currentTop = parseInt(currentItem.offset().top);
+      currentItem.data('top', currentTop);
+      currentItem.data('bottom', currentItem.outerHeight());
+      console.log('index', index);
+      console.log('current item top', currentTop);
+      console.log('current item outerHeight', currentItem.outerHeight(true));
+
+      if (index < 1) {
+        distance = currentTop - gridTop;
+      } else {
+        distance = currentTop - previousItemBottom - 20;
+      }
+
+      if (distance < 0) {
+        distance = 0;
+      } // currentItem.animate(
+      //     { marginTop: -distance },
+      //     500
+      // );
+
+
+      currentItem.css('marginTop', -distance);
+      previousItem = currentItem;
+      previousItemBottom = currentTop - distance + currentItem.outerHeight();
+      console.log('prviou test');
+      console.log('distance', distance);
+      console.log('previous bottom', previousItemBottom);
+    }
   },
   scrollListener: function scrollListener() {
     jQuery(window).scroll(function () {
@@ -173,6 +213,22 @@ var diningDashboard = {
     return elementTop <= pageBottom && elementBottom >= pageTop;
   }
 };
+
+function resizeGridItem(item) {
+  grid = document.getElementsByClassName("grid")[0];
+  rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+  rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+  rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+  item.style.gridRowEnd = "span " + rowSpan;
+}
+
+function resizeAllGridItems() {
+  allItems = document.getElementsByClassName("item");
+
+  for (x = 0; x < allItems.length; x++) {
+    resizeGridItem(allItems[x]);
+  }
+}
 
 /***/ })
 

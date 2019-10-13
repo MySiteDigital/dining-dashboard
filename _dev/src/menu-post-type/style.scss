@@ -1,6 +1,61 @@
 @import 'mixins';
 
 .wp-block-dining-dashboard {
+
+    &-menu-intro,
+    &-menu-section {
+        margin: 0 auto; 
+        
+        &.align {
+
+            &narrow {
+                max-width: 600px;
+
+                @include bp(min-md){
+                    &.cols-1 {
+                        max-width: 600px;
+                    }
+                    
+                    &.cols-2,
+                    &.cols-3,
+                    &.cols-4 {
+                        max-width: 100%;
+                    }
+                }
+
+                @include bp(min-lg){
+                    &.cols-2,
+                    &.cols-3,
+                    &.cols-4 {
+                        max-width: 1200px;
+                    }
+                }
+            }
+
+            &wide {
+                max-width: 1500px;
+            }
+
+            &full {
+                max-width: 100%;
+            }
+
+        }
+    }
+
+    &-menu-intro {
+        display: grid;
+        grid-gap: 20px;
+        grid-auto-rows: minmax(min-content, max-content);
+        grid-template-columns: 1fr;
+
+        &.cols-2 {
+            @include bp(min-md){
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
     &-menu-section {
         margin: 0 auto; 
 
@@ -45,55 +100,41 @@
 
         }
 
-        &.align {
-
-            &narrow {
-                @include bp(min-md){
-                    &.cols-1 {
-                        max-width: 600px;
-                    }
-                    
-                    &.cols-2,
-                    &.cols-3,
-                    &.cols-4 {
-                        max-width: 100%;
-                    }
-                }
-
-                @include bp(min-lg){
-                    &.cols-2,
-                    &.cols-3,
-                    &.cols-4 {
-                        max-width: 1200px;
-                    }
-                }
-            }
-
-            &wide {
-                max-width: 1500px;
-            }
-
-            &full {
-                max-width: 100%;
-            }
-
-        }
-
+        
         &-grid {
             display: grid;
             grid-gap: 20px;
             grid-auto-rows: minmax(min-content, max-content);
             grid-template-columns: 1fr;
 
+            .column-1,
+            .column-2,
+            .column-3,
+            .column-4 {
+               grid-column: 1;
+            }
+
             &.cols-2 {
                 @include bp(min-md){
                     grid-template-columns: 1fr 1fr;
+
+                    .column-2 {
+                        grid-column: 2;
+                    }
                 }
             }
 
             &.cols-3 {
                 @include bp(min-lg){
                     grid-template-columns: 1fr 1fr 1fr;
+
+                    .column-2 {
+                        grid-column: 2;
+                    }
+
+                    .column-3 {
+                        grid-column: 3;
+                    }
                 }
 
                 .wp-block-dining-dashboard-menu-item {
@@ -128,10 +169,31 @@
             &.cols-4 {
                 @include bp(min-md){
                     grid-template-columns: 1fr 1fr;
+
+                    .column-3 {
+                        grid-column: 1;
+                    }
+
+                    .column-2,
+                    .column-4 {
+                        grid-column: 2;
+                    }
                 }
 
                 @include bp(min-xl){
                     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+                    .column-2 {
+                        grid-column: 2;
+                    }
+
+                    .column-3 {
+                        grid-column: 3;
+                    }
+
+                    .column-4 {
+                        grid-column: 4;
+                    }
 
                     .wp-block-dining-dashboard-menu-item {
                         @include bp(min-lg){
@@ -159,17 +221,14 @@
     &-menu-item {
         display: flex;
         flex-direction: column;
-        align-self: start;
+        // align-self: start;
+        grid-row-end: span 1;
         margin: 0;
         border: 4px solid;
         border-radius: 8px;
 
         @include bp(min-sm){
             flex-direction: row;
-        }
-
-        &.empty-item {
-            border: none;
         }
 
         .img {
@@ -220,6 +279,45 @@
     }
 }
 
+.intro-content p{
+    @include bp(min-md){
+        max-width: 800px;
+    }       
+}
+
+.menu-legend {
+    padding: 12px;
+    border: 2px solid;
+    border-radius: 8px;
+
+    @include bp(min-md){
+        max-width: 800px;
+    }  
+
+    dl {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 12px 0 0;
+    }
+
+    dt {
+        width: 48px;
+        margin: 0 0 12px;
+    }
+
+    dd {
+        display: flex;
+        align-items: center;
+        width: calc(100% - 56px);
+        margin: 0 0 12px 8px;
+    }
+
+    svg {
+        display: block;
+        width: 48px;
+        height: 48px;
+    }
+}
 
 .is-twentythirteen {
     .alignnarrow {

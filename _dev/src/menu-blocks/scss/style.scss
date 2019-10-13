@@ -1,5 +1,41 @@
 .editor-styles-wrapper .wp-block {
 
+    &[data-type="dining-dashboard/menu-intro"] {
+        .intro-column {
+            max-width: 800px;
+            padding: 12px;
+
+            h4 {
+                margin: 0 0 10px;
+            }
+        }
+
+        .cols-2{
+            display: flex;
+            flex-wrap: wrap;
+
+            .intro-column {
+                width: 50%;
+            }
+        }
+
+        .icon-and-description-holder {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            > span {
+                margin-right: 10px;
+            }
+
+            svg {
+                display: block;
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+
     &[data-type="dining-dashboard/menu-section"] {
 
         .components-placeholder {
@@ -66,7 +102,7 @@
     }
 }
 
-#menu-section-inspector-columns {
+.menu-section-inspector-columns {
     button {
         width: calc(50% - 20px);
         height: auto;

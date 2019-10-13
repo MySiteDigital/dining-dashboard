@@ -72,4 +72,17 @@ trait BlockTrait {
         include self::load_template( $file );
         return ob_get_clean();
     }
+
+     /* 
+     * https://wordpress.stackexchange.com/questions/325724/style-new-block-editor-alignfull-class-without-scrollbars-or-overflow
+     * https://github.com/WordPress/gutenberg/issues/8289
+     */
+    public function get_default_alignment( $attributes ){
+
+        if( get_theme_support( 'align-wide' ) ){
+            return isset( $attributes[ 'align' ] ) ? $attributes[ 'align' ] : 'narrow';
+        }
+
+        return 'full';
+    }
 }

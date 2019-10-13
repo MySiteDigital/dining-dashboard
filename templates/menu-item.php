@@ -1,5 +1,5 @@
 <?php use MySiteDigital\DiningDashboard\Assets\SVG; ?>
-<figure class="wp-block-dining-dashboard-menu-item"  itemscope itemtype="http://schema.org/MenuItem">
+<figure class="wp-block-dining-dashboard-menu-item column-<?php echo $column; ?>"  itemscope itemtype="http://schema.org/MenuItem" data-top="" data-bottom="">
     <?php
         if ( $image ) {
             ?>

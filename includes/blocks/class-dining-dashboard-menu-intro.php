@@ -28,9 +28,10 @@ class MenuIntro {
 
     public function render( $attributes ){
 
+        $variables[ 'align' ] = $this->get_default_alignment( $attributes );
         $variables[ 'intro_content' ] = isset( $attributes[ 'introContent' ] ) ? self::parse_html( $attributes[ 'introContent' ], true ) : '';
         $variables[ 'show_legend' ] = isset( $attributes[ 'showMenuLegend' ] ) ? $attributes[ 'showMenuLegend' ] : false;
-        $variables[ 'two_column_layout' ] = isset( $attributes[ 'twoColumnLayout' ] ) ? $attributes[ 'twoColumnLayout' ] : false;
+        $variables[ 'columns' ] = isset( $attributes[ 'twoColumnLayout' ] ) && $attributes[ 'twoColumnLayout' ] ? 2 : 1;
         $variables[ 'legend_title' ] = isset( $attributes[ 'legendTitle' ] ) ? self::parse_html( $attributes[ 'legendTitle' ] ) : '';
         $variables[ 'show_vegetarian' ] = isset( $attributes[ 'showVegetarianDesc' ] ) ? $attributes[ 'showVegetarianDesc' ] : true;
         $variables[ 'vegetarian_description' ] = isset( $attributes[ 'vegetarianDescription' ] ) ? self::parse_html( $attributes[ 'vegetarianDescription' ] ) : '';

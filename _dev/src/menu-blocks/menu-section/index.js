@@ -2,8 +2,6 @@ import Editor from './js/Editor.js';
 import save from './js/Save.js';
 import BlockIcons from '../utils/BlockIcons';
 
-import './scss/style.scss';
-
 /**
  * Get WordPress libraries from the wp global
  */

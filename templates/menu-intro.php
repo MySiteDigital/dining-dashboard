@@ -1,11 +1,11 @@
 <?php 
     use MySiteDigital\DiningDashboard\Assets\SVG; 
-    $column_class = '';
-    if( $show_legend && $two_column_layout ){
-        $column_class = ' has-2-cols';
+    $columns_class = '';
+    if( $show_legend ){
+        $columns_class = ' cols-' . $columns;
     }
 ?>
-<div class="wp-block-dining-dashboard-menu-intro<?php echo $column_class; ?>">
+<div class="wp-block-dining-dashboard-menu-intro align<?php echo $align . $columns_class; ?>">
     <div class="intro-content">
         <p>
             <?php echo $intro_content; ?>
@@ -14,7 +14,7 @@
     <?php 
         if( $show_legend ){
             ?>
-            <div id="dietary-requirements-legend">
+            <div class="menu-legend">
                 <strong><?php echo $legend_title; ?></strong>
                 <dl>
                     <?php 

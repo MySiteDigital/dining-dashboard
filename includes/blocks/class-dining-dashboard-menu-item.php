@@ -37,6 +37,7 @@ class MenuItem {
     }
 
     public function render( $attributes ){
+        $variables[ 'column' ] = isset( $attributes[ 'column' ] ) ? $attributes[ 'column' ] : 1;
         $variables[ 'image' ] = isset( $attributes[ 'mediaURL' ] ) ? $attributes[ 'mediaURL' ] : '';
         $variables[ 'alt_text' ] = isset( $attributes[ 'mediaAlt' ] ) ? $attributes[ 'mediaAlt' ] : '';
         $variables[ 'item_title' ] = isset( $attributes[ 'itemTitle' ] ) ? self::parse_html( $attributes[ 'itemTitle' ] ) : '';

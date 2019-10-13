@@ -60,6 +60,7 @@ class MenuSection {
             $index++;
             $menu_columns[ $index ] = [];
             if( isset( $inner_blocks[ $index ] ) ){
+                $inner_blocks[ $index ][ 'innerBlocks' ][ 'column '] = $index;
                 $menu_columns[ $index ] = $inner_blocks[ $index ][ 'innerBlocks' ];
                 $count = count( $menu_columns[ $index ] );
                 if( $count > $most_items ){
@@ -72,30 +73,14 @@ class MenuSection {
         while( $index < $most_items ) {
             foreach( $menu_columns as $menu_column ){
                 if( isset( $menu_column[ $index ] ) && isset( $menu_column[ $index ][ 'attrs' ] ) && $menu_column[ $index ][ 'attrs' ] ){
+                    $menu_column[ $index ][ 'attrs' ][ 'column' ] = $menu_column[ 'column '];
                     $attributes = $menu_column[ $index ][ 'attrs' ];
                     $rendered_columns[] = $menu_item_class->render( $attributes );
-                }
-                else {
-                    $rendered_columns[] = '<div class="wp-block-dining-dashboard-menu-item empty-item"></div>';
                 }
             }
             $index++;
         }
         return $rendered_columns;
-    }
-
-
-    /* 
-     * https://wordpress.stackexchange.com/questions/325724/style-new-block-editor-alignfull-class-without-scrollbars-or-overflow
-     * https://github.com/WordPress/gutenberg/issues/8289
-     */
-    public function get_default_alignment( $attributes ){
-
-        if( get_theme_support( 'align-wide' ) ){
-            return isset( $attributes[ 'align' ] ) ? $attributes[ 'align' ] : 'narrow';
-        }
-
-        return 'full';
     }
 }
 

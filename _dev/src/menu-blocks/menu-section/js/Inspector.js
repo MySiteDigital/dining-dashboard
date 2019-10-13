@@ -26,7 +26,7 @@ const Inspector = props => {
 	//for a future version
 	const columnsPanel = 
 		<PanelBody title={__('Columns')} initialOpen={true}>
-			<ButtonGroup aria-label={__('Select Columns')} id="menu-section-inspector-columns">
+			<ButtonGroup aria-label={__('Select Columns')} class="menu-section-inspector-columns">
 				{
 					map(
 						columnOptions, ({ name, columns, icon }) => (

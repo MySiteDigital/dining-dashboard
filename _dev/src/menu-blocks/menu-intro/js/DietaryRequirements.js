@@ -32,7 +32,7 @@ class DietaryRequirements extends Component {
                 />
                 {
                     !!attributes.showVegetarianDesc &&
-                    <Fragment>
+                    <div class="icon-and-description-holder">
                         <span title="Vegetarian">
                             {DietaryIcons.Vegetarian}
                         </span>
@@ -43,11 +43,11 @@ class DietaryRequirements extends Component {
                             onChange={(vegetarianDescription) => setAttributes({ vegetarianDescription })}
                             allowedFormats={formatControls}
                         />
-                    </Fragment>
+                    </div>
                 }
                 {
                     !!attributes.showVeganDesc &&
-                    <Fragment>
+                    <div class="icon-and-description-holder">
                         <span title="Vegan">
                             {DietaryIcons.Vegan}
                         </span>
@@ -58,11 +58,11 @@ class DietaryRequirements extends Component {
                             onChange={(veganDescription) => setAttributes({ veganDescription })}
                             allowedFormats={formatControls}
                         />
-                    </Fragment>
+                    </div>
                 }
                 {
                     !!attributes.showGlutenFreeDesc &&
-                    <Fragment>
+                    <div class="icon-and-description-holder">
                         <span title="Gluten Free">
                             {DietaryIcons.GlutenFree}
                         </span>
@@ -73,7 +73,7 @@ class DietaryRequirements extends Component {
                             onChange={(glutenFreeDescription) => setAttributes({ glutenFreeDescription })}
                             allowedFormats={formatControls}
                         />
-                    </Fragment>
+                    </div>
                 }
             </Fragment>
         );
