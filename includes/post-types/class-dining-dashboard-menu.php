@@ -93,6 +93,7 @@ class Menu {
             'public'              => true,
             'show_ui'             => true,
             'show_in_menu'        => 'index.php',
+            'show_in_nav_menus'   => true,
             'supports'            => [ 
                 'editor', 
                 'title', 
