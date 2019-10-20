@@ -1,0 +1,19 @@
+{
+    "name": "MySiteDigital/dining-dashboard",
+    "description": "Dinging Dashboard is a WordPress plugin providing the functionality needed to manage your restaurant or cafe's website.",
+    "keywords": [
+        "wordpress",
+        "plugin"
+    ],
+    "homepage": "https://github.com/MySiteDigital/theme-switcha-toolbar",
+    "authors": [
+        {
+            "name": "MySite Digital",
+            "homepage": "http://mysite.digital"
+        }
+    ],
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.1"
+    }
+}
