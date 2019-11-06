@@ -20,6 +20,7 @@ trait PostTypeTrait {
     public function init(){
         add_filter( 'single_template', [ $this , 'load_single_template' ] );
         add_filter( 'archive_template', [ $this , 'load_archive_template' ] );
+        add_filter( 'body_class', [ $this , 'add_dd_body_class' ] );
         add_action( 'template_redirect', [ $this , 'template_redirect' ] );
     }
 
@@ -58,6 +59,16 @@ trait PostTypeTrait {
         }
         return $template;
     }
+
+    public function add_dd_body_class( $classes ){
+        global $post;
+        if ( is_post_type_archive( self::$post_type_slug ) || $post->post_type === self::$post_type_slug ) {
+            $theme = wp_get_theme();
+            $classes[] = 'dining-dashboard-' . $theme->get( 'TextDomain' );
+        }
+        
+        return $classes;
+    }   
 
     public function template_redirect(){
         global $post;
