@@ -319,24 +319,6 @@
     }
 }
 
-.is-twentythirteen {
-    .alignnarrow {
-         @include bp(min-md){
-            &.cols-1 {
-                max-width: 100%;
-            }
-        }
-
-        @include bp(min-lg){
-            &.cols-2 {
-                width: 864px;
-                margin-left: -130px;
-                margin-right: -130px;
-            }
-        }
-    }                              
-}
-
 //themes
 @import './themes/twentyten';
 @import './themes/twentyeleven';

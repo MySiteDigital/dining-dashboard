@@ -1,3 +1,16 @@
 .dining-dashboard-twentyten {
 
+    article,
+    .page-header {
+        padding: 0 22px;
+    }
+
+    .wp-block-dining-dashboard {
+        &-menu-section {
+            header {
+                margin: 2rem 0 3rem;
+            }
+        }
+    }
 }
+    

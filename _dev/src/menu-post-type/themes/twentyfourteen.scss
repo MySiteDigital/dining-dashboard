@@ -1,3 +1,23 @@
 .dining-dashboard-twentyfourteen {
 
+    .site:before {
+        display: none;
+    }
+
+    .page-header {
+        margin: 0;
+        padding: 40px 20px;
+    }
+
+    article {
+        padding: 40px 20px;
+    }
+
+    .wp-block-dining-dashboard {
+        &-menu-section {
+            header {
+                margin: 2rem 0;
+            }
+        }
+    }
 }

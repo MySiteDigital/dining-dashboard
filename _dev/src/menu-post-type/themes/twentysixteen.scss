@@ -1,3 +1,33 @@
 .dining-dashboard-twentysixteen {
 
+    &:not(.search-results) {
+        article:not(.type-page) {
+            .entry-header,
+            .entry-content, 
+            .entry-summary {
+
+                @include bp(min-md){
+                    width: 100%;
+                    margin: 0;
+                    padding: 0 7.6923%;
+                }
+
+                @include bp(min-lg){
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .wp-block-dining-dashboard {
+        &-menu-section {
+            header {
+                margin: 2rem 0;
+
+                h2 {
+                    margin: 0;
+                }
+            }
+        }
+    }
 }

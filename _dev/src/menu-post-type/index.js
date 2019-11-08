@@ -31,7 +31,7 @@ var diningDashboard = {
     init: function () {
         
         diningDashboard.loadImages();
-        diningDashboard.menuMasonry();
+        //diningDashboard.menuMasonry();
         diningDashboard.scrollListener();
         diningDashboard.resizeListener();
 
@@ -134,7 +134,7 @@ var diningDashboard = {
             'resize', 
             function () {
                 diningDashboard.loadImages();
-                diningDashboard.menuMasonry();
+                //diningDashboard.menuMasonry();
             }
         );
     },

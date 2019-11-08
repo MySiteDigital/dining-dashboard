@@ -116,6 +116,8 @@ class Menu {
             $args
         );
 
+        add_post_type_support( self::$post_type_slug, 'excerpt' );
+
         $flush_rewrite = get_option( 'menu_post_type_flush_rewrite_rules' );
 
         if ( $flush_rewrite ) {

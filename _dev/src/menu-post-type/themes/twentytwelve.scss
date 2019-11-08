@@ -1,3 +1,18 @@
 .dining-dashboard-twentytwelve {
-    
+    .wp-block-dining-dashboard {
+        &-menu-section {
+            &-grid {
+                &.cols-3 {
+                    .wp-block-dining-dashboard-menu-item {
+                        @include bp(min-xl){
+                            flex-direction: row;
+                            .img {
+                                min-width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

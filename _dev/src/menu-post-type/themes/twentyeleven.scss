@@ -1,8 +1,35 @@
 .dining-dashboard-twentyeleven {
+    
+    .page-header {
+        padding: 0 7.6%;
+    }
+    
     article {
         .entry-header, .entry-content {
+            box-sizing: border-box;
             width: 100%;
-            padding: 0 7.5%;
+            padding: 0 7.6%;
+        }
+    }
+
+    .wp-block-dining-dashboard {
+        &-menu-section {
+            header {
+                margin: 2rem 0;
+            }
+
+            &-grid {
+                &.cols-3 {
+                    .wp-block-dining-dashboard-menu-item {
+                        @include bp(min-xl){
+                            flex-direction: row;
+                            .img {
+                                min-width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

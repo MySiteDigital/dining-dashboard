@@ -1,3 +1,55 @@
 .dining-dashboard-twentythirteen {
 
+    article {
+        padding: 40px 20px;
+
+        .entry-header,
+        .entry-content {
+            max-width: 1080px;
+            
+            @include bp(min-xl){
+                padding: 0 20px;
+            }
+        }
+    }
+
+    .alignnarrow {
+         &.cols-1 {
+            @include bp(min-md){
+                max-width: 100%;
+            }
+        }
+
+        &.cols-2 {
+            @include bp(min-lg){
+                margin: 0;
+            }
+
+            @include bp(min-xl){
+                margin: 0 auto;
+            }
+        }
+    }
+    
+    &:not(.sidebar) {
+        .alignwide {
+            margin: 0;
+            
+            @include bp(min-xxl){
+                margin: 0 -100px;
+            }
+        }
+
+        .alignfull {
+            margin: 0;
+            
+            @include bp(min-xxl){
+                margin: 0 -200px;
+            }
+        }
+    }
+
+    .wp-block-dining-dashboard-menu-section.has-slide-toggle header h2 {
+        margin: 25px 0;
+    }
 }

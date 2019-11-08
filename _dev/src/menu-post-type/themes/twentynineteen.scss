@@ -1,3 +1,70 @@
 .dining-dashboard-twentynineteen {
 
+    article {
+        padding: 0 1rem;
+
+        @include bp(min-lg){
+            max-width: 992px;
+            margin: 0 auto;
+        }
+        
+        @include bp(min-xl){
+            max-width: 100%;
+            margin: 0 calc(10% + 60px);
+            padding: 0;
+        }
+
+        .entry-header,
+        .entry-content, 
+        .entry-content > .alignfull, 
+        .entry-summary {
+            max-width: 100%;
+            margin: 0;  
+            
+            @include bp(min-md){
+                padding: 0;
+            }
+        }
+
+        .entry-content > .alignnarrow {
+            max-width: 100%;
+        }
+
+        .entry-content > .alignwide {
+            @include bp(min-xl){
+                width: calc(100% + 200px);
+                max-width: calc(100% + 200px);
+                margin: 32px -100px;
+            }
+        }
+
+        .entry-content > .alignfull {
+            left: 0;
+
+            @include bp(min-xl){
+                left: calc( -12.5% - 75px);
+                width: calc( 125% + 150px);
+                max-width: calc( 125% + 150px);
+                padding: 0 1rem;
+            }
+        }
+    }
+
+    svg {
+        fill: black;
+    }
+
+    .wp-block-dining-dashboard-menu {
+        &-section {
+            &.has-slide-toggle header h2:before {
+                display: none;
+            }
+        }
+
+        &-item {
+            * {
+                word-break: break-word;
+            }
+        }
+    }
 }
