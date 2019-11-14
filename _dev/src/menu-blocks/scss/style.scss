@@ -38,6 +38,30 @@
 
     &[data-type="dining-dashboard/menu-section"] {
 
+        figure {
+            position: relative;
+            margin: 0;
+
+            button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 999;
+                background:
+                #0073aa;
+
+                svg {
+                    fill: white;
+                }
+
+                &:hover {
+                    svg {
+                        fill: #0073aa;
+                    }   
+                }
+            }
+        }
+
         .components-placeholder {
             &__label {
                 display: block;
@@ -55,10 +79,28 @@
 
             button {
                 height: auto;
-                margin: 0 10px;
-                padding: 12px;
+                margin: 6px;
+                padding: 8px;
             }
         }
+
+        .meta {
+            display: flex;
+            align-items: center;
+        }
+
+        .price {
+            margin-left: auto;
+        }
+        
+        [data-type="dining-dashboard/menu-item"] {
+            max-width: 100%;
+        }    
+    }
+
+    &[data-type="dining-dashboard/menu-item"] {
+        width: 100%;
+        padding: 0 28px;
     }
 
     .wp-block[data-type="dining-dashboard/menu-section-heading"] {
@@ -82,6 +124,8 @@
         .editor-block-list__layout {
             display: flex;
             flex-wrap: wrap;
+            margin: 0;
+            overflow: hidden;
         }
     }
 
@@ -91,6 +135,7 @@
 
     .two-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
         width: 50%;
+        max-width: 50%;
     }
 
     .three-cols .wp-block[data-type="dining-dashboard/menu-section-column"] {
