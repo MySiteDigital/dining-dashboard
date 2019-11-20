@@ -29,4 +29,11 @@
             }
         }
     }
+
+    &.post-type-archive-menu {
+        #content{
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    }
 }

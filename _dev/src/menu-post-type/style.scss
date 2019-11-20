@@ -348,6 +348,12 @@
     }
 }
 
+.post-type-archive-menu {
+    .entry-content p {
+        max-width: 640px;
+    }
+}
+
 //themes
 @import './themes/twentyten';
 @import './themes/twentyeleven';

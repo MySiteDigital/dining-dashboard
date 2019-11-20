@@ -52,4 +52,12 @@
     .wp-block-dining-dashboard-menu-section.has-slide-toggle header h2 {
         margin: 25px 0;
     }
+
+    &.post-type-archive-menu {
+        .entry-footer {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    }
 }

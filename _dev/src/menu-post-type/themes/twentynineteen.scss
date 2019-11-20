@@ -67,4 +67,14 @@
             }
         }
     }
+
+    &.post-type-archive-menu {
+        article {
+            .entry-header,
+            .entry-footer {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
 }

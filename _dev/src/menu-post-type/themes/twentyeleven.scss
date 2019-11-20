@@ -32,4 +32,18 @@
             }
         }
     }
+
+    &.post-type-archive-menu {
+        .page-header,
+        article {
+            max-width: 100%;
+            margin: 0 34% 20px 7.6%;
+            padding: 0;
+        }
+
+        .entry-header,
+        .entry-content {
+            padding: 0;
+        }
+    }
 }

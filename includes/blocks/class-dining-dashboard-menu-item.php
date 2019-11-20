@@ -65,6 +65,14 @@ class MenuItem {
         extract( $variables );
         return $vegetarian || $vegan || $gluten_free || $price;
     }
+
+    public function attributes( $column, $index ){
+        if( isset( $column[ $index ] ) && isset( $column[ $index ][ 'attrs' ] ) && $column[ $index ][ 'attrs' ] ){
+            $column[ $index ][ 'attrs' ][ 'column' ] = $column[ 'column '];
+            return $column[ $index ][ 'attrs' ];
+        }
+        return false;
+    }
 }
 
 new MenuItem();

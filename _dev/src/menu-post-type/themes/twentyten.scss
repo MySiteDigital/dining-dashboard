@@ -12,5 +12,16 @@
             }
         }
     }
+
+    &.post-type-archive-menu {
+        .page-header,
+        article {
+            max-width: 100%;
+            margin: 0 280px 20px 20px;
+            padding: 0;
+        }
+    }
 }
-    
+  
+
+        

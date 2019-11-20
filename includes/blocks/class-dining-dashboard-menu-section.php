@@ -62,6 +62,7 @@ class MenuSection {
             if( isset( $inner_blocks[ $index ] ) ){
                 $inner_blocks[ $index ][ 'innerBlocks' ][ 'column '] = $index;
                 $menu_columns[ $index ] = $inner_blocks[ $index ][ 'innerBlocks' ];
+
                 $count = count( $menu_columns[ $index ] );
                 if( $count > $most_items ){
                     $most_items = $count;
@@ -71,17 +72,33 @@ class MenuSection {
 
         $index = 0;
         while( $index < $most_items ) {
+            $column_count = 1;
             foreach( $menu_columns as $menu_column ){
-                if( isset( $menu_column[ $index ] ) && isset( $menu_column[ $index ][ 'attrs' ] ) && $menu_column[ $index ][ 'attrs' ] ){
-                    $menu_column[ $index ][ 'attrs' ][ 'column' ] = $menu_column[ 'column '];
-                    $attributes = $menu_column[ $index ][ 'attrs' ];
+                $menu_item_found = false;
+                if( $attributes = $menu_item_class->attributes( $menu_column, $index ) ){
                     $rendered_columns[] = $menu_item_class->render( $attributes );
+                    $menu_item_found = true;
                 }
+
+                if( ! $menu_item_found ) {
+                    $sub_index = $index;
+                    while( $sub_index < $most_items && ! $menu_item_found ) {
+                        if( $attributes = $menu_item_class->attributes( $menu_column, $sub_index ) ){
+                            $rendered_columns[] = $menu_item_class->render( $attributes );
+                            unset($menu_columns[ $column_count ][ $sub_index ]);
+                            $menu_item_found = true;
+                        }
+                        $sub_index++;
+                    }
+                }
+                $column_count++;
             }
             $index++;
         }
+
         return $rendered_columns;
     }
+
 }
 
 new MenuSection();

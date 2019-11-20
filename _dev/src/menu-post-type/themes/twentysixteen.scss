@@ -30,4 +30,15 @@
             }
         }
     }
+
+    &.post-type-archive-menu {
+
+        article:not(.type-page) .entry-header{
+            @include bp(min-lg){
+                margin-right: 15%;
+                margin-left: 15%;
+                padding: 0;
+            }
+        }
+    }
 }
