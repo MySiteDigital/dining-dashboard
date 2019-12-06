@@ -74,42 +74,6 @@ const Inspector = props => {
 						}
 					}
 				/>
-				<ToggleControl
-					label={__('Images')}
-					help={
-						attributes.showImages ?
-							__('Showing images for each item') :
-							__('Toggle to show images for each item.')
-					}
-					checked={attributes.showImages}
-					onChange={
-						() => {
-							setAttributes(
-								{
-									showImages: !attributes.showImages
-								}
-							);
-						}
-					}
-				/>
-				<ToggleControl
-					label={__('Prices')}
-					help={
-						attributes.showPrices ?
-							__('Showing the price of each item') :
-							__('Toggle to show the price of each item.')
-					}
-					checked={attributes.showPrices}
-					onChange={
-						() => {
-							setAttributes(
-								{
-									showPrices: !attributes.showPrices
-								}
-							);
-						}
-					}
-				/>
 				<AlignmentText/>
 			</PanelBody>
 		</InspectorControls>

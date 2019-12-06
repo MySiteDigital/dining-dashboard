@@ -2059,24 +2059,6 @@ var js_Inspector_Inspector = function Inspector(props) {
         hasSlideToggle: !attributes.hasSlideToggle
       });
     }
-  }), Object(external_this_wp_element_["createElement"])(Inspector_ToggleControl, {
-    label: js_Inspector_('Images'),
-    help: attributes.showImages ? js_Inspector_('Showing images for each item') : js_Inspector_('Toggle to show images for each item.'),
-    checked: attributes.showImages,
-    onChange: function onChange() {
-      setAttributes({
-        showImages: !attributes.showImages
-      });
-    }
-  }), Object(external_this_wp_element_["createElement"])(Inspector_ToggleControl, {
-    label: js_Inspector_('Prices'),
-    help: attributes.showPrices ? js_Inspector_('Showing the price of each item') : js_Inspector_('Toggle to show the price of each item.'),
-    checked: attributes.showPrices,
-    onChange: function onChange() {
-      setAttributes({
-        showPrices: !attributes.showPrices
-      });
-    }
   }), Object(external_this_wp_element_["createElement"])(js_AlignmentText, null)));
 };
 
