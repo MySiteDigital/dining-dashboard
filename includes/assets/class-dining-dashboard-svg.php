@@ -35,7 +35,7 @@ class SVG {
         if( file_exists( $file_location ) ){
             $cacheBust .= @filemtime( $file_location );
         }
-        $file_url = DD_PLUGIN_URL . $iconsFile . $cacheBust . '#' . $icon;
+        $file_url = str_replace( site_url(), '', DD_PLUGIN_URL ) . $iconsFile . $cacheBust . '#' . $icon;
         return $file_url;
     }
 
