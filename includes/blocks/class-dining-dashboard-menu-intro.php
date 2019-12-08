@@ -32,13 +32,13 @@ class MenuIntro {
         $variables[ 'intro_content' ] = isset( $attributes[ 'introContent' ] ) ? self::parse_html( $attributes[ 'introContent' ], true ) : '';
         $variables[ 'show_legend' ] = isset( $attributes[ 'showMenuLegend' ] ) ? $attributes[ 'showMenuLegend' ] : false;
         $variables[ 'columns' ] = isset( $attributes[ 'twoColumnLayout' ] ) && $attributes[ 'twoColumnLayout' ] ? 2 : 1;
-        $variables[ 'legend_title' ] = isset( $attributes[ 'legendTitle' ] ) ? self::parse_html( $attributes[ 'legendTitle' ] ) : '';
+        $variables[ 'legend_title' ] = isset( $attributes[ 'legendTitle' ] ) ? self::parse_html( $attributes[ 'legendTitle' ] ) : 'Dietary Requirements';
         $variables[ 'show_vegetarian' ] = isset( $attributes[ 'showVegetarianDesc' ] ) ? $attributes[ 'showVegetarianDesc' ] : true;
-        $variables[ 'vegetarian_description' ] = isset( $attributes[ 'vegetarianDescription' ] ) ? self::parse_html( $attributes[ 'vegetarianDescription' ] ) : '';
+        $variables[ 'vegetarian_description' ] = isset( $attributes[ 'vegetarianDescription' ] ) ? self::parse_html( $attributes[ 'vegetarianDescription' ] ) : 'Vegetarian or vegetarian options available.';
         $variables[ 'show_vegan' ] = isset( $attributes[ 'showVeganDesc' ] ) ? $attributes[ 'showVeganDesc' ] : true;
-        $variables[ 'vegan_description' ] = isset( $attributes[ 'veganDescription' ] ) ? self::parse_html( $attributes[ 'veganDescription' ] ) : '';
+        $variables[ 'vegan_description' ] = isset( $attributes[ 'veganDescription' ] ) ? self::parse_html( $attributes[ 'veganDescription' ] ) : 'Vegan or vegan options available.';
         $variables[ 'show_gluten_free' ] = isset( $attributes[ 'showGlutenFreeDesc' ] ) ? $attributes[ 'showGlutenFreeDesc' ] : true;
-        $variables[ 'gluten_free_description' ] = isset( $attributes[ 'glutenFreeDescription' ] ) ? self::parse_html( $attributes[ 'glutenFreeDescription' ] ) : '';
+        $variables[ 'gluten_free_description' ] = isset( $attributes[ 'glutenFreeDescription' ] ) ? self::parse_html( $attributes[ 'glutenFreeDescription' ] ) : 'Gluten free or gluten free options available.';
 
         return self::render_template( 'menu-intro', $variables ); 
     }

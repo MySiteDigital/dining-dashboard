@@ -1,10 +1,10 @@
 <?php use MySiteDigital\DiningDashboard\Assets\SVG; ?>
 <figure class="wp-block-dining-dashboard-menu-item column-<?php echo $column; ?>"  itemscope itemtype="http://schema.org/MenuItem" data-top="" data-bottom="">
     <?php
-        if ( $image ) {
+        if ( is_array( $image ) ) {
             ?>
-            <div class="img" data-image="<?php echo $image; ?>">
-                <meta itemprop="image" content="<?php echo $image; ?>"></meta>
+            <div class="img" data-image="<?php echo $image[ 'medium' ]; ?>">
+                <meta itemprop="image" content="<?php echo $image[ 'medium' ]; ?>"></meta>
             </div>
             <?php
         }

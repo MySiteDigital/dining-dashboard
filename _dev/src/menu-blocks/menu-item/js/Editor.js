@@ -5,8 +5,9 @@ import formatPrice from './formatPrice';
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
+const { compose } = wp.compose;
 const { Component, Fragment } = wp.element;
-const { IconButton, DropZone, Spinner } = wp.components;
+const { IconButton, DropZone, Spinner, withNotices } = wp.components;
 const { RichText, MediaPlaceholder } = wp.blockEditor;
 const { isBlobURL } = wp.blob;
 
@@ -14,31 +15,15 @@ class Editor extends Component {
 
     constructor() {
         super(...arguments);
+        this.onUploadError = this.onUploadError.bind(this);
     }
 
-    renderImage() {
-        const { attributes, setAttributes, isSelected } = this.props;
-
-        return (
-            <MediaPlaceholder
-                allowedTypes={['image']}
-                multiple={false}
-                icon="format-image"
-                labels={
-                    {
-                        title: ' ',
-                    }
-                }
-                onSelect={
-                    el => setAttributes(
-                        {
-                            mediaURL: el.url,
-                            mediaAlt: el.alt
-                        }
-                    )
-                }
-            />
-        );
+    onUploadError(message) {
+        console.log(message);
+        
+        const { noticeOperations } = this.props;
+        noticeOperations.removeAllNotices();
+        noticeOperations.createErrorNotice(message);
     }
 
     replaceImage(files) {
@@ -50,6 +35,7 @@ class Editor extends Component {
                     [media]
                 ) => this.props.setAttributes(
                     {
+                        mediaID: media.id, 
                         mediaURL: media.url,
                         mediaAlt: media.alt
                     }
@@ -98,7 +84,7 @@ class Editor extends Component {
 
 
     renderPlaceholder() {
-        const { setAttributes } = this.props;
+        const { setAttributes, noticeUI } = this.props;
         return (
             <MediaPlaceholder
                 allowedTypes={['image']}
@@ -109,20 +95,23 @@ class Editor extends Component {
                         title: ' ',
                     }
                 }
+                notices={noticeUI}
                 onSelect={
                     el => setAttributes(
                         { 
+                            mediaID: el.id, 
                             mediaURL: el.url, 
                             mediaAlt: el.alt 
                         }
                     )
                 }
+                onError={ this.onUploadError }
             />
         );
     }
 
     render() {
-        const { attributes, setAttributes, isSelected } = this.props;
+        const { attributes, setAttributes, isSelected, noticeUI } = this.props;
         const { showImage, imageURL } = attributes;
         const richTextAttributes = {
             keepPlaceholderOnFocus: true,
@@ -198,4 +187,4 @@ class Editor extends Component {
 
 }
 
-export default Editor;
+export default compose([withNotices])(Editor);
