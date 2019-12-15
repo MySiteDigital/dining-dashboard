@@ -22,12 +22,8 @@ registerBlockType(
 
         supports: {
             align: ['wide', 'full'],
+            customClassName: false,
             html: false,
-        },
-
-        align: {
-            type: "string",
-            default: "full"
         },
 
         attributes: {

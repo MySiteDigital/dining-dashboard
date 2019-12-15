@@ -18,6 +18,7 @@ registerBlockType(
         category: 'menu-blocks',
 
         supports: {
+            customClassName: false,
             html: false,
         },
 

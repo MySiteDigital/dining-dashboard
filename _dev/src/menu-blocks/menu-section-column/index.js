@@ -21,16 +21,10 @@ registerBlockType(
 
         category: 'menu-blocks',
 
-        attributes: {
-            showInserter: {
-                type: 'boolean',
-                default: true,
-            }
-        },
-
         supports: {
-            inserter: false,
+            customClassName: false,
             html: false,
+            inserter: false,
         },
 
         edit: Editor,

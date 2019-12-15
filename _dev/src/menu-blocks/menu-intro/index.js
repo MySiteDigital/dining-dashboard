@@ -19,6 +19,7 @@ registerBlockType(
 
         supports: {
             align: ['wide', 'full'],
+            customClassName: false,
             html: false,
         },
 
