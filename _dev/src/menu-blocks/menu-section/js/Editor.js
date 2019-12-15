@@ -3,8 +3,8 @@
  */
 import InspectorControls from './Inspector';
 import AlignmentText from './AlignmentText';
-import BlockIcons from '../../utils/BlockIcons';
-import RowIcons from './RowIcons';
+import BlockIcons from '../../icons/BlockIcons';
+import RowIcons from '../../icons/RowIcons';
 
 /**
  * external dependencies
@@ -23,7 +23,6 @@ const ALLOWED_BLOCKS = [
     'dining-dashboard/menu-section-heading',
     'dining-dashboard/menu-section-column'
 ];
-
 
 const TEMPLATE = {
     1: [

@@ -1,5 +1,5 @@
 import InspectorControls from './Inspector';
-import DietaryIcons from '../../utils/DietaryIcons';
+import DietaryIcons from '../../icons/DietaryIcons';
 import formatPrice from './formatPrice';
 /**
  * WordPress dependencies
@@ -7,7 +7,7 @@ import formatPrice from './formatPrice';
 const { __ } = wp.i18n;
 const { compose } = wp.compose;
 const { Component, Fragment } = wp.element;
-const { IconButton, DropZone, Spinner, withNotices } = wp.components;
+const { IconButton, Spinner, withNotices } = wp.components;
 const { RichText, MediaPlaceholder } = wp.blockEditor;
 const { isBlobURL } = wp.blob;
 
@@ -19,42 +19,13 @@ class Editor extends Component {
     }
 
     onUploadError(message) {
-        console.log(message);
-        
         const { noticeOperations } = this.props;
         noticeOperations.removeAllNotices();
         noticeOperations.createErrorNotice(message);
     }
 
-    replaceImage(files) {
-        mediaUpload(
-            {
-                allowedTypes: ['image'],
-                filesList: files,
-                onFileChange: (
-                    [media]
-                ) => this.props.setAttributes(
-                    {
-                        mediaID: media.id, 
-                        mediaURL: media.url,
-                        mediaAlt: media.alt
-                    }
-                )
-            }
-        );
-    }
-
-
     renderImage() {
         const { attributes, setAttributes, isSelected } = this.props;
-
-        const dropZone = (
-            <DropZone
-                onFilesDrop={this.replaceImage}
-                label={__('Drop image to replace')}
-            />
-        );
-
         return (
             <Fragment>
                 <figure>
@@ -71,7 +42,6 @@ class Editor extends Component {
                             </div>
                         )
                     }
-                    {dropZone}
                     {isBlobURL(attributes.mediaURL) && <Spinner />}
                     <img
                         src={attributes.mediaURL}
@@ -111,8 +81,7 @@ class Editor extends Component {
     }
 
     render() {
-        const { attributes, setAttributes, isSelected, noticeUI } = this.props;
-        const { showImage, imageURL } = attributes;
+        const { attributes, setAttributes } = this.props;
         const richTextAttributes = {
             keepPlaceholderOnFocus: true,
             formattingControls: ['bold', 'italic'],

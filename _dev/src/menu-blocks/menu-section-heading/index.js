@@ -1,4 +1,4 @@
-import BlockIcons from '../utils/BlockIcons';
+import BlockIcons from '../icons/BlockIcons';
 import Editor from './js/Editor';
 /**
  * WordPress dependencies
@@ -11,7 +11,7 @@ registerBlockType(
     {
         title: __('Section Heading'),
 
-        description: __('A column inside the menu sections where menu items can be added'),
+        description: __('The heading of a menu section.'),
 
         icon: BlockIcons.MenuSectionHeading,
 

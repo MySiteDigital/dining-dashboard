@@ -1,4 +1,4 @@
-import BlockIcons from '../utils/BlockIcons';
+import BlockIcons from '../icons/BlockIcons';
 import Editor from './js/Editor';
 /**
  * WordPress dependencies
@@ -19,7 +19,6 @@ registerBlockType(
 
         supports: {
             align: ['wide', 'full'],
-            customClassName: false,
             html: false,
         },
 

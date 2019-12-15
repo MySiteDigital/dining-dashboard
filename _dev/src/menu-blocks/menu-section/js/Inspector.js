@@ -10,7 +10,6 @@ import map from 'lodash/map';
 const { __ } = wp.i18n;
 const { PanelBody, ToggleControl, ButtonGroup, Button, Tooltip } = wp.components;
 const { InspectorControls } = wp.blockEditor;
-const { ENTER, SPACE } = wp.keycodes;
 
 const Inspector = props => {
 	const {

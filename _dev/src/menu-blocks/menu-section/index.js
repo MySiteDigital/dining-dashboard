@@ -1,6 +1,6 @@
+import BlockIcons from '../icons/BlockIcons';
 import Editor from './js/Editor.js';
 import save from './js/Save.js';
-import BlockIcons from '../utils/BlockIcons';
 
 /**
  * Get WordPress libraries from the wp global
@@ -14,13 +14,14 @@ registerBlockType(
     {
         title: __('Menu Section'),
 
+        description: __('A menu section is a collection of menu items that belong together, eg entrees, mains, deserts.'),
+
         icon: BlockIcons.MenuSection,
 
         category: 'menu-blocks',
 
         supports: {
             align: ['wide', 'full'],
-            customClassName: false,
             html: false,
         },
 

@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 // webpack.config.js
 const config = require("./node_modules/@wordpress/scripts/config/webpack.config");
 
@@ -57,7 +59,8 @@ config.plugins = [
 
 config.optimization = {
   minimizer: [
-    new OptimizeCSSAssetsPlugin({})
+    new OptimizeCSSAssetsPlugin({}),
+    new UglifyJsPlugin(),
   ]
 }
 

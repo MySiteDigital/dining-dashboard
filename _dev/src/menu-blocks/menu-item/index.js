@@ -1,6 +1,6 @@
+import BlockIcons from '../icons/BlockIcons';
 import Editor from './js/Editor.js';
-import save from './js/Save.js';
-import BlockIcons from '../utils/BlockIcons';
+
 /**
  * WordPress dependencies
  */
@@ -21,12 +21,7 @@ registerBlockType(
         category: 'menu-blocks',
 
         supports: {
-            html: false,
-        },
-
-        supports: { 
-            html: true, 
-            customClassName: false 
+            html: false
         },
 
         attributes: {

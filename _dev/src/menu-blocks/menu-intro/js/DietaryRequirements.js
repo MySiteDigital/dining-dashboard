@@ -1,4 +1,4 @@
-import DietaryIcons from '../../utils/DietaryIcons';
+import DietaryIcons from '../../icons/DietaryIcons';
 /**
  * WordPress dependencies
  */

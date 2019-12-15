@@ -1,6 +1,6 @@
-import BlockIcons from '../utils/BlockIcons';
+import BlockIcons from '../icons/BlockIcons';
 import Editor from './js/Editor';
-
+import save from './js/Save.js';
 
 /**
  * WordPress dependencies
@@ -13,9 +13,9 @@ const { InnerBlocks } = wp.blockEditor;
 registerBlockType(
     'dining-dashboard/menu-section-column',
     {
-        title: __('Section Column'),
+        title: __('Menu Section Column'),
 
-        description: __('A column within a menu section'),
+        description: __('A column within a menu section.'),
 
         icon: BlockIcons.MenuSectionColumn,
 
@@ -35,10 +35,6 @@ registerBlockType(
 
         edit: Editor,
 
-        save({ attributes, className }) {
-            return (
-                <InnerBlocks.Content />
-            );
-        },
+        save
     }
 );
