@@ -2,7 +2,7 @@
 /**
  * @class    MenusWidget
  * @version  1.0.0
- * @package  DiningDashboard/Admin/DashboadWidgets
+ * @package  DiningDashboard/Admin/DashboardWidgets
  * @category Admin
  * @author   MySite Digital
  */

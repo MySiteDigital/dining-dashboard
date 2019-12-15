@@ -24,7 +24,7 @@ class Menus {
     }
 
     /**
-     * Add menu items.
+     * Add sub menu item to dashboard menu.
      */
     public function modify_menu() {
         global $submenu;

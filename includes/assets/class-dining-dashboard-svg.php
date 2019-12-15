@@ -1,8 +1,8 @@
 <?php
 /**
- * @trait     Blocks\MenuSection
+ * @trait     Assets\SVG
  * @Version: 0.0.1
- * @package   DiningDashboard/Blocks
+ * @package   DiningDashboard/Assets
  * @category  Class
  * @author    MySite Digital
  */

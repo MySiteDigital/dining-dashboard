@@ -3,7 +3,7 @@
  * Registers post type for food and drink menus
  * @class     PostTypes\Menu
  * @Version: 0.0.1
- * @package   DiningDashboard/PostTypes
+ * @package   MySiteDigital\PostTypes
  * @category  Class
  * @author    MySite Digital
  */
@@ -99,6 +99,7 @@ class Menu {
                 'title', 
                 'author',
                 'page-attributes',
+                'excerpt',
             ],
             'show_in_rest'        => true,
             'template'            => [
@@ -115,8 +116,6 @@ class Menu {
             self::$post_type_slug,
             $args
         );
-
-        add_post_type_support( self::$post_type_slug, 'excerpt' );
 
         $flush_rewrite = get_option( 'menu_post_type_flush_rewrite_rules' );
 
