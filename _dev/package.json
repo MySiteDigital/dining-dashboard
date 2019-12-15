@@ -14,7 +14,7 @@
     "test:unit": "wp-scripts test-unit-js"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^3.4.0",
+    "@wordpress/scripts": "^6.0.0",
     "css-loader": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
