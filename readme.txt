@@ -47,12 +47,14 @@ If you are using composer you can install Dining Dashboard with the following co
 
 `composer require wpackagist-plugin/dining-dashboard "1.0.0"`
 
-= Alternatives =
-1. Upload the plugin to your 'wp-content/plugins' directory.
-2. Download and install automatically through your admin panel.
-3. Checkout the repository using svn into your plugins directory:
+= SVN =
+You can also checkout the repository using into your plugins directory with the following command:
 
 `svn co http://svn.wp-plugins.org/dining-dashboard/1.0.0 /path/to/plugins/dining-dashboard`
+
+= Other Alternatives =
+1. Download and install automatically through your admin panel.
+2. Upload the plugin to your 'wp-content/plugins' directory.
 
 == Frequently Asked Questions ==
 
