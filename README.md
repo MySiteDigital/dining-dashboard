@@ -19,7 +19,7 @@ Visit the demo site to view a collection of menu layouts that can be created usi
 * Single or multiple column menu section formats
 * Collapsible menu sections
 * Menu items with titles, images, descriptions, pricing and dietary requirement icons
-* Lazy loading background image for faster loading times
+* Lazy loading background images for faster loading times
 * Structured markup of food and/or drink items for search engine optimization
 * Dashboard widget for quick overview of all your menus
 * Custom styles for all default WordPress themes

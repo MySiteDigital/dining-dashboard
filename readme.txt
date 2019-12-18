@@ -11,7 +11,6 @@ Tags: menu, food menu, drinks menu, restaurant menu, cafe menu, breakfast menu, 
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-== Introduction ==
 
 Dining Dashboard provides content managers with the tools they need to create beautiful food and drink menus for their websites. 
 Our goal is to provide an excellent user experience for both content managers and website visitors. Built to work in harmony with the Gutenberg editor and focused on working towards a future where full site editing will become a reality. 
@@ -32,7 +31,7 @@ Visit the demo site to view a collection of menu layouts that can be created usi
 * Single or multiple column menu section formats
 * Collapsible menu sections
 * Menu items with titles, images, descriptions, pricing and dietary requirement icons
-* Lazy loading background image for faster loading times
+* Lazy loading background images for faster loading times
 * Structured markup of food and/or drink items for search engine optimization
 * Dashboard widget for quick overview of all your menus
 * Custom styles for all default WordPress themes
@@ -45,13 +44,15 @@ Using composer and git for version control is highly recommended.
 <a href="https://roots.io/bedrock/" target="_blank">Bedrock</a> is a great way to install, configure, and manage WordPress with security and modern development practices in mind.
 
 If you are using composer you can install Dining Dashboard with the following command:
-composer require wpackagist-plugin/dining-dashboard "1.0.0"
+
+`composer require wpackagist-plugin/dining-dashboard "1.0.0"`
 
 = Alternatives =
 1. Upload the plugin to your 'wp-content/plugins' directory.
 2. Download and install automatically through your admin panel.
 3. Checkout the repository using svn into your plugins directory:
-svn co http://svn.wp-plugins.org/dining-dashboard/1.0.0 /path/to/plugins/dining-dashboard
+
+`svn co http://svn.wp-plugins.org/dining-dashboard/1.0.0 /path/to/plugins/dining-dashboard`
 
 == Frequently Asked Questions ==
 
