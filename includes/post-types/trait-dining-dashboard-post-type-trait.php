@@ -62,6 +62,11 @@ trait PostTypeTrait {
 
     public function add_dd_body_class( $classes ){
         global $post;
+
+        if( ! is_object( $post ) ) {
+            return $classes;
+        }
+
         if ( is_post_type_archive( self::$post_type_slug ) || $post->post_type === self::$post_type_slug ) {
             $theme = wp_get_theme();
             $classes[] = 'dining-dashboard-' . $theme->get( 'TextDomain' );

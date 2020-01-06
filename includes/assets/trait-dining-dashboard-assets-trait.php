@@ -104,6 +104,10 @@ trait AssetsTrait {
 
     public function enqueue_frontend_styles(){
         global $post;
+        
+        if( ! is_object( $post ) ) {
+            return;
+        }
 
         if( property_exists( self::class, 'frontend_styles' ) ){
             if( in_array( $post->post_type, $this->frontend_styles[ 'post_types' ] ) ){
@@ -114,6 +118,10 @@ trait AssetsTrait {
 
     public function enqueue_frontend_scripts(){
         global $post;
+
+        if( ! is_object( $post ) ) {
+            return;
+        }
 
         if( property_exists( self::class, 'frontend_scripts' ) ){
             if( in_array( $post->post_type, $this->frontend_scripts[ 'post_types' ] ) ){
