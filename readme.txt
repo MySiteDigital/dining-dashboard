@@ -1,10 +1,10 @@
 === Dining Dashboard ===
 Plugin URI: https://mysite.digital/plugins/dining-dashboard/
 Description: Dining Dashboard provides content managers with the tools they need to create beautiful food and drink menus for their websites.
-Version: 1.0.1
+Version: 1.0.2
 Requires at least: 5.3
 Tested up to: 5.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Contributors: MySite Digital
 Author URI: https://mysite.digital
 Tags: menu, food menu, drinks menu, restaurant menu, cafe menu, breakfast menu, lunch menu, dinner menu, desert menu, drinks menu, restaurant, bar, cafe, bistro, food, cuisine, drinks, coffee, gutenberg, responsive, lazy loading
