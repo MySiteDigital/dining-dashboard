@@ -15,15 +15,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Dining Dashboard provides content managers with the tools they need to create beautiful food and drink menus for their websites. 
 Our goal is to provide an excellent user experience for both content managers and website visitors. Built to work in harmony with the Gutenberg editor and focused on working towards a future where full site editing will become a reality. 
 
-== Demos ==
-
-Visit the demo site to view a collection of menu layouts that can be created using this plugin: 
-
-* <a href="https://dining-dashboard-demo.mysite.digital/menu/one-column-menu/" target="_blank">One Column Menu</a>
-* <a href="https://dining-dashboard-demo.mysite.digital/menu/two-column-menu/" target="_blank">Two Column Menu</a>
-* <a href="https://dining-dashboard-demo.mysite.digital/menu/three-column-menu/" target="_blank">Three Column Menu</a>
-* <a href="https://dining-dashboard-demo.mysite.digital/menu/four-column-menu/" target="_blank">Four Column Menu</a>
-
 == Features ==
 
 * Fully responsive menu layouts
